@@ -6,9 +6,9 @@ export const SITE_TITLE = 'Meriç Enes Kayalar';
 export const SITE_DESCRIPTION = "Developer";
 export const GISCUS = {
   repo: 'merchizm/mekayalar.com',
-  repoId: 'R_kgDOHZJU5w',
+  repoId: '===',
   category: 'Web Site Comments',
-  categoryId: 'DIC_kwDOHZJU584CPR8x',
+  categoryId: '===',
   language: 'en'
 };
 export const SITE_KEYWORDS = function() {
