@@ -1,0 +1,19 @@
+%button {
+  border-radius: .5rem;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 2.25rem;
+  width: 2.25rem;
+
+  &:hover {
+    border-radius: 10%;
+  }
+}
+
+@mixin flex-display($display, $align-items, $justify-content) {
+  display: $display;
+  align-items: $align-items;
+  justify-content: $justify-content;
+}

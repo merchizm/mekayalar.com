@@ -1,0 +1,14 @@
+{
+    "name": "Enes Kayalar Blog",
+    "short_name": "Enes Kayalar Blog",
+    "icons": [
+        {
+            "src": "/favicon/android-chrome-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        }
+    ],
+    "theme_color": "#ffffff",
+    "background_color": "#ffffff",
+    "display": "standalone"
+}
