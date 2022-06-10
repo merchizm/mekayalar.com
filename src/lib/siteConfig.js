@@ -11,6 +11,12 @@ export const GISCUS = {
   categoryId: '===',
   language: 'en'
 };
+export const SOCIAL_CONNECTIONS = {
+  twitter: 'merchizm',
+  mail: 'merichrocks@icloud.com',
+  linkedin: 'enes-kayalar-88b3851b6', // pathname or username
+  github: 'merchizm'
+};
 export const SITE_KEYWORDS = function() {
   let keywords = ['MEK Blog', 'Meriç Enes Kayalar', 'Enes Kayalar', 'M. Enes Kayalar', 'MEK Portfolio', 'Merchizm'];
   return keywords.join(', ');
