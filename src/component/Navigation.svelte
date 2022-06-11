@@ -1,6 +1,6 @@
 <script>
     import NavLink from './NavigationLink.svelte';
-    import { YOUR_NAME, YOUR_TITLE } from "$lib/siteConfig";
+    import { SITE_TITLE, YOUR_TITLE } from "$lib/siteConfig";
     let navLinks = [
         {
             url: '/',
@@ -72,7 +72,7 @@
 <header>
     <div class="logo">
         <img src="/avatars/{imageName()}" alt="Hey!">
-        <span>{YOUR_NAME}</span>
+        <span>{SITE_TITLE}</span>
         <span>{YOUR_TITLE}</span>
     </div>
     <nav>
@@ -85,8 +85,6 @@
 </header>
 
 <style lang="scss">
-  @import "/styles/base";
-
   header {
     margin-top: 75px;
     height: 83vh;
@@ -95,7 +93,9 @@
 
     .logo {
       padding: 10px 15px;
-      @include flex-display(flex, center, start);
+      display: flex;
+      align-items: center;
+      justify-content: start;
 
 
       img {

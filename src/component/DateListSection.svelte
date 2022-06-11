@@ -1,4 +1,5 @@
 <script>
+     /** @type {import('$lib/types').DateListItem[]} */
     export let dateList;
 </script>
 

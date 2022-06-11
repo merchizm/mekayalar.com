@@ -11,30 +11,36 @@
 </main>
 
 <style lang="scss">
-  .container {
-    margin-top: 50px;
-    font-size: 16px;
+  main{
+    margin-top: 30px;
+    margin-left: 15px;
+    width: 55vw;
 
-    .content {
-      margin: 50px 0;
+    .container {
+      margin-top: 50px;
+      font-size: 16px;
+
+      .content {
+        margin: 50px 0;
+
+        h2 {
+          font-size: 1.3em;
+          color: #fafafa;
+          margin-bottom: 10px;
+        }
+
+        span {
+          color: #71717A;
+        }
+      }
+
+      h1 {
+        font-size: 2em;
+      }
 
       h2 {
-        font-size: 1.3em;
-        color: #fafafa;
-        margin-bottom: 10px;
+        font-size: 1.5em;
       }
-
-      span {
-        color: #71717A;
-      }
-    }
-
-    h1 {
-      font-size: 2em;
-    }
-
-    h2 {
-      font-size: 1.5em;
     }
   }
 </style>

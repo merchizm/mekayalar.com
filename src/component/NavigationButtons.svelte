@@ -51,14 +51,14 @@
   function normalize_font() {
     container.style.fontSize = fontSizes[2];
     localStorage.removeItem("current_font_size");
-    window.hide("#normalize_font");
+    document.querySelector("#normalize_font").style.display = 'none';
   }
 
   function check_font() {
     if (fontSizes.indexOf(container.style.fontSize) === 2)
-      window.hide("#normalize_font");
+      document.querySelector("#normalize_font").style.display = 'none';
     else
-      window.show("#normalize_font");
+      document.querySelector("#normalize_font").style.display = 'flex';
   }
 </script>
 
@@ -101,6 +101,21 @@
 </div>
 
 <style lang="scss">
+
+  %button {
+    border-radius: .5rem;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 2.25rem;
+    width: 2.25rem;
+
+    &:hover {
+      border-radius: 10%;
+    }
+  }
+
   .buttons {
     padding: 5px;
     display: flex;
