@@ -5,6 +5,8 @@
     light: "☁️",
     dark: "☀️"
   };
+  let current_theme;
+  let container;
 
   function checkTheme() {
     if (localStorage.theme === "dark" || (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches))
@@ -15,22 +17,23 @@
     return theme_status[localStorage.theme];
   }
 
-  let current_theme = checkTheme(true);
-
   function toggleTheme() {
     localStorage.theme = (localStorage.theme === "dark") ? "light" : "dark";
     current_theme = checkTheme();
   }
 
   // font adjustment //
-  const container = document.querySelector(".container");
+
   const fontSizes = ["12px", "14px", "", "18px", "20px", "22px", "24px", "26px"];
 
-  (function() {
+  if (typeof localStorage !== 'undefined') {
+    current_theme = checkTheme(true);
+    container = document.querySelector(".container");
     if (localStorage.getItem("current_font_size") !== undefined)
       container.style.fontSize = localStorage.getItem("current_font_size");
     check_font();
-  })();
+  }
+
 
   function decrease_font() {
     if (fontSizes[fontSizes.indexOf(container.style.fontSize) - 1] !== undefined) {

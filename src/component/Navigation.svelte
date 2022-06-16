@@ -1,6 +1,7 @@
 <script>
     import NavLink from './NavigationLink.svelte';
-    import { SITE_TITLE, YOUR_TITLE } from "$lib/siteConfig";
+    import {SITE_TITLE, YOUR_TITLE} from "$lib/siteConfig";
+
     let navLinks = [
         {
             url: '/',
@@ -24,8 +25,8 @@
         }
     ];
 
-    const imageName = function() {
-        let datetime = new Date(new Date().toLocaleString("en-US", { timeZone: "europe/Istanbul" }));
+    const imageName = function () {
+        let datetime = new Date(new Date().toLocaleString("en-US", {timeZone: "europe/Istanbul"}));
         switch (datetime.getHours()) {
             case 8:
             case 9:
@@ -70,7 +71,7 @@
 </script>
 
 <header>
-    <div class="logo">
+    <div>
         <img src="/avatars/{imageName()}" alt="Hey!">
         <span>{SITE_TITLE}</span>
         <span>{YOUR_TITLE}</span>
@@ -91,7 +92,7 @@
     width: 23%;
     position: relative;
 
-    .logo {
+    div {
       padding: 10px 15px;
       display: flex;
       align-items: center;
@@ -103,19 +104,21 @@
         border-radius: 50%;
       }
 
-      .title {
+      %spans {
         margin-left: 15px;
         margin-top: 8px;
+      }
 
-        span {
-          font-size: 1.2rem;
-          font-weight: bold;
-        }
+      span:first-of-type {
+        @extend %spans;
+        font-size: 1.2rem;
+        font-weight: bold;
+      }
 
-        p {
-          font-size: .8rem;
-          margin: 5px 0;
-        }
+      span:last-of-type {
+        @extend %spans;
+        font-size: .8rem;
+        margin: 5px 0;
       }
     }
 
@@ -123,29 +126,11 @@
       margin-top: 25px;
       margin-left: 16px;
 
-      ul {
-        li {
-          padding: 10px;
-          margin: 3px 0;
-
-          a {
-            font-size: 1rem;
-            text-decoration: none;
-            padding: 3px 8px;
-            border-radius: 7px;
-
-            &:hover {
-              color: #fff;
-            }
-          }
-
-          .active {
-            color: #fff;
-          }
-        }
+      ul{
+        list-style-type: none;
       }
     }
 
-      //TODO: Rebuild signature box.
+    //TODO: Rebuild signature box.
   }
 </style>

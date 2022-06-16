@@ -304,45 +304,6 @@ main {
   }
 }
 
-#screen_saver {
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  color: white;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  z-index: 100;
-  background-color: var(--background-color);
-
-  span[id=korisirbiz] {
-    color: var(--color);
-    font-size: 14vmin !important;
-    font-weight: 500 !important;
-    letter-spacing: 2px !important;
-  }
-
-  .bottom {
-    position: absolute;
-    bottom: 4vmin !important;
-    margin: 5px !important;
-  }
-
-  a.second {
-    color: var(--light-color) !important;
-    font-weight: 500 !important;
-    text-decoration: none;
-  }
-
-  span.first {
-    bottom: 6vmin !important;
-    color: var(--color) !important;
-  }
-}
-
 .divider {
   width: 100%;
   height: 2px;
