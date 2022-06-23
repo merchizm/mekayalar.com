@@ -34,7 +34,7 @@
             case 10:
             case 11:
                 return '17cd863577187cc7ff2484cb51b74f74.png';
-            case 12:
+            case 0:
             case 13:
                 return '1138d33b964f817a2b2aef248fd75635.png';
             case 14:
@@ -73,8 +73,10 @@
 <header>
     <div>
         <img src="/avatars/{imageName()}" alt="Hey!">
-        <span>{SITE_TITLE}</span>
-        <span>{YOUR_TITLE}</span>
+        <div>
+            <span>{SITE_TITLE}</span>
+            <p>{YOUR_TITLE}</p>
+        </div>
     </div>
     <nav>
         <ul>
@@ -98,27 +100,23 @@
       align-items: center;
       justify-content: start;
 
+      div{
+        margin-left: 15px;
+        margin-top: 8px;
 
+        span {
+          font-size: 1.2rem;
+          font-weight: bold;
+        }
+
+        p {
+          font-size: .8rem;
+          margin: 5px 0;
+        }
+      }
       img {
         width: 70px;
         border-radius: 50%;
-      }
-
-      %spans {
-        margin-left: 15px;
-        margin-top: 8px;
-      }
-
-      span:first-of-type {
-        @extend %spans;
-        font-size: 1.2rem;
-        font-weight: bold;
-      }
-
-      span:last-of-type {
-        @extend %spans;
-        font-size: .8rem;
-        margin: 5px 0;
       }
     }
 

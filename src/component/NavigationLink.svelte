@@ -26,14 +26,15 @@
       text-decoration: none;
       padding: 3px 8px;
       border-radius: 7px;
+      color: var(--menu);
 
       &:hover {
-        color: #fff;
+        background-color: var(--menu-hover);
       }
     }
 
     .active {
-      color: #fff;
+      color: var(--menu-active);
     }
   }
 </style>

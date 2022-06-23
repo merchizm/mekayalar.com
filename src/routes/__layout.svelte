@@ -43,25 +43,31 @@
 <ScreenSaver/>
 
 <style>
-    :global([data-theme=dark]){
+    :global(body.dark-theme){
         --background-color: #232326;
         --color: #D7D7DB;
         --light-color: #A1A1A9;
         --image-bgc: #bc8aea;
-        --menu-hover: #2f2f2fc1;
+        --button-hover: #2f2f2fc1;
+        --menu-hover: var(--button-hover);
         --divider: #313136;
+        --svg: var(--divider);
+        --menu-active: #f1f1f1;
     }
 
-    :global(:root){
+    :global(body){
         --background-color: #FFFFFF;
         --color: #24292E;
         --light-color: #57606A;
         --image-bgc: #bc8aea;
-        --menu-hover: #2f2f2fc1; /* TODO: DO NOT FORGET */
-        --divider: #D0D7DD;
-    }
+        --button-hover: #efefef;
+        --menu-hover: var(--button-hover);
+        --divider: #222222;
+        --menu-active: #000000;
+        --svg: var(--divider);
+        --svg-hover: #565555;
+        --menu: #272727;
 
-    :global(body) {
         -webkit-font-smoothing: antialiased;
         font-family: 'Catamaran', sans-serif;
         background-color: var(--background-color);

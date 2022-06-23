@@ -4,7 +4,7 @@
 
 <main>
   <NavigationButtons/>
-  <div class="divider"></div>
+  <hr/>
   <div class="container">
     <slot/>
   </div>
@@ -15,6 +15,14 @@
     margin-top: 30px;
     margin-left: 15px;
     width: 55vw;
+
+    hr {
+      border:0;
+      margin:0;
+      height:1px;
+      width: 100%;
+      border-top: 2px solid var(--divider);
+    }
 
     .container {
       margin-top: 50px;
