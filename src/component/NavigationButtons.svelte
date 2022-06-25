@@ -1,6 +1,9 @@
 <script>
   import { elasticInOut } from "svelte/easing";
-  let isActive = true;
+  import { onMount } from 'svelte';
+  export let article;
+  $: isArticle = article === true;
+
   const customTransition = () => {
     return {
       css: (t) => {
@@ -12,20 +15,21 @@
       duration: 600,
     };
   };
-  // theme setting //
+
+  let isActive = true;
   const theme_status = {
     light: "☁️",
     dark: "☀️"
   };
   let current_theme;
-  let container;
+  let n_font, container;
 
   function checkTheme() {
     if (localStorage.theme === "dark" || (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches))
       localStorage.setItem("theme", "dark");
     else
       localStorage.setItem("theme", "light");
-    document.documentElement.setAttribute("data-theme", localStorage.theme);
+    document.body.className =  localStorage.theme+'-theme';
     return theme_status[localStorage.theme];
   }
 
@@ -36,15 +40,15 @@
 
   // font adjustment //
 
-  const fontSizes = ["12px", "14px", "", "18px", "20px", "22px", "24px", "26px"];
+  const fontSizes = ["12px", "14px", "", "18px", "20px", "22px", "23px"];
 
-  if (typeof localStorage !== 'undefined') {
+  onMount(() => {
     current_theme = checkTheme(true);
-    container = document.querySelector(".container");
+    container = document.querySelector("#container");
     if (localStorage.getItem("current_font_size") !== undefined)
       container.style.fontSize = localStorage.getItem("current_font_size");
     check_font();
-  }
+  });
 
 
   function decrease_font() {
@@ -66,14 +70,14 @@
   function normalize_font() {
     container.style.fontSize = fontSizes[2];
     localStorage.removeItem("current_font_size");
-    document.querySelector("#normalize_font").style.display = 'none';
+    n_font.style.display = 'none';
   }
 
   function check_font() {
     if (fontSizes.indexOf(container.style.fontSize) === 2)
-      document.querySelector("#normalize_font").style.display = 'none';
+      n_font.style.display = 'none';
     else
-      document.querySelector("#normalize_font").style.display = 'flex';
+      n_font.style.display = 'flex';
   }
 </script>
 
@@ -93,32 +97,33 @@
     </button>
   </div>
 
-
-  <div class="buttons-right">
+  <div>
     <div class="article-buttons">
       <div class="icons">
-        <button>
-          <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24"><path d="M7.075 17.85 12 15.725 16.925 17.85V5.1Q16.925 5.1 16.925 5.1Q16.925 5.1 16.925 5.1H7.075Q7.075 5.1 7.075 5.1Q7.075 5.1 7.075 5.1ZM5.2 20.7V5.1Q5.2 4.325 5.75 3.775Q6.3 3.225 7.075 3.225H16.925Q17.7 3.225 18.25 3.775Q18.8 4.325 18.8 5.1V20.7L12 17.8ZM16.925 5.1H12H7.075Q7.075 5.1 7.075 5.1Q7.075 5.1 7.075 5.1H16.925Q16.925 5.1 16.925 5.1Q16.925 5.1 16.925 5.1Z"/></svg>
-        </button>
+        {#if isArticle}
+          <button>
+            <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24"><path d="M7.075 17.85 12 15.725 16.925 17.85V5.1Q16.925 5.1 16.925 5.1Q16.925 5.1 16.925 5.1H7.075Q7.075 5.1 7.075 5.1Q7.075 5.1 7.075 5.1ZM5.2 20.7V5.1Q5.2 4.325 5.75 3.775Q6.3 3.225 7.075 3.225H16.925Q17.7 3.225 18.25 3.775Q18.8 4.325 18.8 5.1V20.7L12 17.8ZM16.925 5.1H12H7.075Q7.075 5.1 7.075 5.1Q7.075 5.1 7.075 5.1H16.925Q16.925 5.1 16.925 5.1Q16.925 5.1 16.925 5.1Z"/></svg>
+          </button>
 
-        <button>
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="24" width="24"><path d="M21.17,2.06A13.1,13.1,0,0,0,19,1.87a12.94,12.94,0,0,0-7,2.05,12.94,12.94,0,0,0-7-2,13.1,13.1,0,0,0-2.17.19,1,1,0,0,0-.83,1v12a1,1,0,0,0,1.17,1,10.9,10.9,0,0,1,8.25,1.91l.12.07.11,0a.91.91,0,0,0,.7,0l.11,0,.12-.07A10.9,10.9,0,0,1,20.83,16a1,1,0,0,0,1.17-1v-12A1,1,0,0,0,21.17,2.06ZM11,15.35a12.87,12.87,0,0,0-6-1.48c-.33,0-.66,0-1,0v-10a8.69,8.69,0,0,1,1,0,10.86,10.86,0,0,1,6,1.8Zm9-1.44c-.34,0-.67,0-1,0a12.87,12.87,0,0,0-6,1.48V5.67a10.86,10.86,0,0,1,6-1.8,8.69,8.69,0,0,1,1,0Zm1.17,4.15A13.1,13.1,0,0,0,19,17.87a12.94,12.94,0,0,0-7,2.05,12.94,12.94,0,0,0-7-2.05,13.1,13.1,0,0,0-2.17.19A1,1,0,0,0,2,19.21,1,1,0,0,0,3.17,20a10.9,10.9,0,0,1,8.25,1.91,1,1,0,0,0,1.16,0A10.9,10.9,0,0,1,20.83,20,1,1,0,0,0,22,19.21,1,1,0,0,0,21.17,18.06Z"/></svg>
-        </button>
+          <button>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="24" width="24"><path d="M21.17,2.06A13.1,13.1,0,0,0,19,1.87a12.94,12.94,0,0,0-7,2.05,12.94,12.94,0,0,0-7-2,13.1,13.1,0,0,0-2.17.19,1,1,0,0,0-.83,1v12a1,1,0,0,0,1.17,1,10.9,10.9,0,0,1,8.25,1.91l.12.07.11,0a.91.91,0,0,0,.7,0l.11,0,.12-.07A10.9,10.9,0,0,1,20.83,16a1,1,0,0,0,1.17-1v-12A1,1,0,0,0,21.17,2.06ZM11,15.35a12.87,12.87,0,0,0-6-1.48c-.33,0-.66,0-1,0v-10a8.69,8.69,0,0,1,1,0,10.86,10.86,0,0,1,6,1.8Zm9-1.44c-.34,0-.67,0-1,0a12.87,12.87,0,0,0-6,1.48V5.67a10.86,10.86,0,0,1,6-1.8,8.69,8.69,0,0,1,1,0Zm1.17,4.15A13.1,13.1,0,0,0,19,17.87a12.94,12.94,0,0,0-7,2.05,12.94,12.94,0,0,0-7-2.05,13.1,13.1,0,0,0-2.17.19A1,1,0,0,0,2,19.21,1,1,0,0,0,3.17,20a10.9,10.9,0,0,1,8.25,1.91,1,1,0,0,0,1.16,0A10.9,10.9,0,0,1,20.83,20,1,1,0,0,0,22,19.21,1,1,0,0,0,21.17,18.06Z"/></svg>
+          </button>
+        {/if}
       </div>
     </div>
 
     <div class="font-buttons">
-      <button id="normalize_font" on:onclick={normalize_font}  style="display: none">
+      <button bind:this={n_font} on:click={normalize_font}  style="display: none">
         <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24">
           <path d="M14 18.6H7.3V17.2H14Q15.7 17.2 16.925 16.137Q18.15 15.075 18.15 13.475Q18.15 11.85 16.925 10.787Q15.7 9.725 14 9.725H7.125L9.975 12.575L8.975 13.55L4.45 9.025L8.975 4.5L9.975 5.5L7.125 8.325H14Q16.275 8.325 17.913 9.8Q19.55 11.275 19.55 13.475Q19.55 15.675 17.913 17.137Q16.275 18.6 14 18.6Z"/>
         </svg>
       </button>
-      <button id="decrease_font" on:onclick={decrease_font}>
+      <button on:click={decrease_font}>
         <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24">
           <path d="M1.175 18.85 6.55 4.95H8.525L13.9 18.85H11.9L10.575 15.15H4.575L3.15 18.85ZM5.1 13.5H9.95L7.575 7.2H7.45ZM15.2 12.825V11.175H22.85V12.825Z"/>
         </svg>
       </button>
-      <button id="increase_font" on:onclick={increase_font}>
+      <button on:click={increase_font}>
         <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24">
           <path d="M1.15 18.85 6.525 4.95H8.5L13.875 18.85H11.875L10.55 15.15H4.55L3.125 18.85ZM5.075 13.5H9.925L7.55 7.2H7.425ZM18.175 15.875V12.825H15.125V11.175H18.175V8.125H19.825V11.175H22.875V12.825H19.825V15.875Z"/>
         </svg>
@@ -148,8 +153,8 @@
     }
   }
 
-  div:first-of-type {
-    padding: 3px 0;
+  div {
+    padding: 2px 0;
     display: flex;
     justify-content: space-between;
 
@@ -170,28 +175,36 @@
       }
     }
 
-    div:last-of-type {
-      fill: var(--color);
+    div:first-of-type{
+      box-sizing: border-box;
       display: flex;
-      justify-content: flex-end;
-
-      button {
-        border-radius: .5rem;
-        box-sizing: border-box;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 2.25rem;
-        width: 2.25rem;
-        &:hover {
-          border-radius: 10%;
-        }
-      }
+      justify-content: center;
+      align-items: center;
     }
 
-    .buttons-right{
+
+    div:last-of-type {
       display: flex;
       align-items: center;
+      div:last-of-type {
+        fill: var(--color);
+        display: flex;
+        justify-content: flex-end;
+
+        button {
+          border-radius: .5rem;
+          box-sizing: border-box;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 2.25rem;
+          width: 2.25rem;
+          &:hover {
+            border-radius: 10%;
+          }
+        }
+      }
+
       .font-buttons {
         width: 100px;
         margin-left: 10px;
@@ -202,8 +215,10 @@
       }
 
       .icons{
+        box-sizing: border-box;
         display: flex;
-        @extend %button;
+        justify-content: center;
+        align-items: center;
       }
     }
 

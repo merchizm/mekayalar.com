@@ -3,7 +3,7 @@
     export let dateList;
 </script>
 
-<section class="date_list_block">
+<section>
   <slot name="title"></slot> <!--- H1 --->
 
   {#each dateList as {label, title, location, desc}}
@@ -19,10 +19,10 @@
 </section>
 
 <style lang="scss">
-  .date_list_block {
+  section {
     margin-top: 30px;
 
-    .item {
+    div {
       margin-top: 20px;
       align-items: baseline;
       box-sizing: border-box;
@@ -31,7 +31,7 @@
       margin-bottom: calc(.5 * 1.5em);
       max-width: 50vw;
 
-      .label {
+      div:first-of-type {
         font-size: 1.1em;
         box-sizing: border-box;
         color: #797673;

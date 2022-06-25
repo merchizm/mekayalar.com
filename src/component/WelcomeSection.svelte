@@ -1,11 +1,11 @@
-<section class="welcome">
+<section>
   <slot name="title" /> <!--- H1 --->
   <slot name="paragraph" /> <!--- P --->
   <slot name="others" />
 </section>
 
 <style lang="scss">
-  .welcome {
+  section {
     p {
       font-size: 1.5em;
       margin-top: 20px;

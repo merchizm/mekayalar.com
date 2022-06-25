@@ -2,7 +2,7 @@
   import { SOCIAL_CONNECTIONS } from "$lib/siteConfig";
 </script>
 
-<section class="socials">
+<section>
   {#if SOCIAL_CONNECTIONS.mail}
     <a href="{'mailto:' + SOCIAL_CONNECTIONS.mail}">
       <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
@@ -42,7 +42,7 @@
 </section>
 
 <style lang="scss">
-  .socials {
+  section {
     margin: 10px 0;
 
     a {

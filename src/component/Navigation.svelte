@@ -97,12 +97,11 @@
     div {
       padding: 10px 15px;
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       justify-content: start;
 
       div{
-        margin-left: 15px;
-        margin-top: 8px;
+        flex-direction: column;
 
         span {
           font-size: 1.2rem;
@@ -116,15 +115,14 @@
       }
       img {
         width: 70px;
-        border-radius: 50%;
       }
     }
 
     nav {
-      margin-top: 25px;
-      margin-left: 16px;
-
+      margin-top: 0.1rem;
+      margin-left: 5.4rem;
       ul{
+        padding:0;
         list-style-type: none;
       }
     }

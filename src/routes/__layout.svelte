@@ -49,10 +49,12 @@
         --light-color: #A1A1A9;
         --image-bgc: #bc8aea;
         --button-hover: #2f2f2fc1;
-        --menu-hover: var(--button-hover);
         --divider: #313136;
-        --svg: var(--divider);
+        --svg: #e7e5e5;
+
         --menu-active: #f1f1f1;
+        --menu: #ddd;
+        --menu-hover: var(--button-hover);
     }
 
     :global(body){
@@ -61,12 +63,13 @@
         --light-color: #57606A;
         --image-bgc: #bc8aea;
         --button-hover: #efefef;
-        --menu-hover: var(--button-hover);
-        --divider: #222222;
-        --menu-active: #000000;
-        --svg: var(--divider);
+        --divider: #393838;
+        --svg: #222222;
         --svg-hover: #565555;
+
+        --menu-active: #000000;
         --menu: #272727;
+        --menu-hover: var(--button-hover);
 
         -webkit-font-smoothing: antialiased;
         font-family: 'Catamaran', sans-serif;

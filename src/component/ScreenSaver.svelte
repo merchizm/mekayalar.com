@@ -6,7 +6,7 @@
 <script>
     let mouseX = 0;
     let mouseY = 0;
-    const byeArray = ['körişirbiz', 'görüşürüz', 'αντιο', 'ցտեսություն', 'bi xatirê te', 'ნახვამდის', 'довиждане', 'увидимся', 'хayr', 'көрүшкөнчө', 'кездескенше', 'találkozunk', '또 봐요', 'tschüss', 'goodbye', 'doei', 'au revoir', 'şalom', 'vale', 'hasta la vista', 'namaste', 'さようなら', 'vemo-nos', 'прощай', 'slán', 'hüvasti', 'hei hei'];
+    const byeArray = ['körişirbiz', 'görüşürüz', 'αντιο', 'ցտեսություն', 'bi xatirê te', 'ნახვამდის', 'довиждане', 'увидимся', 'хayr', 'көрүшкөнчө', 'кездескенше', 'találkozunk', '또 봐요', 'tschüss', 'goodbye', 'doei', 'au revoir', 'şalom', 'vale', 'namaste', 'さようなら', 'vemo-nos', 'прощай', 'slán', 'hüvasti', 'hei hei'];
     let span;
     let screen_saver;
     let interval = null;
@@ -49,7 +49,7 @@
 </script>
 
 <div bind:this={screen_saver} style="display: none">
-    <span id="korisirbiz" bind:this={span}>körişirbiz</span>
+    <span id="korisirbiz" bind:this={span} >körişirbiz</span>
     <span class="bottom">Mesajınızı bekliyorum</span>
     <a href={'mailto:' + SOCIAL_CONNECTIONS.mail} class="bottom">{SOCIAL_CONNECTIONS.mail}</a>
 </div>

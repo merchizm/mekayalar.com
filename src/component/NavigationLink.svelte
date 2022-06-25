@@ -18,11 +18,11 @@
 
 <style lang="scss">
   li {
-    padding: 10px;
+    padding: 0.5rem;
     margin: 3px 0;
 
     a {
-      font-size: 1rem;
+      font-size: 1.06rem;
       text-decoration: none;
       padding: 3px 8px;
       border-radius: 7px;
@@ -35,6 +35,7 @@
 
     .active {
       color: var(--menu-active);
+      background-color: var(--menu-hover);
     }
   }
 </style>

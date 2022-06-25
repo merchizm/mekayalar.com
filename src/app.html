@@ -10,7 +10,7 @@
 		<link rel="shortcut icon" href="/favicon/favicon.ico">
 		<meta name="theme-color" content="#ffffff" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<script> // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+		<script nonce="rocks">
 			if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches))
 				document.body.className = 'dark-theme';
 			else
