@@ -14,7 +14,6 @@
 </script>
 
 <svelte:head>
-    <title>{SITE_TITLE}</title>
     <meta name="description" content={SITE_DESCRIPTION}>
     <meta name="keywords" content={SITE_KEYWORDS}>
     <link rel="canonical" href={SITE_URL} />
@@ -35,7 +34,7 @@
 
 <div class="wrapper">
     <Navigation/>
-    <Container>
+    <Container article="true">
         <slot/>
     </Container>
 </div>

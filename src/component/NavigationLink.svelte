@@ -30,6 +30,7 @@
 
       &:hover {
         background-color: var(--menu-hover);
+        filter: brightness(90%);
       }
     }
 

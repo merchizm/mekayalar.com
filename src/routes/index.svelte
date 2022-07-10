@@ -4,7 +4,7 @@
 </script>
 
 <WelcomeSection>
-  <h1 slot="title">Hi, I'm Enes &lt;merchizm&gt; Kayalar</h1>
+  <h1 slot="title">Hi, I'm Meriç Enes &lt;merchizm&gt; Kayalar</h1>
   <p slot="paragraph">
     little about me
   </p>

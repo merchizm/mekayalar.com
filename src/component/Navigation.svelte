@@ -8,7 +8,7 @@
             name: 'Giriş'
         },
         {
-            url: '/blog',
+            url: '/notes',
             name: 'Notlarım'
         },
         {
@@ -34,7 +34,7 @@
             case 10:
             case 11:
                 return '17cd863577187cc7ff2484cb51b74f74.png';
-            case 0:
+            case 12:
             case 13:
                 return '1138d33b964f817a2b2aef248fd75635.png';
             case 14:
@@ -52,7 +52,7 @@
             case 22:
             case 23:
                 return 'dfcef4a9f9a954ce98ad33909f35aa8a.png';
-            case 24:
+            case 0:
             case 1:
             case 2:
                 return '8311ae278de83456901520ab454dea72.png';
