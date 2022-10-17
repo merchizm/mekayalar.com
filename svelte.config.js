@@ -39,11 +39,7 @@ const config = {
     preprocess: [
         mdsvex(mdsvexConfig),
         preprocess({
-            scss: {
-                includePaths: [
-                    'static/styles'
-                ]
-            }
+            scss: {}
         })
     ],
     kit: {

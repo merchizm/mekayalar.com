@@ -3,8 +3,9 @@ export const APPROVED_POSTERS_GH_USERNAME = ['merchizm'];
 export const GH_USER_REPO = 'merchizm/mekayalar.com';
 export const REPO_URL = 'https://github.com/' + GH_USER_REPO;
 export const SITE_TITLE = 'Meriç Enes Kayalar';
-export const YOUR_TITLE = "Developer";
+export const YOUR_TITLE = "Ne idiği belirsiz alaylı dev";
 export const SITE_DESCRIPTION = "site description";
+export const SPOTIFY_API_RES = "";
 export const GISCUS = {
   repo: 'merchizm/mekayalar.com',
   repoId: '===',

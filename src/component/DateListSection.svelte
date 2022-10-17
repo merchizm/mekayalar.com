@@ -4,11 +4,11 @@
 </script>
 
 <section>
-  <slot name="title"></slot> <!--- H1 --->
+  <slot name="title" />
 
   {#each dateList as {label, title, location, desc}}
-    <div class="item">
-      <div class="label">{label}</div>
+    <div id="item">
+      <div id="label">{label}</div>
       <div>
         <h3>{title}</h3>
         <small>{location}</small>
@@ -21,24 +21,22 @@
 <style lang="scss">
   section {
     margin-top: 30px;
-
-    div {
+    div[id="item"]{
       margin-top: 20px;
       align-items: baseline;
       box-sizing: border-box;
       display: grid;
-      grid-template-columns: clamp(7em, 30vw, 1.5rem) 1fr;
+      grid-template-columns: clamp(6em, 30vw, 1.5rem) 1fr;
       margin-bottom: calc(.5 * 1.5em);
       max-width: 50vw;
 
-      div:first-of-type {
+      div[id="label"] {
         font-size: 1.1em;
         box-sizing: border-box;
-        color: #797673;
+        color: var(--light-color);
       }
 
       p {
-        box-sizing: border-box;
         font-size: 1.1em;
         font-weight: 400;
         margin: 0.5em 0;
@@ -46,16 +44,15 @@
       }
 
       h3 {
-        box-sizing: border-box;
-        color: #f8f6f5;
+        color: var(--color);
         font-size: 1.5em;
         font-weight: 500;
         max-width: 38rem;
       }
 
       small {
-        box-sizing: border-box;
-        color: #797673;
+
+        color: var(--light-color);
         font-size: .9em;
         line-height: 1.5;
       }

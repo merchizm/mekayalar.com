@@ -43,6 +43,36 @@
 <ScreenSaver/>
 
 <style>
+    @import url("https://fonts.googleapis.com/css2?family=Catamaran&display=swap");
+    :global(html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video){
+        margin: 0;
+        padding: 0;
+        border: 0;
+        vertical-align: baseline;
+    }
+
+    /* HTML5 display-role reset for older browsers */
+    :global(article, aside, details, figcaption, figure,
+    footer, header, hgroup, menu, nav, section) {
+        display: block;
+    }
+
+    :global(ol, ul) {
+        list-style: none;
+    }
+
     :global(body.dark-theme){
         --background-color: #232326;
         --color: #D7D7DB;
@@ -52,9 +82,17 @@
         --divider: #313136;
         --svg: #e7e5e5;
 
+        --note-h2: #fafafa;
+        --note-date: #71717A;
+
         --menu-active: #f1f1f1;
         --menu: #ddd;
         --menu-hover: var(--button-hover);
+
+        -webkit-font-smoothing: antialiased;
+        font-family: 'Catamaran', sans-serif;
+        background-color: var(--background-color);
+        color: var(--color);
     }
 
     :global(body){
@@ -66,6 +104,9 @@
         --divider: #393838;
         --svg: #222222;
         --svg-hover: #565555;
+
+        --note-h2: #070707;
+        --note-date: #71717A;
 
         --menu-active: #000000;
         --menu: #272727;

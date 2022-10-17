@@ -21,14 +21,15 @@
 
       h2 {
         font-size: 1.2em;
-        color: #fafafa;
+        color: var(--note-h2);
         margin-bottom: 5px;
       }
 
       span {
         font-size: .9em;
-        color: #71717A;
+        color: var(--note-date);
       }
     }
   }
+
 </style>

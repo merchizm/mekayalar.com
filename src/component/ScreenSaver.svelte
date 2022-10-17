@@ -6,10 +6,21 @@
 <script>
     let mouseX = 0;
     let mouseY = 0;
-    const byeArray = ['körişirbiz', 'görüşürüz', 'αντιο', 'ցտեսություն', 'bi xatirê te', 'ნახვამდის', 'довиждане', 'увидимся', 'хayr', 'көрүшкөнчө', 'кездескенше', 'találkozunk', '또 봐요', 'tschüss', 'goodbye', 'doei', 'au revoir', 'şalom', 'vale', 'namaste', 'さようなら', 'vemo-nos', 'прощай', 'slán', 'hüvasti', 'hei hei'];
+    const byeArray = ['körişirbiz', 'görüşürüz', 'αντιο', 'ցտեսություն', 'bi xatirê te', 'ნახვამდის', 'довиждане', 'увидимся', 'хayr', 'көрүшкөнчө', 'кездескенше', 'találkozunk', '또 봐요', 'tschüss', 'goodbye', 'doei', 'au revoir', 'şalom', 'vale', 'namaste', 'さようなら', 'vemo-nos', 'прощай', 'slán', 'hüvasti'];
     let span;
     let screen_saver;
     let interval = null;
+    let timerId = null;
+
+    function throttleFunction (func, delay) {
+        if (timerId) {
+            return
+        }
+        timerId  =  setTimeout(function () {
+            func()
+            timerId  =  undefined;
+        }, delay)
+    }
 
     let loop = (span, array) => {
         let rand = Math.floor(Math.random() * array.length);
@@ -33,17 +44,19 @@
         });
 
         document.addEventListener("mouseleave", (function () {
-            if (mouseY < 100) {
-                if (screen_saver.style.display === 'none')
-                    screen_saver.style.display = 'flex';
-                else
+            throttleFunction(function(){
+                if (mouseY < 100) {
+                    if (screen_saver.style.display === 'none')
+                        screen_saver.style.display = 'flex';
+                    else
+                        screen_saver.style.display = 'none';
+                    clearInterval(interval);
+                    interval = loop(span, byeArray);
+                } else {
+                    clearInterval(interval);
                     screen_saver.style.display = 'none';
-                clearInterval(interval);
-                interval = loop(span, byeArray);
-            } else {
-                clearInterval(interval);
-                screen_saver.style.display = 'none';
-            }
+                }
+            }, 300);
         }));
     }
 </script>
