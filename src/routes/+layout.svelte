@@ -1,4 +1,4 @@
-<script context="module">
+<script>
     import {
         SITE_URL,
         SITE_TITLE,
@@ -10,7 +10,6 @@
     import Navigation from "../component/Navigation.svelte";
     import Container from "../component/Container.svelte";
     import ScreenSaver from "../component/ScreenSaver.svelte";
-
 </script>
 
 <svelte:head>
@@ -30,6 +29,12 @@
     <meta property="twitter:image" content="/og_thumb.png" />
     <meta name="twitter:creator" content={'@' + SOCIAL_CONNECTIONS.twitter}>
     <meta name="twitter:card" content="summary">
+    <link
+            rel="alternate"
+            type="application/rss+xml"
+            title={'RSS Feed for ' + SITE_TITLE}
+            href="/rss.xml"
+    />
 </svelte:head>
 
 

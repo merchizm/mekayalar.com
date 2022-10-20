@@ -1,4 +1,4 @@
-<script context="module">
+<script>
     import {
         SITE_URL,
         SITE_TITLE,
@@ -7,9 +7,9 @@
         SOCIAL_CONNECTIONS
     } from '$lib/siteConfig';
     export const prerender = true; // index page is most visited, lets prerender
-    import Navigation from "../component/Navigation.svelte";
-    import Container from "../component/Container.svelte";
-    import ScreenSaver from "../component/ScreenSaver.svelte";
+    import Navigation from "../../component/Navigation.svelte";
+    import Container from "../../component/Container.svelte";
+    import ScreenSaver from "../../component/ScreenSaver.svelte";
 </script>
 
 <svelte:head>

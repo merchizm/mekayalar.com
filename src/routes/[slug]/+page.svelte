@@ -1,50 +1,22 @@
-<script context="module">
-    // export const prerender = true; // you can uncomment to prerender as an optimization
-    export const hydrate = true;
-    import {SOCIAL_CONNECTIONS, REPO_URL, SITE_URL, SITE_DESCRIPTION} from '$lib/siteConfig';
-    import Comments from '../component/Comments.svelte';
-
-    export async function load({url, params, fetch}) {
-        const slug = params.slug;
-        let res = null;
-        try {
-            res = await fetch(`/api/blog/${slug}.json`);
-            if (res.status > 400) {
-                return {
-                    status: res.status,
-                    error: await res.text()
-                };
-            }
-
-            return {
-                props: {
-                    json: await res.json(),
-                    slug,
-                    REPO_URL
-                },
-                cache: {
-                    maxage: 60 // 1 minute
-                }
-            };
-        } catch (err) {
-            console.error('error fetching blog post at [slug].svelte: ' + slug, res, err);
-            return {
-                status: 500,
-                error: new Error('error fetching blog post at [slug].svelte: ' + slug + ': ' + res)
-            };
-        }
-    }
-</script>
-
 <script>
+    import Comments from '../../component/Comments.svelte';
+    import {SOCIAL_CONNECTIONS, SITE_URL, SITE_DESCRIPTION} from '$lib/siteConfig';
+    import { page } from '$app/stores';
+
+
+    /** @type {import('./$types').PageData} */
+    export let data;
+
     /** @type {import('$lib/types').ContentItem} */
-    export let json; // warning: if you try to destructure content here, make sure to make it reactive, or your page content will not update when your user navigates
+    $: json = data.json; // warning: if you try to destructure content here, make sure to make it reactive, or your page content will not update when your user navigates
+
+    $: canonical = SITE_URL + $page.url.pathname;
 </script>
 
 <svelte:head>
     <title>{json.title}</title>
     <meta name="description" content="{SITE_DESCRIPTION}"/>
-    <link rel="canonical" href={SITE_URL}/>
+    <link rel="canonical" href={canonical}/>
     <meta property="og:url" content={SITE_URL}/>
     <meta property="og:type" content="article"/>
     <meta property="og:title" content={json.title}/>

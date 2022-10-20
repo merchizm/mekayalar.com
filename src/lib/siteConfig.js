@@ -15,7 +15,7 @@ export const GISCUS = {
 };
 export const SOCIAL_CONNECTIONS = {
   twitter: 'merchizm',
-  mail: 'merichrocks@icloud.com',
+  mail: 'merich@duck.com',
   linkedin: 'enes-kayalar-88b3851b6', // pathname or username
   github: 'merchizm'
 };

@@ -4,7 +4,7 @@ import { listContent } from '$lib/content';
 
 // Reference: https://github.com/sveltejs/kit/blob/master/examples/hn.svelte.dev/src/routes/%5Blist%5D/rss.js
 /** @type {import('@sveltejs/kit').RequestHandler} */
-export async function get() {
+export async function GET() {
     const feed = new RSS({
         title: SITE_TITLE + ' RSS',
         site_url: SITE_URL,
@@ -21,6 +21,14 @@ export async function get() {
         });
     });
 
+    throw new Error("@migration task: Migrate this return statement (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292701)");
+    // Suggestion (check for correctness before using):
+    // return new Response(feed.xml({ indent: true }), {
+    //     headers: {
+    //         'Cache-Control': `max-age=0, s-maxage=${600}`, // 10 minutes
+    //         'Content-Type': 'application/rss+xml'
+    //     }
+    // });
     return {
         body: feed.xml({ indent: true }), // todo - nonindent if not human
         headers: {

@@ -17,7 +17,7 @@ const mdsvexConfig = {
             remarkGithub,
             {
                 // Use your own repository
-                repository: 'https://github.com/merchizm/mekayaalr.com.git'
+                repository: 'https://github.com/merchizm/mekayalar.com.git'
             }
         ],
         remarkAbbr

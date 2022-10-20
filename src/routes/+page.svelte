@@ -3,6 +3,8 @@
   import SocialSection from "../component/SocialSection.svelte";
   import DateListSection from "../component/DateListSection.svelte";
 
+  export const prerender = true; // index page is most visited, lets prerender
+
   let projects = [
     {
       label: "2022",
@@ -96,7 +98,7 @@
 <WelcomeSection>
   <h2 slot="title">moonlight uh, spotlight uh</h2>
   <p slot="paragraph">
-   lorem impsum dolor sit amet
+    lorem impsum dolor sit amet
   </p>
 </WelcomeSection>
 <SocialSection/>
