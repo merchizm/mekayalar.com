@@ -40,14 +40,12 @@ export type Music = {
 }
 
 export type Artists = {
-    external_urls: External_urls;
+    external_urls: {
+        [spotify: string]: string;
+    };
     href: string;
     id: string;
     name: string;
     type: string;
     uri: string;
-}
-
-export type External_urls = {
-    spotify: string;
 }

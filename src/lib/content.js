@@ -27,7 +27,7 @@ const publishedTags = ['Published'];
 let allBlogposts = [];
 // let etag = null // todo - implmement etag header
 ``;
-export async function listContent() {
+export async function  listContent() {
     // use a diff var so as to not have race conditions while fetching
     // TODO: make sure to handle this better when doing etags or cache restore
 
