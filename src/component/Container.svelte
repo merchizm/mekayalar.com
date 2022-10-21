@@ -1,10 +1,9 @@
 <script>
   import NavigationButtons from "./NavigationButtons.svelte";
-  export let article;
 </script>
 
 <main>
-  <NavigationButtons {article}/>
+  <NavigationButtons/>
   <hr/>
   <div id="container">
     <slot/>

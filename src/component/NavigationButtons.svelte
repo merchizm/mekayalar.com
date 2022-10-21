@@ -23,8 +23,7 @@
 <script>
   import { elasticInOut } from "svelte/easing";
   import { onMount } from 'svelte';
-  export let article;
-  $: isArticle = article;
+  import {page} from "$app/stores";
   /** @type {import('$lib/types').Music} */
   export let music;
 
@@ -126,7 +125,7 @@
   <div>
     <div class="article-buttons">
       <div class="icons">
-        {#if isArticle}
+        {#if $page.params.slug}
           <button aria-label="Save Article">
             <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24"><path d="M7.075 17.85 12 15.725 16.925 17.85V5.1Q16.925 5.1 16.925 5.1Q16.925 5.1 16.925 5.1H7.075Q7.075 5.1 7.075 5.1Q7.075 5.1 7.075 5.1ZM5.2 20.7V5.1Q5.2 4.325 5.75 3.775Q6.3 3.225 7.075 3.225H16.925Q17.7 3.225 18.25 3.775Q18.8 4.325 18.8 5.1V20.7L12 17.8ZM16.925 5.1H12H7.075Q7.075 5.1 7.075 5.1Q7.075 5.1 7.075 5.1H16.925Q16.925 5.1 16.925 5.1Q16.925 5.1 16.925 5.1Z"/></svg>
           </button>
@@ -263,7 +262,7 @@
 
     button[aria-label="Bionic Reader"]:hover{
       svg{
-        fill: #bda02c !important;
+        fill: #e3c549 !important;
       }
       background-color: var(--button-hover) !important;
     }

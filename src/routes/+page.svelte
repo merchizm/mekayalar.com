@@ -3,8 +3,6 @@
   import SocialSection from "../component/SocialSection.svelte";
   import DateListSection from "../component/DateListSection.svelte";
 
-  export const prerender = true; // index page is most visited, lets prerender
-
   let projects = [
     {
       label: "2022",

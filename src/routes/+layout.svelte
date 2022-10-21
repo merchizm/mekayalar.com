@@ -77,7 +77,6 @@ time, mark, audio, video){
     :global(ol, ul) {
         list-style: none;
     }
-
     :global(body.dark-theme){
         --background-color: #232326;
         --color: #D7D7DB;
@@ -87,17 +86,11 @@ time, mark, audio, video){
         --divider: #313136;
         --svg: #e7e5e5;
 
-        --note-h2: #fafafa;
-        --note-date: #71717A;
+        --link-bg: #1a1a1c;
 
         --menu-active: #f1f1f1;
         --menu: #ddd;
         --menu-hover: var(--button-hover);
-
-        -webkit-font-smoothing: antialiased;
-        font-family: 'Catamaran', sans-serif;
-        background-color: var(--background-color);
-        color: var(--color);
     }
 
     :global(body){
@@ -107,11 +100,11 @@ time, mark, audio, video){
         --image-bgc: #bc8aea;
         --button-hover: #efefef;
         --divider: #393838;
+
         --svg: #222222;
         --svg-hover: #565555;
 
-        --note-h2: #070707;
-        --note-date: #71717A;
+        --link-bg: #e7e7e7;
 
         --menu-active: #000000;
         --menu: #272727;

@@ -1,8 +1,7 @@
 <script>
     import Comments from '../../component/Comments.svelte';
-    import {SOCIAL_CONNECTIONS, SITE_URL, SITE_DESCRIPTION} from '$lib/siteConfig';
+    import {SOCIAL_CONNECTIONS, SITE_URL, SITE_DESCRIPTION} from '$lib/siteConfig.js';
     import { page } from '$app/stores';
-
 
     /** @type {import('./$types').PageData} */
     export let data;
@@ -51,7 +50,6 @@
 <Comments/>
 
 <style lang="scss">
-
   article div{
     display: flex;
     justify-content: space-between;

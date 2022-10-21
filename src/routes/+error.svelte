@@ -9,11 +9,10 @@
 
     let message = offline ? 'İnternete bağlı değilsin.' : $page.error?.message;
 
-    let title = offline ? 'Offline' : $page.status;
+    let title = offline ? 'Offline' : 'Ops!';
     if ($page.status === 404) {
         title = 'Sayfa bulunamadı';
     }else{
-        title = 'ops!';
         message = 'Üzgünüm bilinmeyen bir hata oluştu. Lütfen daha sonra tekrar deneyin. Bir hata olduğunu düşünüyorsanız, lütfen bana bildirin.';
     }
 </script>
@@ -26,7 +25,7 @@
     <h1>{$page.status} — {title}</h1>
 
     {#if $page.status === 404}
-        <p><code>{url.pathname}</code> adında bir sayfa bulunamadı. | <a href={'/ideas/?filter=' + url.pathname.slice(1)}> Sitede arayın</a></p>
+        <p><code>{$page.url.pathname}</code> adında bir sayfa bulunamadı. | <a href={'/ideas/?filter=' + $page.url.pathname.slice(1)}> Sitede arayın</a></p>
         <p>Eğer bunun bir hata olduğunu düşünüyorsanız bana, <a href="mailto:{SOCIAL_CONNECTIONS.mail}">{SOCIAL_CONNECTIONS.mail}</a> üzerinden ulaşın.</p>
     {:else}
         <p>{message}</p>
