@@ -27,14 +27,6 @@
     div {
       margin-top: 30px;
       font-size: 16px;
-
-      h1 {
-        font-size: 2em;
-      }
-
-      h2 {
-        font-size: 1.5em;
-      }
     }
   }
 </style>

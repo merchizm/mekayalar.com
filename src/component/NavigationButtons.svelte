@@ -1,9 +1,9 @@
 <script>
   import { elasticInOut } from "svelte/easing";
   import { onMount } from 'svelte';
-  import {page} from "$app/stores";
+  import { page } from "$app/stores";
 
-  $: spotify = 'Tık?';
+  $: spotify = 'Click?';
   $: spotify_href = 'https://open.spotify.com/user/hkt7thwkuynqutz8jenb3x0wu?si=b6d3752d5e644bd0';
 
   /** @type {import('./$lib/types').Music} */
@@ -48,7 +48,9 @@
   const fontSizes = ["12px", "14px", "", "18px", "20px", "22px", "23px"];
 
   onMount(() => {
+
     current_theme = checkTheme(true);
+
     container = document.querySelector("#container");
     if (localStorage.getItem("current_font_size") !== undefined)
       container.style.fontSize = localStorage.getItem("current_font_size");
@@ -84,6 +86,42 @@
     else
       n_font.style.display = 'flex';
   }
+
+  function save_offline() {
+    if ('serviceWorker' in navigator && navigator.onLine) {
+      let saved_svg = `<svg xmlns="http://www.w3.org/2000/svg" height="40" width="40"><path d="m29.167 14.875-3.959-3.958 1.459-1.5 2.5 2.541 6.041-6.083 1.5 1.5Zm-20 18.875V8.333q0-1.083.771-1.854.77-.771 1.854-.771h10.5v2.125h-10.5q-.209 0-.375.146-.167.146-.167.354v22.209L20 26.833l8.75 3.709V17.833h2.083V33.75L20 29.083ZM11.25 7.833h11.042H20Z"/></svg>`;
+      let currentPath = window.location.pathname;
+      let pageResources = [currentPath];
+      let images = document.querySelectorAll('#container img');
+
+      // get all images on the page
+      images.forEach(function(img) {
+        pageResources.push(img.src);
+      });
+
+      let pageCache = caches.match(window.location.href);
+      pageCache.then(function (response){
+        if ( typeof response !== 'undefined' ) {
+          document.getElementById('cache_button').innerHTML = saved_svg;
+        } else {
+          // Open the unique cache for this URL
+          caches.open('rocks-offline-' + currentPath).then(function(cache) {
+            let updateCache = cache.addAll(pageResources);
+
+            // Update UI to indicate success
+            // Or catch any errors if it doesn't succeed
+            updateCache.then(function() {
+              document.getElementById('cache_button').innerHTML = saved_svg;
+              console.log('Article is now available offline.');
+            }).catch(function (error) {
+              console.error('Article could not be saved offline.', error);
+            });
+          });
+        }
+      });
+    }else{
+      alert('seems like your browser does not support offline mode, unfortunately my love.');
+    }}
 </script>
 
 <div>
@@ -105,7 +143,7 @@
     <div class="article-buttons">
       <div class="icons">
         {#if $page.params.slug}
-          <button aria-label="Save Article">
+          <button aria-label="Save Article" id="cache_button" on:click={save_offline}>
             <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24"><path d="M7.075 17.85 12 15.725 16.925 17.85V5.1Q16.925 5.1 16.925 5.1Q16.925 5.1 16.925 5.1H7.075Q7.075 5.1 7.075 5.1Q7.075 5.1 7.075 5.1ZM5.2 20.7V5.1Q5.2 4.325 5.75 3.775Q6.3 3.225 7.075 3.225H16.925Q17.7 3.225 18.25 3.775Q18.8 4.325 18.8 5.1V20.7L12 17.8ZM16.925 5.1H12H7.075Q7.075 5.1 7.075 5.1Q7.075 5.1 7.075 5.1H16.925Q16.925 5.1 16.925 5.1Q16.925 5.1 16.925 5.1Z"/></svg>
           </button>
 

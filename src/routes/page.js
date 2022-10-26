@@ -1,1 +1,0 @@
-export const prerender = true; // index page is most visited, lets prerender

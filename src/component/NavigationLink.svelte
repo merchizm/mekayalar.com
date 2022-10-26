@@ -32,6 +32,11 @@
         background-color: var(--menu-hover);
         filter: brightness(90%);
       }
+
+      &:focus{
+        background-color: var(--menu-hover);
+        filter: brightness(55%);
+      }
     }
 
     .active {

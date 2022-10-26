@@ -1,5 +1,4 @@
 <script>
-  import WelcomeSection from "../component/WelcomeSection.svelte";
   import SocialSection from "../component/SocialSection.svelte";
   import DateListSection from "../component/DateListSection.svelte";
 
@@ -93,12 +92,12 @@
   ];
 </script>
 
-<WelcomeSection>
-  <h2 slot="title">moonlight uh, spotlight uh</h2>
-  <p slot="paragraph">
+<section>
+  <h1>moonlight uh, spotlight uh</h1>
+  <p>
     lorem impsum dolor sit amet
   </p>
-</WelcomeSection>
+</section>
 <SocialSection/>
 <DateListSection dateList={projects}>
   <h2 slot="title">Proje Deneyimlerim</h2>
@@ -106,3 +105,16 @@
 <DateListSection dateList={work}>
   <h2 slot="title">İş Deneyimlerim</h2>
 </DateListSection>
+
+<style lang="scss">
+  section {
+    p {
+      margin-top: 10px;
+      color: var(--light-color);
+      margin-bottom: 1em;
+    }
+    h1 {
+      font-size: 1.7em;
+    }
+  }
+</style>

@@ -6,7 +6,7 @@
         SITE_KEYWORDS,
         SOCIAL_CONNECTIONS
     } from '$lib/siteConfig';
-    export const prerender = true;
+
     import Navigation from "../component/Navigation.svelte";
     import Container from "../component/Container.svelte";
     import ScreenSaver from "../component/ScreenSaver.svelte";
@@ -118,6 +118,7 @@ time, mark, audio, video){
     :global(.wrapper){
         padding: 0 100px;
         display: flex;
+        margin-bottom: 3rem;
     }
 
 
