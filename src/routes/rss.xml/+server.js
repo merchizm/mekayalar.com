@@ -8,7 +8,7 @@ export async function GET() {
     const feed = new RSS({
         title: SITE_TITLE + ' RSS',
         site_url: SITE_URL,
-        feed_url: SITE_URL + '/api/rss.xml'
+        feed_url: SITE_URL + '/rss.xml'
     });
 
     const allBlogs = await listContent();
@@ -21,21 +21,12 @@ export async function GET() {
         });
     });
 
-    throw new Error("@migration task: Migrate this return statement (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292701)");
-    // Suggestion (check for correctness before using):
-    // return new Response(feed.xml({ indent: true }), {
-    //     headers: {
-    //         'Cache-Control': `max-age=0, s-maxage=${600}`, // 10 minutes
-    //         'Content-Type': 'application/rss+xml'
-    //     }
-    // });
-    return {
-        body: feed.xml({ indent: true }), // todo - nonindent if not human
+    return new Response(feed.xml({ indent: true }), {
         headers: {
             'Cache-Control': `max-age=0, s-maxage=${600}`, // 10 minutes
             'Content-Type': 'application/rss+xml'
         }
-    };
+    });
 }
 
 // misc notes for future users

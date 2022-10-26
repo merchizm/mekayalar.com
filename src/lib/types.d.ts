@@ -49,3 +49,42 @@ export type Artists = {
     type: string;
     uri: string;
 }
+
+export type Bookmark = {
+    excerpt: string;
+    note: string;
+    type: string;
+    cover: string;
+    tags: string[];
+    removed: boolean;
+    _id: bigint;
+    title: string;
+    collection: {
+        [$ref : string] : string;
+        [$id : string] : bigint;
+        [$db : string] : string;
+    };
+    link: string;
+    created: Date;
+    lastUpdate: Date;
+    important: boolean;
+    media: [{
+       type: string;
+       link: string;
+    }];
+    user: {
+        [$ref : string] : string;
+        [$id : string] : bigint;
+        [$db : string] : string;
+    };
+    highlights: string[];
+    domain: string;
+    creatorRef: {
+        avatar: string;
+        _id: bigint;
+        name: string;
+        email: string;
+    }
+    sort: bigint;
+    collectionId: bigint;
+};

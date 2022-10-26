@@ -6,11 +6,12 @@ export const SITE_TITLE = 'Meriç Enes Kayalar';
 export const YOUR_TITLE = "Ne idiği belirsiz alaylı dev";
 export const SITE_DESCRIPTION = "site description";
 export const SPOTIFY_API_RES = "";
+export const SITE_KEYWORDS = `MEK Blog, Meriç Enes Kayalar, Enes Kayalar, M. Enes Kayalar, MEK Portfolio, Merchizm`;
 export const GISCUS = {
   repo: 'merchizm/mekayalar.com',
-  repoId: '===',
+  repoId: import.meta.env.VITE_GISCUS_REPO_ID,
   category: 'Web Site Comments',
-  categoryId: '===',
+  categoryId: import.meta.env.VITE_GISCUS_CATEGORY_ID,
   language: 'en'
 };
 export const SOCIAL_CONNECTIONS = {
@@ -19,4 +20,3 @@ export const SOCIAL_CONNECTIONS = {
   linkedin: 'enes-kayalar-88b3851b6', // pathname or username
   github: 'merchizm'
 };
-export const SITE_KEYWORDS = `MEK Blog, Meriç Enes Kayalar, Enes Kayalar, M. Enes Kayalar, MEK Portfolio, Merchizm`;
