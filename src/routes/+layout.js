@@ -1,6 +1,9 @@
 import {error} from "@sveltejs/kit";
 export const csr = true;
 
+/**
+ * @type {import('@sveltejs/kit').LayoutLoad}
+ */
 export async function load({fetch}) {
     let res = null;
     try {

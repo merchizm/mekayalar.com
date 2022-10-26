@@ -1,6 +1,7 @@
 import {error} from "@sveltejs/kit";
 export const csr = true; // https://github.com/sveltejs/kit/pull/6446
 
+/** @type {import('./$types').PageLoad} */
 export async function load({fetch, setHeaders}) {
     let res = null;
     try {
@@ -11,7 +12,9 @@ export async function load({fetch, setHeaders}) {
         setHeaders({
             'cache-control': 'public, max-age=60'
         });
-        return await res.json();
+        return {
+            bookmarks: await res.json()
+        };
 
     } catch (err) {
         console.error('error fetching bookmarks at [+page]bookmarks.svelte: ' + slug, res, err);

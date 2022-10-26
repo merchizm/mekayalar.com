@@ -89,7 +89,7 @@
 
   function save_offline() {
     if ('serviceWorker' in navigator && navigator.onLine) {
-      let saved_svg = `<svg xmlns="http://www.w3.org/2000/svg" height="40" width="40"><path d="m29.167 14.875-3.959-3.958 1.459-1.5 2.5 2.541 6.041-6.083 1.5 1.5Zm-20 18.875V8.333q0-1.083.771-1.854.77-.771 1.854-.771h10.5v2.125h-10.5q-.209 0-.375.146-.167.146-.167.354v22.209L20 26.833l8.75 3.709V17.833h2.083V33.75L20 29.083ZM11.25 7.833h11.042H20Z"/></svg>`;
+      let saved_svg = `<svg xmlns="http://www.w3.org/2000/svg" height="24" width="24"><path d="M17.475 9 15 6.525l1.05-1.075 1.425 1.425L21 3.325 22.075 4.4ZM5.5 20.25V5.3q0-.75.525-1.275Q6.55 3.5 7.3 3.5H13V5H7.3q-.1 0-.2.1t-.1.2v12.65l5-2.15 5 2.15V11h1.5v9.25l-6.5-2.8ZM7 5h6-1Z"/></svg>`;
       let currentPath = window.location.pathname;
       let pageResources = [currentPath];
       let images = document.querySelectorAll('#container img');
@@ -112,6 +112,8 @@
             // Or catch any errors if it doesn't succeed
             updateCache.then(function() {
               document.getElementById('cache_button').innerHTML = saved_svg;
+              document.getElementById('cache_button').ariaLabel = 'Article Saved for Offline';
+
               console.log('Article is now available offline.');
             }).catch(function (error) {
               console.error('Article could not be saved offline.', error);

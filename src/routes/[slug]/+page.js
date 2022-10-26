@@ -2,6 +2,7 @@ import {REPO_URL} from '$lib/siteConfig';
 import {error} from "@sveltejs/kit";
 export const csr = true; // https://github.com/sveltejs/kit/pull/6446
 
+/** @type {import('./$types').PageLoad} */
 export async function load({url, params, fetch, setHeaders}) {
     const slug = params.slug;
     let res = null;

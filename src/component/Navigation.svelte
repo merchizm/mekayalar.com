@@ -5,7 +5,7 @@
     let navLinks = [
         {
             url: '/',
-            name: 'Giriş'
+            name: 'Hakkımda'
         },
         {
             url: '/notes',
@@ -126,7 +126,5 @@
         list-style-type: none;
       }
     }
-
-    //TODO: Rebuild signature box.
   }
 </style>

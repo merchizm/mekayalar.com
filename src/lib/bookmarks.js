@@ -1,11 +1,10 @@
-import {format, parseISO, startOfYear} from "date-fns";
+import {format, parseISO} from "date-fns";
 import { groupBy } from "lodash";
 
 export async function getBookmarks(page){
     let collection_id = '28611701'; // @see { @link https://developer.raindrop.io/v1/collections/methods }
     let perPage = 50;
-    let created = format(startOfYear(2021), "yyyy-MM-dd");
-    console.log(created);
+    let created = '2021-01-01';
     let end_point = [
         `https://api.raindrop.io/rest/v1/raindrops/${collection_id}`,
         `?perpage=${perPage}`,

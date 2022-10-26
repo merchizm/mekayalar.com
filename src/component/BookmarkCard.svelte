@@ -1,4 +1,7 @@
 <script>
+    import {formatDistanceToNowStrict, parseISO} from "date-fns";
+    import { tr } from "date-fns/locale";
+
     export let link;
     export let title;
     export let created;
@@ -6,6 +9,37 @@
 </script>
 
 <div>
-    <h3><a href="{link}">{title}</a></h3>
-    <p>{domain} - {created}</p>
+    <p><a href="{link}">{title}</a></p>
+    <span><b>{domain}</b> — {formatDistanceToNowStrict(parseISO(created), {
+        addSuffix: true,
+        locale: tr,
+    })}</span>
 </div>
+
+<style lang="scss">
+    div {
+      p {
+        a {
+          color: var(--color);
+          text-decoration: none;
+          &:hover{
+            color: var(--light-color);
+            filter: brightness(70%);
+          }
+          &:visited{
+            color: var(--color);
+            filter: brightness(70%);
+          }
+
+        }
+        padding-top: 0.2em;
+        padding-bottom: 0.1em;
+        font-size: 1.2em;
+      }
+      span{
+        font-size:1em;
+        color: var(--color);
+        filter: brightness(95%);
+      }
+    }
+</style>
