@@ -31,6 +31,7 @@
       &:hover {
         background-color: var(--menu-hover);
         filter: brightness(90%);
+        color: var(--menu-hover-text);
       }
 
       &:focus{
@@ -42,6 +43,10 @@
     .active {
       color: var(--menu-active);
       background-color: var(--menu-hover);
+
+      &:hover {
+        filter: brightness(100%);
+      }
     }
   }
 </style>

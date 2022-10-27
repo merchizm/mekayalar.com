@@ -85,11 +85,13 @@ time, mark, audio, video){
         --divider: #313136;
         --svg: #e7e5e5;
 
-        --link-bg: #1a1a1c;
+        --social-bg: #313133;
+        --social-bg-hover: #3b3b3b;
 
         --menu-active: #f1f1f1;
         --menu: #ddd;
         --menu-hover: var(--button-hover);
+        --menu-hover-text: #cccbcb;
     }
 
     :global(body){
@@ -99,15 +101,15 @@ time, mark, audio, video){
         --image-bgc: #bc8aea;
         --button-hover: #efefef;
         --divider: #393838;
-
         --svg: #222222;
-        --svg-hover: #565555;
 
-        --link-bg: #e7e7e7;
+        --social-bg: var(--button-hover);
+        --social-bg-hover: #f3f3f3;
 
         --menu-active: #000000;
         --menu: #272727;
         --menu-hover: var(--button-hover);
+        --menu-hover-text: #3b3939;
 
         -webkit-font-smoothing: antialiased;
         font-family: 'Catamaran', sans-serif;
@@ -120,6 +122,4 @@ time, mark, audio, video){
         display: flex;
         margin-bottom: 3rem;
     }
-
-
 </style>

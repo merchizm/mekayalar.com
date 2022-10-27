@@ -37,7 +37,7 @@
       }
 
       p {
-        font-size: 1.1em;
+        font-size: 1em;
         font-weight: 400;
         margin: 0.5em 0;
         max-width: 38rem;
@@ -45,7 +45,7 @@
 
       h3 {
         color: var(--color);
-        font-size: 1.5em;
+        font-size: 1.3em;
         font-weight: 500;
         max-width: 38rem;
       }
@@ -53,7 +53,7 @@
       small {
 
         color: var(--light-color);
-        font-size: .9em;
+        font-size: .8em;
         line-height: 1.5;
       }
     }

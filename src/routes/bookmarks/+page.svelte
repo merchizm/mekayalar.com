@@ -29,13 +29,13 @@
 
 <style lang="scss">
     p {
-        font-size: 1.5em;
+        font-size: 1.3em;
         margin-bottom: 2rem;
     }
 
     div[id^=week_container]{
         h2{
-          font-size: 1.6em;
+          font-size: 1.5em;
           color: var(--color);
           filter: brightness(70%);
           font-weight: normal;

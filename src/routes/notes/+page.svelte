@@ -9,7 +9,6 @@
     /** @type {import('$lib/types').ContentItem[]} */
     $: items = data.items;
 
-
     function searchParamToArray(key) {
         return ($page.url.searchParams.get(key) || '').split(',').filter((e) => e);
     }
@@ -43,14 +42,11 @@
 <div>
     {#if list.length}
         {#each list as item}
-            <Note href={item.slug} title={item.title} date={new Date(item.date).toISOString().slice(0, 10)}/>
+            <Note href={item.slug} title={item.title} date={new Date(item.date).toISOString().slice(0, 10)} category={item.category}/>
         {/each}
         {#if isTruncated}
             <div>
-                <button
-                        on:click={() => (isTruncated = false)}
-                        class="inline-block rounded bg-blue-100 p-4 text-lg font-bold tracking-tight text-black hover:text-yellow-900 dark:bg-blue-900 dark:text-white hover:dark:text-yellow-200 md:text-2xl"
-                >
+                <button on:click={() => (isTruncated = false)} >
                     Load More Posts...
                 </button>
             </div>

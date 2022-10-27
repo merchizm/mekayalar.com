@@ -93,9 +93,9 @@
 </script>
 
 <section>
-  <h1>moonlight uh, spotlight uh</h1>
+  <h1>Merhaba, Ben Meriç 🖖🏻</h1>
   <p>
-    lorem impsum dolor sit amet
+    Sakarya'da yaşıyorum. Alaylı bir geliştiriciyim. Bahçeyle ilgilenmeyi, kahve içmeyi ve felsefi kitaplar okumayı seviyorum. Bir şeyler üretmekten aşırı haz duyuyorum, bu yüzden yazılım geliştirme ile ilgileniyorum. Şu anda freelance olarak çalışıyorum ve iş tekliflerinize açığım.
   </p>
 </section>
 <SocialSection/>
@@ -111,10 +111,15 @@
     p {
       margin-top: 10px;
       color: var(--light-color);
-      margin-bottom: 1em;
+      margin-bottom: 1.3em;
+      font-size:1.1em;
     }
     h1 {
-      font-size: 1.7em;
+      font-size: 1.4em;
+      font-weight: 800;
+    }
+    h2 {
+      font-size: 1.2em;
     }
   }
 </style>

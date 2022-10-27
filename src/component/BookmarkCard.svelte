@@ -2,10 +2,7 @@
     import {formatDistanceToNowStrict, parseISO} from "date-fns";
     import { tr } from "date-fns/locale";
 
-    export let link;
-    export let title;
-    export let created;
-    export let domain;
+    export let created,domain,title,link;
 </script>
 
 <div>

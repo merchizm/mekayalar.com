@@ -1,14 +1,16 @@
 <script>
-    export let href, title, date;
+    import {format, formatDistance} from "date-fns";
+    import { tr } from "date-fns/locale";
+    export let href, title, date, category;
 </script>
 
 <a href="{href}">
     <div>
         <h2>
-            {title}
+            {title}  <small>{category}</small>
         </h2>
         <span>
-            {date}
+            {formatDistance(new Date(date), new Date(), { addSuffix: true, locale: tr })} - {format(new Date(date), 'd MMMM, yyyy', { locale: tr })}
         </span>
     </div>
 </a>
@@ -23,6 +25,10 @@
         font-size: 1.2em;
         color: var(--color);
         margin-bottom: 5px;
+        small {
+            font-size: 0.7em;
+            color: var(--light-color);
+        }
       }
 
       span {

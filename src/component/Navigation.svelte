@@ -9,15 +9,15 @@
         },
         {
             url: '/notes',
-            name: 'Notlarım'
+            name: 'Notlar'
         },
         {
             url: '/portfolio',
-            name: 'Projelerim'
+            name: 'Projeler'
         },
         {
-            url: '/gallery',
-            name: 'Galeri'
+            url: '/photos',
+            name: 'Fotoğraflar'
         },
         {
             url: '/bookmarks',

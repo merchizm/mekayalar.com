@@ -3,10 +3,10 @@
   import { fly } from "svelte/transition";
   import { beforeNavigate } from '$app/navigation';
   let loading = false;
-
-  beforeNavigate(() => {
-    loading = !loading;
-  });
+  // TODO: page transition break the font adjustment, fix that
+  // beforeNavigate(() => {
+  //   loading = !loading;
+  // });
   const pageTransitionDuration = 400;
 </script>
 

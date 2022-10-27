@@ -1,68 +1,67 @@
-<script context="module">
-    import {SOCIAL_CONNECTIONS} from "$lib/siteConfig";
-</script>
-
-
 <script>
-    let mouseX = 0;
-    let mouseY = 0;
-    const byeArray = ['körişirbiz', 'görüşürüz', 'αντιο', 'ցտեսություն', 'bi xatirê te', 'ნახვამდის', 'довиждане', 'увидимся', 'хayr', 'көрүшкөнчө', 'кездескенше', 'találkozunk', '또 봐요', 'tschüss', 'goodbye', 'doei', 'au revoir', 'şalom', 'vale', 'namaste', 'さようなら', 'vemo-nos', 'прощай', 'slán', 'hüvasti'];
-    let span;
+    import {SOCIAL_CONNECTIONS} from "$lib/siteConfig";
+    import {onMount} from "svelte";
     let screen_saver;
-    let interval = null;
-    let timerId = null;
+    let span;
+    onMount(() => {
+        let mouseX = 0;
+        let mouseY = 0;
+        const byeArray = ['körişirbiz', 'görüşürüz', 'αντιο', 'ցտեսություն', 'bi xatirê te', 'ნახვამდის', 'довиждане', 'увидимся', 'хayr', 'көрүшкөнчө', 'кездескенше', 'találkozunk', '또 봐요', 'tschüss', 'goodbye', 'doei', 'au revoir', 'şalom', 'vale', 'namaste', 'さようなら', 'vemo-nos', 'прощай', 'slán', 'hüvasti'];
+        let interval = null;
+        let timerId = null;
 
-    function throttleFunction (func, delay) {
-        if (timerId) {
-            return
+        function throttleFunction(func, delay) {
+            if (timerId) {
+                return
+            }
+            timerId = setTimeout(function () {
+                func()
+                timerId = undefined;
+            }, delay)
         }
-        timerId  =  setTimeout(function () {
-            func()
-            timerId  =  undefined;
-        }, delay)
-    }
 
-    let loop = (span, array) => {
-        let rand = Math.floor(Math.random() * array.length);
-        span.innerText = array[rand];
+        let loop = (span, array) => {
+            let rand = Math.floor(Math.random() * array.length);
+            span.innerText = array[rand];
 
-        let index = 0;
-        return setInterval(function () {
-            if (array.length > index) {
-                let rand = Math.floor(Math.random() * array.length);
-                span.innerText = array[rand];
-                index++;
-            } else
-                index = 0;
-        }, 1000);
-    }
-    if (typeof document !== 'undefined') {
-        document.addEventListener("mousemove", function (e) {
-            mouseX = e.clientX;
-            mouseY = e.clientY;
-            screen_saver.style.display = 'none';
-        });
+            let index = 0;
+            return setInterval(function () {
+                if (array.length > index) {
+                    let rand = Math.floor(Math.random() * array.length);
+                    span.innerText = array[rand];
+                    index++;
+                } else
+                    index = 0;
+            }, 1000);
+        }
+        if (typeof document !== 'undefined') {
+            document.addEventListener("mousemove", function (e) {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+                screen_saver.style.display = 'none';
+            });
 
-        document.addEventListener("mouseleave", (function () {
-            throttleFunction(function(){
-                if (mouseY < 100) {
-                    if (screen_saver.style.display === 'none')
-                        screen_saver.style.display = 'flex';
-                    else
+            document.addEventListener("mouseleave", (function () {
+                throttleFunction(function () {
+                    if (mouseY < 100) {
+                        if (screen_saver.style.display === 'none')
+                            screen_saver.style.display = 'flex';
+                        else
+                            screen_saver.style.display = 'none';
+                        clearInterval(interval);
+                        interval = loop(span, byeArray);
+                    } else {
+                        clearInterval(interval);
                         screen_saver.style.display = 'none';
-                    clearInterval(interval);
-                    interval = loop(span, byeArray);
-                } else {
-                    clearInterval(interval);
-                    screen_saver.style.display = 'none';
-                }
-            }, 300);
-        }));
-    }
+                    }
+                }, 300);
+            }));
+        }
+    });
 </script>
 
 <div bind:this={screen_saver} style="display: none">
-    <span id="korisirbiz" bind:this={span} >körişirbiz</span>
+    <span id="korisirbiz" bind:this={span}>körişirbiz</span>
     <span class="bottom">Mesajınızı bekliyorum</span>
     <a href={'mailto:' + SOCIAL_CONNECTIONS.mail} class="bottom">{SOCIAL_CONNECTIONS.mail}</a>
 </div>
@@ -95,7 +94,7 @@
       margin: 5px !important;
     }
 
-    span:last-of-type{
+    span:last-of-type {
       @extend %bottom;
       bottom: 6vmin !important;
       color: var(--color) !important;

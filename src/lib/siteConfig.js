@@ -3,10 +3,11 @@ export const APPROVED_POSTERS_GH_USERNAME = ['merchizm'];
 export const GH_USER_REPO = 'merchizm/mekayalar.com';
 export const REPO_URL = 'https://github.com/' + GH_USER_REPO;
 export const SITE_TITLE = 'Meriç Enes Kayalar';
-export const YOUR_TITLE = "Ne idiği belirsiz alaylı dev";
+export const YOUR_TITLE = "back-end dev";
 export const SITE_DESCRIPTION = "site description";
 export const SPOTIFY_API_RES = "";
 export const SITE_KEYWORDS = `MEK Blog, Meriç Enes Kayalar, Enes Kayalar, M. Enes Kayalar, MEK Portfolio, Merchizm`;
+
 export const GISCUS = {
   repo: 'merchizm/mekayalar.com',
   repoId: import.meta.env.VITE_GISCUS_REPO_ID,
@@ -14,9 +15,11 @@ export const GISCUS = {
   categoryId: import.meta.env.VITE_GISCUS_CATEGORY_ID,
   language: 'en'
 };
+
 export const SOCIAL_CONNECTIONS = {
   twitter: 'merchizm',
   mail: 'merich@duck.com',
   linkedin: 'enes-kayalar-88b3851b6', // pathname or username
-  github: 'merchizm'
+  github: 'merchizm',
+  spotify: 'https://open.spotify.com/user/hkt7thwkuynqutz8jenb3x0wu?si=b6d3752d5e644bd0' // full url
 };

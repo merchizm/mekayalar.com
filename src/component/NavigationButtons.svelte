@@ -2,9 +2,10 @@
   import { elasticInOut } from "svelte/easing";
   import { onMount } from 'svelte';
   import { page } from "$app/stores";
+  import {SOCIAL_CONNECTIONS} from "$lib/siteConfig.js";
 
-  $: spotify = 'Click?';
-  $: spotify_href = 'https://open.spotify.com/user/hkt7thwkuynqutz8jenb3x0wu?si=b6d3752d5e644bd0';
+  $: spotify = 'My Spotify Profile';
+  $: spotify_href = SOCIAL_CONNECTIONS.spotify;
 
   /** @type {import('./$lib/types').Music} */
   $: music = $page.data;
@@ -23,10 +24,10 @@
 
   let isActive = true;
   const theme_status = {
-    light: "🌥",
-    dark: "☀️"
+    light: `<svg xmlns="http://www.w3.org/2000/svg" height="24" width="24"><path d="M12 15q1.25 0 2.125-.875T15 12q0-1.25-.875-2.125T12 9q-1.25 0-2.125.875T9 12q0 1.25.875 2.125T12 15Zm0 1.5q-1.875 0-3.188-1.312Q7.5 13.875 7.5 12q0-1.875 1.312-3.188Q10.125 7.5 12 7.5q1.875 0 3.188 1.312Q16.5 10.125 16.5 12q0 1.875-1.312 3.188Q13.875 16.5 12 16.5ZM2 12.75q-.325 0-.538-.213-.212-.212-.212-.537 0-.325.212-.538.213-.212.538-.212h2.25q.325 0 .537.212Q5 11.675 5 12q0 .325-.213.537-.212.213-.537.213Zm17.75 0q-.325 0-.538-.213Q19 12.325 19 12q0-.325.212-.538.213-.212.538-.212H22q.325 0 .538.212.212.213.212.538 0 .325-.212.537-.213.213-.538.213ZM12 5q-.325 0-.537-.213-.213-.212-.213-.537V2q0-.325.213-.538.212-.212.537-.212.325 0 .538.212.212.213.212.538v2.25q0 .325-.212.537Q12.325 5 12 5Zm0 17.75q-.325 0-.537-.212-.213-.213-.213-.538v-2.25q0-.325.213-.538Q11.675 19 12 19q.325 0 .538.212.212.213.212.538V22q0 .325-.212.538-.213.212-.538.212ZM6 7.05 4.75 5.825q-.225-.225-.213-.538.013-.312.213-.537.225-.225.538-.225.312 0 .537.225L7.05 6q.225.225.225.525 0 .3-.225.525-.2.225-.5.212-.3-.012-.55-.212Zm12.175 12.2L16.95 18q-.225-.225-.225-.525 0-.3.225-.525.2-.225.5-.212.3.012.55.212l1.25 1.225q.225.225.213.537-.013.313-.213.538-.225.225-.537.225-.313 0-.538-.225ZM16.95 7.05q-.225-.2-.212-.5.012-.3.212-.55l1.225-1.25q.225-.225.538-.213.312.013.537.213.225.225.225.537 0 .313-.225.538L18 7.05q-.225.225-.525.225-.3 0-.525-.225Zm-12.2 12.2q-.225-.225-.225-.538 0-.312.225-.537L6 16.95q.225-.225.525-.225.3 0 .525.225.225.2.213.5-.013.3-.213.55l-1.225 1.25q-.225.225-.537.225-.313 0-.538-.225ZM12 12Z"/></svg>`,
+    dark: `<svg xmlns="http://www.w3.org/2000/svg" fill="white" height="24" width="24"><path d="M12.025 20.5q-3.55 0-6.025-2.475Q3.525 15.55 3.525 12q0-3.4 2.3-5.825 2.3-2.425 5.65-2.625.2 0 .413.012.212.013.412.038-.775.725-1.225 1.737-.45 1.013-.45 2.163 0 2.45 1.725 4.175 1.725 1.725 4.175 1.725 1.175 0 2.175-.45 1-.45 1.7-1.225.05.2.063.412.012.213.012.413-.2 3.35-2.625 5.65-2.425 2.3-5.825 2.3Zm0-1.5q2.2 0 3.95-1.212 1.75-1.213 2.55-3.163-.5.125-1 .2-.5.075-1 .075-3.075 0-5.237-2.162Q9.125 10.575 9.125 7.5q0-.5.075-1t.2-1q-1.95.8-3.162 2.55Q5.025 9.8 5.025 12q0 2.9 2.05 4.95Q9.125 19 12.025 19Zm-.25-6.75Z"/></svg>`
   };
-  let current_theme;
+  let current_theme = ''; // defined to bypass undefined error
   let n_font, container;
 
   function checkTheme() {
@@ -130,7 +131,7 @@
   <div>
     {#key current_theme}
       <button in:customTransition on:click={toggleTheme} aria-label="Change Appearance">
-        {current_theme}
+        {@html current_theme}
       </button>
     {/key}
     <button aria-label={music.is_playing ? music.name+' - '+music.artists[0].name : spotify} on:click={() => { window.open(music.is_playing ? music.url : spotify_href); }}>
@@ -222,40 +223,36 @@
     }
   }
 
-  %button {
-    border-radius: .5rem;
-    box-sizing: border-box;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 2.25rem;
-    width: 2.25rem;
-    @extend %tooltip;
-    &:hover {
-      border-radius: 10%;
-    }
-  }
-
   div {
     padding: 2px 0;
     display: flex;
     justify-content: space-between;
 
     button {
+      /* reset default button attributes */
       position: relative;
       background-color: transparent;
       border: 0;
+
+      /* alignment adjustments */
+      box-sizing: border-box;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      /* apply button styles */
       font-size: 1.5rem;
       cursor: pointer;
-      border-radius: 50%;
       height: 2.25rem;
       width: 2.25rem;
+
       &:focus {
         outline: none;
       }
       @extend %tooltip;
       &:hover {
         background-color: var(--button-hover);
+        border-radius: 10%;
       }
     }
 
@@ -316,7 +313,6 @@
         display: flex;
         justify-content: flex-end;
         @extend %tooltip;
-        @extend %button;
       }
 
       .icons{
