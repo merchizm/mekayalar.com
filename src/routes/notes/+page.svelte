@@ -38,6 +38,10 @@
         .slice(0, isTruncated ? 2 : items.length);
 </script>
 
+<svelte:head>
+    <title>Notes</title>
+</svelte:head>
+
 
 <div>
     {#if list.length}

@@ -16,12 +16,11 @@
 
 <svelte:head>
     <title>{json.title}</title>
-    <meta name="description" content="{SITE_DESCRIPTION}"/>
     <link rel="canonical" href={canonical}/>
     <meta property="og:url" content={SITE_URL}/>
     <meta property="og:type" content="article"/>
     <meta property="og:title" content={json.title}/>
-    <meta name="Description" content={json.description}/>
+    <meta name="description" content={json.description}/>
     <meta property="og:description" content={json.description}/>
     <meta name="twitter:card" content={json.image ? 'summary_large_image' : 'summary'}/>
     {#if SOCIAL_CONNECTIONS.twitter}

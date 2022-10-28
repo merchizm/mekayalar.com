@@ -12,6 +12,11 @@
     let year = format(dateStartOfWeek, "yyyy");
 </script>
 
+<svelte:head>
+    <title>Bookmarks</title>
+    <meta name="description" content="Beğendiğim, benim veya sizin için yararlı olacağını düşündüğüm ve saklamak istediğim, kategorize edilmemiş içerikler."/>
+</svelte:head>
+
 <p>
     Beğendiğim, benim veya sizin için yararlı olacağını düşündüğüm ve saklamak istediğim, kategorize edilmemiş içerikler.
 </p>

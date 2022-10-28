@@ -92,6 +92,11 @@
   ];
 </script>
 
+<svelte:head>
+  <title>Meriç Enes Kayalar</title>
+  <meta name="description" content="Sakarya'da yaşıyorum. Alaylı bir geliştiriciyim. Bahçeyle ilgilenmeyi, kahve içmeyi ve felsefi kitaplar okumayı seviyorum. Bir şeyler üretmekten aşırı haz duyuyorum, bu yüzden yazılım geliştirme ile ilgileniyorum. "/>
+</svelte:head>
+
 <section>
   <h1>Merhaba, Ben Meriç 🖖🏻</h1>
   <p>
