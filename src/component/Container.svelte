@@ -40,4 +40,13 @@
       font-size: 16px;
     }
   }
+
+  @media screen and (max-width: 900px) {
+    main {
+      margin-top: 5px;
+      margin-left: 3px;
+      width: 100vw;
+    }
+  }
+
 </style>

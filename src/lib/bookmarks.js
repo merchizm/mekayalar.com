@@ -1,5 +1,5 @@
 import {format, parseISO} from "date-fns";
-import { groupBy } from "lodash";
+import _ from "lodash-es";
 
 export async function getBookmarks(page){
     let collection_id = '28611701'; // @see { @link https://developer.raindrop.io/v1/collections/methods }
@@ -31,7 +31,7 @@ export async function getBookmarks(page){
 
 // @source { @link https://github.com/ademilter/homepage/blob/master/lib/raindrop.ts }
 export async function getBookmarksGroupByWeek() {
-    return groupBy(await getBookmarks(), (bookmark) => {
+    return _.groupBy(await getBookmarks(), (bookmark) => {
         const dateISO = parseISO(bookmark.created);
         const week = format(dateISO, "I"); // week of year
         const month = format(dateISO, "M"); // month of year

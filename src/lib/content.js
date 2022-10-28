@@ -1,8 +1,8 @@
-import { compile } from 'mdsvex';
-import { dev } from '$app/environment';
+import {compile} from 'mdsvex';
+import {dev} from '$app/environment';
 import grayMatter from 'gray-matter';
 import fetch from 'node-fetch';
-import { GH_USER_REPO, APPROVED_POSTERS_GH_USERNAME } from './siteConfig';
+import {GH_USER_REPO, APPROVED_POSTERS_GH_USERNAME} from './siteConfig';
 import parse from 'parse-link-header';
 import slugify from 'slugify';
 
@@ -27,7 +27,8 @@ const publishedTags = ['Published'];
 let allBlogposts = [];
 // let etag = null // todo - implmement etag header
 ``;
-export async function  listContent() {
+
+export async function listContent() {
     // use a diff var so as to not have race conditions while fetching
     // TODO: make sure to handle this better when doing etags or cache restore
 
@@ -35,8 +36,8 @@ export async function  listContent() {
     let _allBlogposts = [];
     let next = null;
     let limit = 0; // just a failsafe against infinite loop - feel free to remove
-    const authheader = process.env.GH_TOKEN && {
-        Authorization: `token ${process.env.GH_TOKEN}`
+    const authheader = {
+        Authorization: `token ${import.meta.env.VITE_GH_TOKEN}`
     };
     do {
         const res = await fetch(
@@ -71,12 +72,10 @@ export async function  listContent() {
 export async function getContent(slug) {
     // get all blogposts if not already done - or in development
     if (dev || allBlogposts.length === 0) {
-        console.log('loading allBlogposts');
         allBlogposts = await listContent();
-        console.log('loaded ' + allBlogposts.length + ' blogposts');
         if (!allBlogposts.length)
             throw new Error(
-                'failed to load blogposts for some reason. check token' + process.env.GH_TOKEN
+                'failed to load blogposts for some reason. check token' + import.meta.env.VITE_GH_TOKEN
             );
     }
     if (!allBlogposts.length) throw new Error('no blogposts');
@@ -94,6 +93,7 @@ export async function getContent(slug) {
                         var rx = /^.*(?:(?:youtu\.be\/|v\/|vi\/|u\/\w\/|embed\/)|(?:(?:watch)?\?v(?:i)?=|\&v(?:i)?=))([^#\&\?]*).*/;
                         return url.match(rx)[1]
                     }
+
                     const videoId = x.startsWith('https://') ? youtube_parser(x) : x;
                     return `<iframe
 			class="w-full object-contain"
@@ -108,7 +108,8 @@ export async function getContent(slug) {
 			width="600"
 			height="400"
 			allowFullScreen
-			aria-hidden="true"></iframe>`}
+			aria-hidden="true"></iframe>`
+                }
             )
             .replace(
                 /\n{% (tweet|twitter) (.*?) %}/g,
@@ -133,7 +134,7 @@ export async function getContent(slug) {
             .replace(/>{@html `<code class="language-/g, '><code class="language-')
             .replace(/<\/code>`}<\/pre>/g, '</code></pre>')
 
-        return { ...blogpost, content };
+        return {...blogpost, content};
     } else {
         throw new Error('Blogpost not found for slug: ' + slug);
     }
@@ -145,7 +146,7 @@ export async function getContent(slug) {
  */
 function parseIssue(issue) {
     const src = issue.body;
-    const { content, data } = grayMatter(src);
+    const {content, data} = grayMatter(src);
     let title = data.title ?? issue.title;
     let slug;
     if (data.slug) {

@@ -88,6 +88,9 @@ time, mark, audio, video){
         --social-bg: #313133;
         --social-bg-hover: #3b3b3b;
 
+        --repository-card-bg: #19191A;
+        --repository-card-bg-hover: #161617;
+
         --menu-active: #f1f1f1;
         --menu: #ddd;
         --menu-hover: var(--button-hover);
@@ -106,6 +109,9 @@ time, mark, audio, video){
         --social-bg: var(--button-hover);
         --social-bg-hover: #f3f3f3;
 
+        --repository-card-bg: #e3e3e3;
+        --repository-card-bg-hover: #ececec;
+
         --menu-active: #000000;
         --menu: #272727;
         --menu-hover: var(--button-hover);
@@ -122,4 +128,11 @@ time, mark, audio, video){
         display: flex;
         margin-bottom: 3rem;
     }
+
+    @media screen and (max-width: 900px) {
+        :global(.wrapper){
+            padding: 0 10px;
+        }
+    }
+
 </style>

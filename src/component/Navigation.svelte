@@ -12,12 +12,8 @@
             name: 'Notlar'
         },
         {
-            url: '/portfolio',
-            name: 'Projeler'
-        },
-        {
-            url: '/photos',
-            name: 'Fotoğraflar'
+            url: '/library',
+            name: 'Kütüphane'
         },
         {
             url: '/bookmarks',
@@ -127,4 +123,11 @@
       }
     }
   }
+
+  @media screen and (max-width: 900px) {
+    header {
+      display:none; /* temporarily */
+    }
+  }
+
 </style>

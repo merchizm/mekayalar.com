@@ -10,7 +10,7 @@
             {title}  <small>{category}</small>
         </h2>
         <span>
-            {formatDistance(new Date(date), new Date(), { addSuffix: true, locale: tr })} - {format(new Date(date), 'd MMMM, yyyy', { locale: tr })}
+            {formatDistance(new Date(date), new Date(), { addSuffix: true, locale: tr })} · {format(new Date(date), 'd MMMM, yyyy', { locale: tr })}
         </span>
     </div>
 </a>

@@ -23,3 +23,8 @@ export const SOCIAL_CONNECTIONS = {
   github: 'merchizm',
   spotify: 'https://open.spotify.com/user/hkt7thwkuynqutz8jenb3x0wu?si=b6d3752d5e644bd0' // full url
 };
+
+export const GITHUB = {
+  maximum_repos: 5,
+  maximum_gists: 4,
+};

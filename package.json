@@ -1,6 +1,6 @@
 {
 	"name": "mekayalar.com",
-	"version": "0.2.0",
+	"version": "0.4.0",
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build",
@@ -51,7 +51,7 @@
 	"dependencies": {
 		"@giscus/svelte": "^2.0.5",
 		"date-fns": "^2.29.3",
-		"lodash": "^4.17.21",
+		"lodash-es": "^4.17.21",
 		"sass": "^1.52.3",
 		"svelte-preprocess": "^4.10.7"
 	}
