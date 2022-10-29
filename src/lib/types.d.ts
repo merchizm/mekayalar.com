@@ -34,20 +34,9 @@ export type GHMetadata = {
 
 export type Music = {
     name: string;
-    artists: Artists[];
+    artists: string;
     is_playing: boolean;
     url: string;
-}
-
-export type Artists = {
-    external_urls: {
-        [spotify: string]: string;
-    };
-    href: string;
-    id: string;
-    name: string;
-    type: string;
-    uri: string;
 }
 
 export type Bookmark = {

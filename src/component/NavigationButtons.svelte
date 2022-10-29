@@ -135,7 +135,7 @@
                 {@html current_theme}
             </button>
         {/key}
-        <button class="spotify" aria-label={music.is_playing ? music.name+' - '+music.artists[0].name : spotify}
+        <button class="spotify" aria-label={music.is_playing ? music.name + ' - ' + music.artists : spotify}
                 on:click={() => { window.open(music.is_playing ? music.url : spotify_href); }}>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" width="20px" height="20px">
                 <path
