@@ -16,7 +16,7 @@
     <meta name="description" content="Github üzerinde paylaştığım repository'ler ve gist'ler"/>
 </svelte:head>
 
-<p>Burada github üzerindeki paylaşımlarımı ve henüz yapım aşamasında olan projelerimi görebilirsiniz. Bu arada bu web site de Açık Kaynaklı 💜. Dilediğiniz gibi kullanabilir, istediğiniz gibi değiştirebilirisiniz.</p>
+<p>Burada github üzerindeki paylaşımlarımı ve henüz yapım aşamasında olan projelerimi görebilirsiniz. Bu arada bu web site de Açık Kaynaklı 💜. Dilediğiniz gibi kullanabilir, istediğiniz gibi değiştirebilirsiniz.</p>
 
 <h1>Repositories <small>açık kaynak kodlu projeler</small></h1>
 <ul class="github-container">
