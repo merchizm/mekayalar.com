@@ -68,7 +68,7 @@
 
 <header>
     <div>
-        <img src="/avatars/{imageName()}" alt="Hey!">
+        <img src="/avatars/{imageName()}" width="70" height="70" alt="Hey!">
         <div>
             <span>{SITE_TITLE}</span>
             <p>{YOUR_TITLE}</p>

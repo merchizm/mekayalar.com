@@ -97,6 +97,7 @@
   <meta name="description" content="Sakarya'da yaşıyorum. Alaylı bir geliştiriciyim. Bahçeyle ilgilenmeyi, kahve içmeyi ve felsefi kitaplar okumayı seviyorum. Bir şeyler üretmekten aşırı haz duyuyorum, bu yüzden yazılım geliştirme ile ilgileniyorum. "/>
 </svelte:head>
 
+<div class="msg"> Selam ! eğer telefondan giriş yapıyorsan henüz web siteyi tam anlamıyla responsive yapamadım ve navigasyon yok 😬 ama gelecek 🥳 </div>
 <section>
   <h1>Merhaba, Ben Meriç 🖖🏻</h1>
   <p>
@@ -112,6 +113,14 @@
 </DateListSection>
 
 <style lang="scss">
+  .msg{
+    padding: 8px 15px;
+    background-color: #7649be;
+    border-radius: 10px;
+    font-size: 1.1em;
+    margin-bottom: 14px;
+    color: #e5e0ea;
+  }
   section {
     p {
       margin-top: 10px;

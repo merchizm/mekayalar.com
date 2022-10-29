@@ -3,7 +3,7 @@ import { listContent } from '$lib/content';
 
 export async function GET() {
     const posts = await listContent();
-    const pages = [`about`];
+    const pages = [`notes`, `library`, `bookmarks`];
     const body = sitemap(posts, pages);
 
     return new Response(body, {
