@@ -11,12 +11,11 @@
     /** @type {import('$lib/types').ContentItem} */
     $: json = data.json;
 
-    $: canonical = SITE_URL + $page.url.pathname;
 </script>
 
 <svelte:head>
     <title>{json.title}</title>
-    <link rel="canonical" href={canonical}/>
+    {#if json.canonical !== 'self'} <link rel="canonical" href={json.canonical}/> {/if}
     <meta property="og:url" content={SITE_URL}/>
     <meta property="og:type" content="article"/>
     <meta property="og:title" content={json.title}/>
