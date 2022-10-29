@@ -6,8 +6,8 @@
     {
       label: "2022",
       title: "mekayalar.com",
-      location: "Typescript-Svelte-SCSS-HTML",
-      desc: "Kişisel Blog/Portfolio Yazılımım olur kendisi. Açık kaynaklı bir şekilde github hesabımda, dileyen herkes bu yazılımı kendince kullanabilir.",
+      location: "Javascript/ES6-Svelte-SCSS-HTML",
+      desc: "Şu an üzerinde gezdiğiniz sitenin ta kendisi. Aşırı hızlı ve günümüzün teknolojik yaklaşımı incelenerek hazırlandı.",
     },
     {
       label: "2019-2022",
@@ -97,7 +97,7 @@
   <meta name="description" content="Sakarya'da yaşıyorum. Alaylı bir geliştiriciyim. Bahçeyle ilgilenmeyi, kahve içmeyi ve felsefi kitaplar okumayı seviyorum. Bir şeyler üretmekten aşırı haz duyuyorum, bu yüzden yazılım geliştirme ile ilgileniyorum. "/>
 </svelte:head>
 
-<div class="msg"> Selam ! eğer telefondan giriş yapıyorsan henüz web siteyi tam anlamıyla responsive yapamadım ve navigasyon yok 😬 ama gelecek 🥳 </div>
+<div class="msg"> Selam ! eğer telefondan giriş yapıyorsan henüz web siteyi tam anlamıyla responsive yapamadım ayrıca navigasyon yok 😬 ama gelecek 🥳 </div>
 <section>
   <h1>Merhaba, Ben Meriç 🖖🏻</h1>
   <p>
@@ -114,12 +114,13 @@
 
 <style lang="scss">
   .msg{
-    padding: 8px 15px;
+    padding: 20px 25px;
     background-color: #7649be;
     border-radius: 10px;
     font-size: 1.1em;
     margin-bottom: 14px;
     color: #e5e0ea;
+    font-weight: 600;
   }
   section {
     p {
