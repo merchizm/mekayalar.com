@@ -14,6 +14,8 @@
 
 <svelte:head>
     <title>{SITE_TITLE}</title>
+    <meta name="google-site-verification" content="TpG7R6CT46DiDF2pit89AONDeKFpqZH3vyRVSA015ho" />
+    <meta name="yandex-verification" content="7ca57e9247b87813" />
     <meta name="description" content={SITE_DESCRIPTION}>
     <meta name="keywords" content={SITE_KEYWORDS}>
     <link rel="canonical" href={SITE_URL} />
