@@ -15,6 +15,8 @@
 
 <style lang="scss">
     div {
+      padding-bottom: 10px;
+      padding-top:10px;
       p {
         a {
           color: var(--color);

@@ -5,7 +5,7 @@ export const REPO_URL = 'https://github.com/' + GH_USER_REPO;
 export const SITE_TITLE = 'Meriç Enes Kayalar';
 export const YOUR_TITLE = "back-end dev";
 export const SITE_DESCRIPTION = "site description";
-export const SPOTIFY_API_RES = "";
+export const SPOTIFY_API_RES = "https://mekayalar.xyz/api/spotify/json";
 export const SITE_KEYWORDS = `MEK Blog, Meriç Enes Kayalar, Enes Kayalar, M. Enes Kayalar, MEK Portfolio, Merchizm`;
 
 export const GISCUS = {
