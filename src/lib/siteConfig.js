@@ -28,3 +28,22 @@ export const GITHUB = {
   maximum_repos: 5,
   maximum_gists: 4,
 };
+
+export const NAVIGATION = [
+  {
+    url: '/',
+    name: 'Hakkımda'
+  },
+  {
+    url: '/notes',
+    name: 'Notlar'
+  },
+  {
+    url: '/library',
+    name: 'Kütüphane'
+  },
+  {
+    url: '/bookmarks',
+    name: 'Yer İmleri'
+  }
+];

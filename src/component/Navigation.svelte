@@ -1,25 +1,6 @@
 <script>
     import NavLink from './NavigationLink.svelte';
-    import {SITE_TITLE, YOUR_TITLE} from "$lib/siteConfig";
-
-    let navLinks = [
-        {
-            url: '/',
-            name: 'Hakkımda'
-        },
-        {
-            url: '/notes',
-            name: 'Notlar'
-        },
-        {
-            url: '/library',
-            name: 'Kütüphane'
-        },
-        {
-            url: '/bookmarks',
-            name: 'Yer İmleri'
-        }
-    ];
+    import {SITE_TITLE, YOUR_TITLE, NAVIGATION} from "$lib/siteConfig";
 
     const imageName = function () {
         let datetime = new Date(new Date().toLocaleString("en-US", {timeZone: "europe/Istanbul"}));
@@ -76,7 +57,7 @@
     </div>
     <nav>
         <ul>
-            {#each navLinks as {url, name}}
+            {#each NAVIGATION as {url, name}}
                 <NavLink href="{url}">{name}</NavLink>
             {/each}
         </ul>
