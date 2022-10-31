@@ -4,6 +4,12 @@
 
   let projects = [
     {
+      label: "2021-Hala",
+      title: "Todoiva",
+      location: "Vue.js-Electron.js-SCSS-Node.js",
+      desc: "Todoiva yarışma amacı gütmeyen, kendi çizgisinde usulce ilerleyen basit ama şık bir to-do uygulamasıdır. İlk olarak plain javascriptle yazılmıştır fakat layout hatalarının önüne geçilememesi sebebiyle Vue.js kullanılmaya başlanacaktır."
+    },
+    {
       label: "2022",
       title: "mekayalar.com",
       location: "Javascript/ES6-Svelte-SCSS-HTML",
@@ -20,6 +26,12 @@
       title: "PHPSecureLogin",
       location: "PHP",
       desc: "PDO, Redis, JWT, hCaptcha, Google Authenticator gibi teknolojilerin ve servislerin üzerine kurulmuş bir güvenli giriş/üyelik sistemi.",
+    },
+    {
+      label: "2022",
+      title: "CalypsoCore",
+      location: "Discord.js-MongoDB",
+      desc: "Eski bir botu yeniden kullanılabilmesi adına temellerine indirdiğim bir proje. Bu temeller sayesinde çok daha hızlı bir şekilde discord botu geliştirebilirsiniz."
     },
     {
       label: "2022",
@@ -97,7 +109,6 @@
   <meta name="description" content="Sakarya'da yaşıyorum. Alaylı bir geliştiriciyim. Bahçeyle ilgilenmeyi, kahve içmeyi ve felsefi kitaplar okumayı seviyorum. Bir şeyler üretmekten aşırı haz duyuyorum, bu yüzden yazılım geliştirme ile ilgileniyorum. "/>
 </svelte:head>
 
-<div class="msg"> Selam ! eğer telefondan giriş yapıyorsan henüz web siteyi tam anlamıyla responsive yapamadım ayrıca navigasyon yok 😬 ama gelecek 🥳 </div>
 <section>
   <h1>Merhaba, Ben Meriç 🖖🏻</h1>
   <p>
@@ -113,15 +124,6 @@
 </DateListSection>
 
 <style lang="scss">
-  .msg{
-    padding: 20px 25px;
-    background-color: #7649be;
-    border-radius: 10px;
-    font-size: 1.1em;
-    margin-bottom: 14px;
-    color: #e5e0ea;
-    font-weight: 600;
-  }
   section {
     p {
       margin-top: 10px;

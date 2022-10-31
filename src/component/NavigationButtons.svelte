@@ -2,7 +2,7 @@
     import {elasticInOut} from "svelte/easing";
     import {onMount} from 'svelte';
     import {page} from "$app/stores";
-    import {SOCIAL_CONNECTIONS} from "$lib/siteConfig.js";
+    import {SOCIAL_CONNECTIONS, NAVIGATION} from "$lib/siteConfig.js";
 
     $: spotify = 'My Spotify Profile';
     $: spotify_href = SOCIAL_CONNECTIONS.spotify;
@@ -126,10 +126,46 @@
             alert('seems like your browser does not support offline mode, unfortunately my love.');
         }
     }
+
+
+    // TODO: think about it
+    function bionic_reader() {
+        let article = document.querySelector('article').children;
+        let allowed_elements = ['h1', 'h2', 'h3', 'p', 'a', 'div', 'li'];
+        // If we only pull the paragraphs and query the elements in the paragraph,
+        // in this way we will not break the html tags, and we will fulfill the function.
+
+        // but what kind of elements do paragraphs contain?
+
+        for (let i = 1; i < article.length; i++) { // iteration starts with 1 because first item includes metadata
+            if (allowed_elements.indexOf(article[i].tagName.toLowerCase()) !== -1) { // if element is allowed
+                let elementContent = article[i].innerHTML;
+            }
+        }
+
+        f
+    }
 </script>
 
 <div>
     <div>
+        <div class="menu-wrap">
+            <input type="checkbox" class="toggle" id="mobil_nav">
+            <label for="mobil_nav" style="z-index: 11">
+                <div class="hamburger"><svg xmlns="http://www.w3.org/2000/svg" height="24" width="24"><path d="M3.25 17.625v-1.5h17.5v1.5Zm0-4.875v-1.5h17.5v1.5Zm0-4.875v-1.5h17.5v1.5Z"/></svg></div>
+            </label>
+            <div class="menu">
+                <div>
+                    <div>
+                        <ul>
+                            {#each NAVIGATION as {url, name} }
+                                <li><a href="{url}" onclick="document.querySelector('#mobil_nav').click(); // eheheheh temporary solution :3">{name}</a></li>
+                            {/each}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
         {#key current_theme}
             <button in:customTransition on:click={toggleTheme} aria-label="Change Appearance">
                 {@html current_theme}
@@ -270,7 +306,6 @@
         svg {
           fill: #43bd2c;
         }
-
         background-color: transparent;
       }
     }
@@ -284,4 +319,98 @@
       @extend %tooltip;
     }
   }
+  .menu-wrap {
+    .toggle {
+      position: absolute;
+      top: -20px;
+      left: 0;
+      opacity: 0;
+      &:checked {
+        ~ {
+          .menu {
+            visibility: visible;
+            >div {
+              transform: scale(1);
+              transition-duration: 0.3s;
+              >div {
+                opacity: 1;
+                transition: opacity 0.4s ease 0.4s;
+              }
+            }
+          }
+          .hamburger{
+            background-color: var(--button-hover);
+          }
+        }
+      }
+    }
+    .hamburger {
+      box-sizing: border-box;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.5rem;
+      cursor: pointer;
+      height: 2.25rem;
+      width: 2.25rem;
+
+      &:hover {
+        background-color: var(--button-hover);
+        border-radius: 10%;
+      }
+    }
+    .menu {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      visibility: hidden;
+      overflow: hidden;
+      display: flex;
+      z-index: 5;
+      background: var(--background-color);
+      align-items: center;
+      justify-content: center;
+      >div {
+        background: var(--overlay-color);
+        border-radius: 50%;
+        width: 200vw;
+        height: 200vw;
+        display: flex;
+        flex: none;
+        align-items: center;
+        justify-content: center;
+        transform: scale(1);
+        transition: all 0.4s ease;
+        >div {
+          text-align: center;
+          max-width: 90vw;
+          max-height: 100vh;
+          opacity: 0;
+          transition: opacity 0.4s ease;
+          >ul {
+            >li {
+              list-style: none;
+              color: var(--color);
+              font-size: 1.5rem;
+              padding: 1rem;
+              >a {
+                color: inherit;
+                text-decoration: none;
+                transition: color 0.4s ease;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media screen and (min-width: 900px) {
+    .menu-wrap {
+      display: none;
+    }
+  }
+
 </style>

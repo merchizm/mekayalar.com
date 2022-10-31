@@ -43,7 +43,7 @@
     </Container>
 </div>
 
-<ScreenSaver/>
+<!--<ScreenSaver/>-->
 
 <style>
     @import url("https://fonts.googleapis.com/css2?family=Catamaran&display=swap");

@@ -1,12 +1,12 @@
 <script>
     import {formatDistanceToNowStrict, parseISO} from "date-fns";
-    import { tr } from "date-fns/locale";
+    import tr from "date-fns/locale/tr/index";
 
     export let created,domain,title,link;
 </script>
 
 <div>
-    <p><a href="{link}">{title}</a></p>
+    <p><a href="{link}" target="_blank" referrerpolicy="no-referrer">{title}</a></p>
     <span><b>{domain}</b> — {formatDistanceToNowStrict(parseISO(created), {
         addSuffix: true,
         locale: tr,

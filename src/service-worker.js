@@ -1,6 +1,6 @@
 const OFFLINE_PREFIX = 'rocks-offline-';
 const SW = {
-    cache_version: '0.5',
+    cache_version: '0.6',
     offline_assets: [
         '/',
         '/offline/',
@@ -106,7 +106,7 @@ self.addEventListener('fetch', function(event) {
                     }).catch(function () {
                         // If no internet connection, try to match request
                         // to some of our cached resources
-                        return cache.match(event.request);
+                        return cache.match('/offline/'); // go to offline page
                     })
                 })
             );

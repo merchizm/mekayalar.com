@@ -1,6 +1,6 @@
 <script>
     import {format, formatDistance} from "date-fns";
-    import { tr } from "date-fns/locale";
+    import tr from "date-fns/locale/tr/index";
     export let href, title, date, category;
 </script>
 

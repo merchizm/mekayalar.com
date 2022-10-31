@@ -71,4 +71,10 @@
       }
     }
   }
+
+  @media screen and (max-width: 900px) {
+    li{
+      max-width: 90vw;
+    }
+  }
 </style>

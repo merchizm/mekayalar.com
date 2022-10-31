@@ -2,7 +2,7 @@
     import NoteSvg from "./svg/NoteSvg.svelte";
     import TimeSvg from "./svg/TimeSvg.svelte";
     import CommentSvg from "./svg/CommentSvg.svelte";
-    import {tr} from "date-fns/locale";
+    import tr from "date-fns/locale/tr/index";
     import {format, formatDistance} from "date-fns";
 
 
@@ -51,6 +51,12 @@
         align-items: center;
         box-sizing: border-box;
       }
+    }
+  }
+
+  @media screen and (max-width: 900px) {
+    li{
+      max-width: 90vw;
     }
   }
 </style>

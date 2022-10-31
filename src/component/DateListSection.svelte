@@ -64,7 +64,7 @@
       div[id="item"]{
         grid-template-columns: clamp(6em, 30vw, 1.5rem) 1fr;
         margin-bottom: calc(.5 * 1.5em);
-        max-width: 100vw;
+        max-width: 90vw;
       }
     }
   }
