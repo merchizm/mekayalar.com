@@ -12,7 +12,7 @@
     {
       label: "2022",
       title: "mekayalar.com",
-      location: "Javascript/ES6-Svelte-SCSS-HTML",
+      location: "Javascript-Svelte-SCSS-HTML",
       desc: "Şu an üzerinde gezdiğiniz sitenin ta kendisi. Aşırı hızlı ve günümüzün teknolojik yaklaşımı incelenerek hazırlandı.",
     },
     {
@@ -43,7 +43,7 @@
       label: "2018",
       title: "Meido",
       location: "PHP-JavaScript",
-      desc: "Meido, en başta Facebook uygulamasındaki gizli gruplar içerisinde paylaşılan fotoğrafları ve videoları indirebilmek amacıyla gerçekleştirilmiş bir projedir. Proje ilerledikçe sadece Facebook platform’u üzerinden değil, Instagram, Izlesene platformlarını da desteklemiştir. Proje PHP ile geliştirildi, uzak siteden verileri işleyerek kullanıcılara medyalara kolay bir şekilde indirme imkanı sundu. Ne yazık ki platformların sık sık güncellenmesi sonucu oluşan değişiklikler projenin devamlılığına çapa vurdu. Zaten hali hazırda az kullanıcıya erişmesi nedeniyle projeyi devam ettirmeme kararı aldım.",
+      desc: "Meido, en başta Facebook uygulamasındaki gizli gruplar içerisinde paylaşılan fotoğrafları ve videoları indirebilmek amacıyla gerçekleştirilmiş bir projedir. Proje ilerledikçe sadece Facebook platform’u üzerinden değil, Instagram, Izlesene gibi platformları da desteklemiştir. Proje PHP ile geliştirilmiş olup, uzak siteden verileri işleyerek kullanıcılara medyalara kolay bir şekilde indirme imkanı sunmuştur. Ne yazık ki platformların sık sık güncellenmesi sonucu oluşan değişiklikler projenin devamlılığına çapa vurdu. Zaten hali hazırda az kullanıcıya erişmesi nedeniyle projeyi devam ettirmeme kararı aldım.",
     },
     {
       label: "2018",
@@ -54,8 +54,8 @@
     {
       label: "2018",
       title: "Mocean Cleaner",
-      location: "VB.NET veya C#",
-      desc: "Mocean Cleaner, Toyota’nın Sakarya ilçesinde gerçekleştirdiği Teknik Yarışma için geliştirilmiştir. Mocean Cleaner çıkmadan önce internet üzerindeki bir forum için Mocean Personalize olarak ortaya çıkmıştır. Mocean Cleaner’in kullanıcıya sağladığı özellikler ise; Gereksiz veya Artık Dosyaları tepsit etmek ve temizlemek, Programların(Popüler) ürettiği ve kaldırılırken silmediği kayıt defteri kayıtlarını tespit etmesi ve temizlemesi, Gereksiz RAM Kullanımını azaltmak ve kullanıcının performansının sürekliliğini sağlamak, Kullanıcıya yaptığı tarama/temizlik üzerine istatistik sunmak ve uygulamanın kullanıldığı cihaza faydalarını göstermekti. Programın kullanıcı arabirim bileşenleri VisualBasic.NET ile Program içerisinde kullanılan sınıflar C# ile geliştirilmiştir.",
+      location: "VB.NET/C#",
+      desc: "Mocean Cleaner, Toyota’nın Sakarya ilçesinde gerçekleştirdiği Teknik Yarışma için geliştirilmiştir. Mocean Cleaner çıkmadan önce internet üzerindeki bir forum için Mocean Personalize olarak ortaya çıkmıştır. Mocean Cleaner’in kullanıcıya sağladığı özellikler ise; Gereksiz veya Artık Dosyaları tepsit etmek ve temizlemek, (Popüler) Programların ürettiği ve kaldırılırken silmediği kayıt defteri kayıtlarını tespit etmesi ve temizlemesi, Gereksiz RAM Kullanımını azaltmak ve kullanıcının performansının sürekliliğini sağlamak, Kullanıcıya yaptığı tarama/temizlik üzerine istatistik sunmak ve uygulamanın kullanıldığı cihaza faydalarını göstermekti. Programın kullanıcı arabirim bileşenleri VisualBasic.NET ile Program içerisinde kullanılan sınıflar C# ile geliştirilmiştir.",
     },
     {
       label: "2017",
@@ -90,7 +90,7 @@
   ];
   let work = [
     {
-      label: "2020",
+      label: "2020-Hala",
       title: "Freelance Web Developer",
       location: "Bionluk - Fiverr / Remote",
       desc: "Bu iş serüvenimde tamamen yazılım odaklı çalıştım. PHP üzerinde Kendi View-Controller-Model Yapısını kurma şansım oldu. ReflectionClass ile Controller yapısını gerçekleştirdim. View için ise Twig ve OOP’den yararlandım, Sınıfları genellikle composer ile otomatik olarak yükledim. Bazı zamanlar PHP üzerine eklemeler yapmam gerekti, IMAP, REDIS gibi eklentileri kurdum. Zaten pekte uzak olmadığım SOLID, KISS prensiplerini kullandım. Kodların okunabilirliği ve geriye dönük düzenlemeler için PHPDoc’tan vazgeçmedim. Çoğu zaman işin kısalığından dolayı manuel olarak kod kontrolü gerçekleştirsemde PHPUnit Test kütüphanesini genel olarak öğrendim ve bir kaç işimde ve projelerde kullandım."
@@ -107,6 +107,8 @@
 <svelte:head>
   <title>Meriç Enes Kayalar</title>
   <meta name="description" content="Sakarya'da yaşıyorum. Alaylı bir geliştiriciyim. Bahçeyle ilgilenmeyi, kahve içmeyi ve felsefi kitaplar okumayı seviyorum. Bir şeyler üretmekten aşırı haz duyuyorum, bu yüzden yazılım geliştirme ile ilgileniyorum. "/>
+  <meta property="og:description" content="Sakarya'da yaşıyorum. Alaylı bir geliştiriciyim. Bahçeyle ilgilenmeyi, kahve içmeyi ve felsefi kitaplar okumayı seviyorum. Bir şeyler üretmekten aşırı haz duyuyorum, bu yüzden yazılım geliştirme ile ilgileniyorum. "/>
+  <meta property="twitter:description" content="Sakarya'da yaşıyorum. Alaylı bir geliştiriciyim. Bahçeyle ilgilenmeyi, kahve içmeyi ve felsefi kitaplar okumayı seviyorum. Bir şeyler üretmekten aşırı haz duyuyorum, bu yüzden yazılım geliştirme ile ilgileniyorum. " />
 </svelte:head>
 
 <section>

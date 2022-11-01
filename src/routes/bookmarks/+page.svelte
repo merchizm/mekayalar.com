@@ -11,17 +11,18 @@
     let dateStartOfWeek = startOfWeek(new Date(), {weekStartsOn: 1});
     let year = format(dateStartOfWeek, "yyyy");
 </script>
-
 <svelte:head>
     <title>Bookmarks</title>
     <meta name="description" content="Beğendiğim, benim veya sizin için yararlı olacağını düşündüğüm ve saklamak istediğim, kategorize edilmemiş içerikler."/>
+    <meta property="og:description" content="Beğendiğim, benim veya sizin için yararlı olacağını düşündüğüm ve saklamak istediğim, kategorize edilmemiş içerikler." />
+    <meta property="twitter:description" content="Beğendiğim, benim veya sizin için yararlı olacağını düşündüğüm ve saklamak istediğim, kategorize edilmemiş içerikler." />
 </svelte:head>
 
 <p>
     Beğendiğim, benim veya sizin için yararlı olacağını düşündüğüm ve saklamak istediğim, kategorize edilmemiş içerikler.
 </p>
 
-{#each [...Object.entries(json)] as [key, value]}
+{#each [...Object.entries(json).sort((a, b) => parseInt(b) - parseInt(a))] as [key, value]}
     <div id="week_container_{key}">
         <h2>{key}. Hafta, {year}</h2>
         <div id="week">

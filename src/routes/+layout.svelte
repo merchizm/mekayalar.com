@@ -14,17 +14,14 @@
 
 <svelte:head>
     <title>{SITE_TITLE}</title>
-    <meta name="description" content={SITE_DESCRIPTION}>
     <meta name="keywords" content={SITE_KEYWORDS}>
     <meta property="og:site_name" content={SITE_TITLE}>
     <meta property="og:type" content="website" />
     <meta property="og:url" content={SITE_URL}/>
     <meta property="og:title" content={SITE_TITLE} />
-    <meta property="og:description" content={SITE_DESCRIPTION} />
     <meta property="og:image" content="/og_thumb.png"/>
     <meta name="twitter:card" content="summary"/>
     <meta property="twitter:title" content={SITE_TITLE} />
-    <meta property="twitter:description" content={SITE_DESCRIPTION} />
     <meta property="twitter:image" content="/og_thumb.png" />
     <meta name="twitter:creator" content={'@' + SOCIAL_CONNECTIONS.twitter}>
     <meta name="twitter:card" content="summary">

@@ -6,7 +6,7 @@
 </script>
 
 <div>
-    <p><a href="{link}" target="_blank" referrerpolicy="no-referrer">{title}</a></p>
+    <p><a href="{link}" target="_blank" referrerpolicy="no-referrer" rel="nofollow">{title}</a></p>
     <span><b>{domain}</b> — {formatDistanceToNowStrict(parseISO(created), {
         addSuffix: true,
         locale: tr,

@@ -25,7 +25,7 @@
     <h1>{$page.status} — {title}</h1>
 
     {#if $page.status === 404}
-        <p><code>{$page.url.pathname}</code> adında bir sayfa bulunamadı. | <a href={'/ideas/?filter=' + $page.url.pathname.slice(1)}> Sitede arayın</a></p>
+        <p><code>{$page.url.pathname}</code> adında bir sayfa bulunamadı.</p>
         <p>Eğer bunun bir hata olduğunu düşünüyorsanız bana, <a href="mailto:{SOCIAL_CONNECTIONS.mail}">{SOCIAL_CONNECTIONS.mail}</a> üzerinden ulaşın.</p>
     {:else}
         <p>{message}</p>
@@ -34,3 +34,9 @@
         <pre>{$page.error.stack}</pre>
     {/if}
 </div>
+
+<style>
+    a {
+        color: var(--color);
+    }
+</style>

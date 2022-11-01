@@ -1,26 +1,49 @@
 # mekayalar.com
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+Bu repoda [mekayalar.com](mekayalar.com) üzerinde çalışan kodları bulabilirsiniz. Bu yazılım [Vercel](https://vercel.com) üzerinde barındırılmaktadır.
 
-## Developing
+## Geliştirme Süreci
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+* [ ] İngilizce dilinin desteklenmesi
+* [ ] Bionic Reader modülünün bitirilmesi
+* [ ] Gönderileri çevrim dışı olarak kaydetme modülünün bitirilmesi
+* [ ] Genel olarak metinlerin typo'lara ve mantık hatalarına karşı kontrol edilmesi
+* [ ] Skillset için hakkımda kısmına yeni bir component yazılması
+* [ ] Not sayfasındaki stillerin gözden geçirilmesi ve iyileştirilmesi
+* [ ] Notlar kısmına arama modülünün yazılması
+* [ ] Mobil görünümde tooltiplerin kapatılması/çalıştırılmaması
+
+## Kurulum
+
+Kurulum gayet basit, öncelikle repoyu klonlayın:
+
+```bash
+git clone https://github.com/merchizm/mekayalar.com.git
+```
+
+klonlama işleminden sonra gerekli modülleri yükleyin:
+
+```bash
+npm install
+```
+
+modüllerinizi yüklediklten sonra ana dizinde `.env` dosyası oluşturun, içerisine;
+
+* VITE_RAINDROP_ACCESS_TOKEN = [Raindrop.io](https://developer.raindrop.io/v1/authentication/token) API tokeniniz,
+* [Giscus](https://giscus.app/) üzerinden alacağınız repo bilgileri,
+  * VITE_GISCUS_CATEGORY_ID = kategorinizin ID'si,
+  * VITE_GISCUS_REPO_ID = repo ID'niz
+* VITE_GH_TOKEN = [GitHub API](https://docs.github.com/en/rest) tokeniniz
+
+`.env` dosyanızı oluşturduktan sonra yapmanız gereken `src/lib/siteConfig.js` dosyasını kendinize göre düzenlemeniz. Düzenleme ardından projeyi çalıştırabilirsiniz: (spotify API'ı unuttum, onu da şuradan [şey edi ver.](https://github.com/merchizm/mekayalar.com-spotify-api))
 
 ```bash
 npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```bash
+## production için
 npm run build
+## preview için ilk build sonra
+npm run preview
 ```
 
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+## Teşekkürler
+[Zeynep](https://github.com/zynpnaz)'e bana projeyi geliştirirken yardımcı olduğu için özel teşekkürlerimi borçluyum.

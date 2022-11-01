@@ -40,6 +40,9 @@
 
 <svelte:head>
     <title>Notes</title>
+    <meta name="description" content="Tüm notlarım">
+    <meta property="og:description" content="Tüm notlarım" />
+    <meta property="twitter:description" content="Tüm notlarım" />
 </svelte:head>
 
 
