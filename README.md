@@ -5,13 +5,12 @@ Bu repoda [mekayalar.com](mekayalar.com) üzerinde çalışan kodları bulabilir
 ## Geliştirme Süreci
 
 * [ ] İngilizce dilinin desteklenmesi
-* [x] ~~Bionic Reader modülünün bitirilmesi~~
 * [ ] Gönderileri çevrim dışı olarak kaydetme modülünün bitirilmesi
-* [ ] Genel olarak metinlerin typo'lara ve mantık hatalarına karşı kontrol edilmesi
 * [ ] Skillset için hakkımda kısmına yeni bir component yazılması
-* [ ] Not sayfasındaki stillerin gözden geçirilmesi ve iyileştirilmesi
 * [ ] Notlar kısmına arama modülünün yazılması
 * [ ] Mobil görünümde tooltiplerin kapatılması/çalıştırılmaması
+* [x] ~~Not sayfasındaki stillerin gözden geçirilmesi ve iyileştirilmesi~~
+* [x] ~~Bionic Reader modülünün bitirilmesi~~
 
 ## Kurulum
 

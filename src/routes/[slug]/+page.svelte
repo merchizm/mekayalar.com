@@ -74,6 +74,33 @@
     }
   }
 
+  :global(article p) {
+    color: var(--color);
+    padding-top:4px;
+    padding-bottom: 4px;
+  }
+
+  :global(article img) {
+    max-width: 50vw;
+  }
+
+  :global(article h2) {
+    font-size:1.6em;
+  }
+
+  :global(article ol){
+    list-style: none;
+    padding-left: 1.625em;
+  }
+
+  :global(article ol li:before){
+      content: "\2022";
+      color: var(--color);
+      display: inline-block;
+      width: 1em;
+      margin-left: -1em;
+  }
+
   :global(.br-bold){
     display: inline;
     font-weight: 800;
