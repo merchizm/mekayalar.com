@@ -1,6 +1,7 @@
 import {error} from "@sveltejs/kit";
 export const csr = true;
 
+// TODO: try all datas fetch from here, and check request duration
 /**
  * @type {import('@sveltejs/kit').LayoutLoad}
  */

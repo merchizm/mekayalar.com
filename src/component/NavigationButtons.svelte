@@ -127,23 +127,45 @@
         }
     }
 
+    // @see { @link https://github.com/JSneak/bionic-reading-firefox-pdf/blob/master/src/ContentScript/index.js }
+    function highlight_text(text){
+        return text.replace(/\p{L}+/gu, (word) => {
+            const { length } = word;
+            let mid_point = 3;
+            if (length > 3) mid_point = Math.round(length / 2);
+            const firstHalf = word.slice(0, mid_point);
+            const secondHalf = word.slice(mid_point);
+            return `<div class="br-bold">${firstHalf}</div>${secondHalf}`;
+        });
+    }
 
-    // TODO: think about it
     function bionic_reader() {
         let article = document.querySelector('article').children;
-        let allowed_elements = ['h1', 'h2', 'h3', 'p', 'a', 'div', 'li'];
-        // If we only pull the paragraphs and query the elements in the paragraph,
-        // in this way we will not break the html tags, and we will fulfill the function.
-
-        // but what kind of elements do paragraphs contain?
+        let allowed_elements = ['h1', 'h2', 'h3', 'h4', 'h5', 'p', 'font', 'span', 'li'];
+        const parser = new DOMParser();
 
         for (let i = 1; i < article.length; i++) { // iteration starts with 1 because first item includes metadata
             if (allowed_elements.indexOf(article[i].tagName.toLowerCase()) !== -1) { // if element is allowed
-                let elementContent = article[i].innerHTML;
+                const text = parser.parseFromString(article[i].innerHTML, 'text/html');
+                const textArrTransformed = Array.from(text.body.childNodes).map((node) => {
+                    if (node.nodeType === Node.TEXT_NODE) {
+                        return highlight_text(node.textContent);
+                    }
+                    return node.outerHTML;
+                });
+                article[i].innerHTML = textArrTransformed.join(' ');
             }
         }
+    }
 
-        f
+    function bionic_reader_toggle(){
+        if (document.querySelector('.br-bold') === null) {
+            bionic_reader();
+        } else {
+            document.querySelectorAll('.br-bold').forEach((node) => {
+                node.outerHTML = node.textContent;
+            });
+        }
     }
 </script>
 
@@ -190,8 +212,8 @@
                         </svg>
                     </button>
 
-                    <button aria-label="Coming Soon">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="24" width="24">
+                    <button aria-label="Bionic Reader">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="24" width="24" on:click={bionic_reader_toggle}>
                             <path d="M21.17,2.06A13.1,13.1,0,0,0,19,1.87a12.94,12.94,0,0,0-7,2.05,12.94,12.94,0,0,0-7-2,13.1,13.1,0,0,0-2.17.19,1,1,0,0,0-.83,1v12a1,1,0,0,0,1.17,1,10.9,10.9,0,0,1,8.25,1.91l.12.07.11,0a.91.91,0,0,0,.7,0l.11,0,.12-.07A10.9,10.9,0,0,1,20.83,16a1,1,0,0,0,1.17-1v-12A1,1,0,0,0,21.17,2.06ZM11,15.35a12.87,12.87,0,0,0-6-1.48c-.33,0-.66,0-1,0v-10a8.69,8.69,0,0,1,1,0,10.86,10.86,0,0,1,6,1.8Zm9-1.44c-.34,0-.67,0-1,0a12.87,12.87,0,0,0-6,1.48V5.67a10.86,10.86,0,0,1,6-1.8,8.69,8.69,0,0,1,1,0Zm1.17,4.15A13.1,13.1,0,0,0,19,17.87a12.94,12.94,0,0,0-7,2.05,12.94,12.94,0,0,0-7-2.05,13.1,13.1,0,0,0-2.17.19A1,1,0,0,0,2,19.21,1,1,0,0,0,3.17,20a10.9,10.9,0,0,1,8.25,1.91,1,1,0,0,0,1.16,0A10.9,10.9,0,0,1,20.83,20,1,1,0,0,0,22,19.21,1,1,0,0,0,21.17,18.06Z"/>
                         </svg>
                     </button>
