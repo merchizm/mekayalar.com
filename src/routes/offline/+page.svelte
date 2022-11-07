@@ -76,6 +76,8 @@
           display: inline-block;
           width: 1em;
           margin-left: -1em;
+        }
+        li{
           a{
             color: var(--light-color);
             text-decoration: none;
