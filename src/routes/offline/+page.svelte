@@ -65,8 +65,24 @@
         color: var(--light-color);
       }
       ul[id=offline-content]{
+        margin-top: 1em;
+        padding-left: 1.6em;
         li[id=ops]{
+          content: '';
           color: #9c58e1;
+        }
+        li:before{
+          content: "—";
+          display: inline-block;
+          width: 1em;
+          margin-left: -1em;
+          a{
+            color: var(--light-color);
+            text-decoration: none;
+            &:hover{
+              filter: brightness(80%);
+            }
+          }
         }
       }
     }
