@@ -2,7 +2,7 @@
 
 Bu repoda [mekayalar.com](mekayalar.com) üzerinde çalışan kodları bulabilirsiniz. Bu yazılım [Vercel](https://vercel.com) üzerinde barındırılmaktadır.
 
-## Geliştirme Süreci
+## 1.0 Sürümü için Geliştirme Süreci
 
 * [ ] İngilizce dilinin desteklenmesi
 * [ ] Gönderileri çevrim dışı olarak kaydetme modülünün bitirilmesi
@@ -11,6 +11,17 @@ Bu repoda [mekayalar.com](mekayalar.com) üzerinde çalışan kodları bulabilir
 * [ ] Mobil görünümde tooltiplerin kapatılması/çalıştırılmaması
 * [x] ~~Not sayfasındaki stillerin gözden geçirilmesi ve iyileştirilmesi~~
 * [x] ~~Bionic Reader modülünün bitirilmesi~~
+
+## Planlanan Geliştirmeler
+* Dinamik CV, yazdığınız yazılım dillerine göre değişen CV
+* Takvim üzerinden müsaitlik kontrolü
+* belki randevu almak için bir modül
+* projeler için detay içeren modal veya sayfa
+* makale sayfasında ekranın uykuya geçmesini engellemek
+* makale için paylaşım butonları/menüsü
+* ekran koruyucusunun üst üste aynı hoşçakalı göstermemesi üzerine düzenleme
+
+geliştirme sürecini [buradan](https://github.com/users/merchizm/projects/7) kontrol edebilirsiniz.
 
 ## Kurulum
 

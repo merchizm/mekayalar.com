@@ -1,9 +1,8 @@
 <script>
     import Comments from '../../component/Comments.svelte';
     import {SOCIAL_CONNECTIONS, SITE_URL, SITE_DESCRIPTION} from '$lib/siteConfig.js';
-    import {page} from '$app/stores';
-    import {format, formatDistance} from "date-fns";
-    import {tr} from "date-fns/locale";
+    import {formatDistance} from "date-fns";
+    import tr from "date-fns/locale/tr/index";
 
     /** @type {import('./$types').PageData} */
     export let data;

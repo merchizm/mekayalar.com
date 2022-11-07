@@ -10,7 +10,7 @@
       desc: "Todoiva yarışma amacı gütmeyen, kendi çizgisinde usulce ilerleyen basit ama şık bir to-do uygulamasıdır. İlk olarak plain javascriptle yazılmıştır fakat layout hatalarının önüne geçilememesi sebebiyle Vue.js kullanılmaya başlanacaktır."
     },
     {
-      label: "2022",
+      label: "2022-Hala",
       title: "mekayalar.com",
       location: "Javascript-Svelte-SCSS-HTML",
       desc: "Şu an üzerinde gezdiğiniz sitenin ta kendisi. Aşırı hızlı ve günümüzün teknolojik yaklaşımı incelenerek hazırlandı.",
@@ -31,13 +31,13 @@
       label: "2022",
       title: "CalypsoCore",
       location: "Discord.js-MongoDB",
-      desc: "Eski bir botu yeniden kullanılabilmesi adına temellerine indirdiğim bir proje. Bu temeller sayesinde çok daha hızlı bir şekilde discord botu geliştirebilirsiniz."
+      desc: "Eski bir botu yeniden kullanılabilmesi adına temellerine indirdiğim bir proje. Bu temeller sayesinde çok daha hızlı bir şekilde discord botu geliştirme imkanı sağlıyor."
     },
     {
       label: "2022",
       title: "SQLite Helper",
       location: "Python",
-      desc: "Nesne tabanlı programlama dersimden aldığım proje ödevi, Oluşturduğum Python sınıfı sayesinde SQLite tablolarınızı daha kolay bir şekilde Terminal üzerinden yönetebileceğiniz yazılımım.",
+      desc: "Nesne tabanlı programlama dersimden aldığım proje ödevi, Oluşturduğum Python sınıfı sayesinde SQLite CRUD işlemlerinizi terminal üzerinden basit bir arayüzle gerçekleştirebiliyorsunuz.",
     },
     {
       label: "2018",
