@@ -90,7 +90,7 @@
 
     function save_offline() {
         if ('serviceWorker' in navigator && navigator.onLine) {
-            let saved_svg = `<svg xmlns="http://www.w3.org/2000/svg" height="24" width="24"><path d="M17.475 9 15 6.525l1.05-1.075 1.425 1.425L21 3.325 22.075 4.4ZM5.5 20.25V5.3q0-.75.525-1.275Q6.55 3.5 7.3 3.5H13V5H7.3q-.1 0-.2.1t-.1.2v12.65l5-2.15 5 2.15V11h1.5v9.25l-6.5-2.8ZM7 5h6-1Z"/></svg>`;
+            let saved_svg = `<svg xmlns="http://www.w3.org/2000/svg" fill="#A61137" height="24" width="24"><path d="M17.475 9 15 6.525l1.05-1.075 1.425 1.425L21 3.325 22.075 4.4ZM5.5 20.25V5.3q0-.75.525-1.275Q6.55 3.5 7.3 3.5H13V5H7.3q-.1 0-.2.1t-.1.2v12.65l5-2.15 5 2.15V11h1.5v9.25l-6.5-2.8ZM7 5h6-1Z"/></svg>`;
             let currentPath = window.location.pathname;
             let pageResources = [currentPath];
             let images = document.querySelectorAll('#container img');
@@ -123,7 +123,7 @@
                 }
             });
         } else {
-            alert('seems like your browser does not support offline mode, unfortunately my love.');
+            console.error('seems like your browser does not support offline mode, unfortunately my love.');
         }
     }
 
@@ -206,7 +206,7 @@
         <div class="article-buttons">
             <div class="icons">
                 {#if $page.params.slug}
-                    <button aria-label="Coming Soon" id="cache_button" on:click={save_offline}>
+                    <button aria-label="Save Article" id="cache_button" on:click={save_offline}>
                         <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24">
                             <path d="M7.075 17.85 12 15.725 16.925 17.85V5.1Q16.925 5.1 16.925 5.1Q16.925 5.1 16.925 5.1H7.075Q7.075 5.1 7.075 5.1Q7.075 5.1 7.075 5.1ZM5.2 20.7V5.1Q5.2 4.325 5.75 3.775Q6.3 3.225 7.075 3.225H16.925Q17.7 3.225 18.25 3.775Q18.8 4.325 18.8 5.1V20.7L12 17.8ZM16.925 5.1H12H7.075Q7.075 5.1 7.075 5.1Q7.075 5.1 7.075 5.1H16.925Q16.925 5.1 16.925 5.1Q16.925 5.1 16.925 5.1Z"/>
                         </svg>

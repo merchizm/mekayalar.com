@@ -3,6 +3,7 @@
 
     onMount(() => {
         (function () {
+            // @see { @link https://chrisruppel.com/blog/service-worker-offline-content-list/ }
             "use strict";
 
             document.getElementById('offline-title').innerText = navigator && navigator.onLine ? 'Kaydettiğin İçerikler' : 'Görünüşe bakılırsa internetin yok';
@@ -26,7 +27,7 @@
 
                                 // The cache name indicates that it was saved by the user.
                                 let cacheEntry = document.createElement('li');
-                                cacheEntry.innerHTML = '<a href="' + cachedURL + '">' + cacheName.split('/')[2].split('-').join(' ') + '</a>';
+                                cacheEntry.innerHTML = '<a href="' + cachedURL + '">' + cacheName.split('/')[1].split('-').join(' ') + '</a>';
 
                                 // Append to DOM.
                                 if (!!offlineContentEntry) {

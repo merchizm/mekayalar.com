@@ -5,10 +5,10 @@ Bu repoda [mekayalar.com](mekayalar.com) üzerinde çalışan kodları bulabilir
 ## 1.0 Sürümü için Geliştirme Süreci
 
 * [ ] İngilizce dilinin desteklenmesi
-* [ ] Gönderileri çevrim dışı olarak kaydetme modülünün bitirilmesi
 * [ ] Skillset için hakkımda kısmına yeni bir component yazılması
 * [ ] Notlar kısmına arama modülünün yazılması
 * [ ] Mobil görünümde tooltiplerin kapatılması/çalıştırılmaması
+* [x] ~~Gönderileri çevrim dışı olarak kaydetme modülünün bitirilmesi~~
 * [x] ~~Not sayfasındaki stillerin gözden geçirilmesi ve iyileştirilmesi~~
 * [x] ~~Bionic Reader modülünün bitirilmesi~~
 
