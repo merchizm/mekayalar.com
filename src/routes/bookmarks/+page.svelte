@@ -16,6 +16,8 @@
     <meta name="description" content="Beğendiğim, benim veya sizin için yararlı olacağını düşündüğüm ve saklamak istediğim, kategorize edilmemiş içerikler."/>
     <meta property="og:description" content="Beğendiğim, benim veya sizin için yararlı olacağını düşündüğüm ve saklamak istediğim, kategorize edilmemiş içerikler." />
     <meta property="twitter:description" content="Beğendiğim, benim veya sizin için yararlı olacağını düşündüğüm ve saklamak istediğim, kategorize edilmemiş içerikler." />
+    <meta property="og:title" content='Bookmarks'/>
+    <meta name="twitter:title" content='Bookmarks'/>
 </svelte:head>
 
 <p>

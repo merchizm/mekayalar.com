@@ -6,8 +6,9 @@ Bu repoda [mekayalar.com](mekayalar.com) üzerinde çalışan kodları bulabilir
 
 * [ ] İngilizce dilinin desteklenmesi
 * [ ] Skillset için hakkımda kısmına yeni bir component yazılması
-* [ ] Notlar kısmına arama modülünün yazılması
-* [ ] Mobil görünümde tooltiplerin kapatılması/çalıştırılmaması
+* [ ] ~~Mobil görünümde tooltiplerin kapatılması/çalıştırılmaması~~
+  * sanırım bunu gerçekleştirebileceğim bir yol yok.
+* [x] ~~Notlar kısmına arama modülünün yazılması~~
 * [x] ~~Gönderileri çevrim dışı olarak kaydetme modülünün bitirilmesi~~
 * [x] ~~Not sayfasındaki stillerin gözden geçirilmesi ve iyileştirilmesi~~
 * [x] ~~Bionic Reader modülünün bitirilmesi~~

@@ -1,63 +1,61 @@
 <script>
     import {SOCIAL_CONNECTIONS} from "$lib/siteConfig";
-    import {onMount} from "svelte";
     let screen_saver;
     let span;
-    onMount(() => {
-        let mouseX = 0;
-        let mouseY = 0;
-        const byeArray = ['körişirbiz', 'görüşürüz', 'αντιο', 'ցտեսություն', 'bi xatirê te', 'ნახვამდის', 'довиждане', 'увидимся', 'хayr', 'көрүшкөнчө', 'кездескенше', 'találkozunk', '또 봐요', 'tschüss', 'goodbye', 'doei', 'au revoir', 'şalom', 'vale', 'namaste', 'さようなら', 'vemo-nos', 'прощай', 'slán', 'hüvasti'];
-        let interval = null;
-        let timerId = null;
 
-        function throttleFunction(func, delay) {
-            if (timerId) {
-                return
-            }
-            timerId = setTimeout(function () {
-                func()
-                timerId = undefined;
-            }, delay)
+    let mouseX = 0;
+    let mouseY = 0;
+    const byeArray = ['körişirbiz', 'görüşürüz', 'αντιο', 'ցտեսություն', 'bi xatirê te', 'ნახვამდის', 'довиждане', 'увидимся', 'хayr', 'көрүшкөнчө', 'кездескенше', 'találkozunk', '또 봐요', 'tschüss', 'goodbye', 'doei', 'au revoir', 'şalom', 'vale', 'namaste', 'さようなら', 'vemo-nos', 'прощай', 'slán', 'hüvasti'];
+    let interval = null;
+    let timerId = null;
+
+    function throttleFunction(func, delay) {
+        if (timerId) {
+            return
         }
+        timerId = setTimeout(function () {
+            func()
+            timerId = undefined;
+        }, delay)
+    }
 
-        let loop = (span, array) => {
-            let rand = Math.floor(Math.random() * array.length);
-            span.innerText = array[rand];
+    let loop = (span, array) => {
+        let rand = Math.floor(Math.random() * array.length);
+        span.innerText = array[rand];
 
-            let index = 0;
-            return setInterval(function () {
-                if (array.length > index) {
-                    let rand = Math.floor(Math.random() * array.length);
-                    span.innerText = array[rand];
-                    index++;
-                } else
-                    index = 0;
-            }, 1000);
-        }
-        if (typeof document !== 'undefined') {
-            document.addEventListener("mousemove", function (e) {
-                mouseX = e.clientX;
-                mouseY = e.clientY;
+        let index = 0;
+        return setInterval(function () {
+            if (array.length > index) {
+                let rand = Math.floor(Math.random() * array.length);
+                span.innerText = array[rand];
+                index++;
+            } else
+                index = 0;
+        }, 1000);
+    }
+
+
+    const mouseMove = (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+        screen_saver.style.display = 'none';
+    }
+
+    const mouseLeave = () => {
+        throttleFunction(function () {
+            if (mouseY < 60) {
+                if (screen_saver.style.display === 'none')
+                    screen_saver.style.display = 'flex';
+                else
+                    screen_saver.style.display = 'none';
+                clearInterval(interval);
+                interval = loop(span, byeArray);
+            } else {
+                clearInterval(interval);
                 screen_saver.style.display = 'none';
-            });
-
-            document.addEventListener("mouseleave", (function () {
-                throttleFunction(function () {
-                    if (mouseY < 100) {
-                        if (screen_saver.style.display === 'none')
-                            screen_saver.style.display = 'flex';
-                        else
-                            screen_saver.style.display = 'none';
-                        clearInterval(interval);
-                        interval = loop(span, byeArray);
-                    } else {
-                        clearInterval(interval);
-                        screen_saver.style.display = 'none';
-                    }
-                }, 300);
-            }));
-        }
-    });
+            }
+        }, 300);
+    }
 </script>
 
 <div bind:this={screen_saver} style="display: none">
@@ -65,6 +63,9 @@
     <span class="bottom">Mesajınızı bekliyorum</span>
     <a href={'mailto:' + SOCIAL_CONNECTIONS.mail} class="bottom">{SOCIAL_CONNECTIONS.mail}</a>
 </div>
+
+<svelte:window on:mousemove={mouseMove} />
+<svelte:body on:mouseleave={mouseLeave} />
 
 <style lang="scss">
   div {

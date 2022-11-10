@@ -94,21 +94,17 @@
             let currentPath = window.location.pathname;
             let pageResources = [currentPath];
             let images = document.querySelectorAll('#container img');
-            let scripts = document.querySelectorAll('script[src]');
             let styles = document.querySelectorAll('link[rel="stylesheet"]');
             // get all stylesheets
             styles.forEach(style => {
                 pageResources.push(style.href);
-            });
-            // get all scripts
-            scripts.forEach(script => {
-                pageResources.push(script.src);
             });
             // get all images on the page
             images.forEach(function (img) {
                 pageResources.push(img.src);
             });
 
+            console.table(pageResources, ['Resource URL']);
             let pageCache = caches.match(window.location.href);
             pageCache.then(function (response) {
                 if (typeof response !== 'undefined') {
@@ -123,7 +119,6 @@
                         updateCache.then(function () {
                             document.getElementById('cache_button').innerHTML = saved_svg;
                             document.getElementById('cache_button').ariaLabel = 'Article Saved for Offline';
-
                             console.log('Article is now available offline.');
                         }).catch(function (error) {
                             console.error('Article could not be saved offline.', error);

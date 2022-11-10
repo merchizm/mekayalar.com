@@ -43,7 +43,15 @@
 <ScreenSaver/>
 
 <style>
-    @import url("https://fonts.googleapis.com/css2?family=Catamaran&display=swap");
+    @font-face {
+        font-family: 'Catamaran';
+        font-style: normal;
+        font-weight: 400;
+        src: local(''),
+        url('./fonts/catamaran-v17-latin-ext-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+        url('./fonts/catamaran-v17-latin-ext-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+    }
+
     :global(html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -63,11 +71,6 @@ time, mark, audio, video){
         vertical-align: baseline;
     }
 
-    /* HTML5 display-role reset for older browsers */
-    :global(article, aside, details, figcaption, figure,
-    footer, header, hgroup, menu, nav, section) {
-        display: block;
-    }
 
     :global(ol, ul) {
         list-style: none;

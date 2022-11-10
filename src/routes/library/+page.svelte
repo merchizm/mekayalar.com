@@ -16,6 +16,8 @@
     <meta name="description" content="Github üzerinde paylaştığım repository'ler ve gist'ler"/>
     <meta property="og:description" content="Github üzerinde paylaştığım repository'ler ve gist'ler" />
     <meta property="twitter:description" content="Github üzerinde paylaştığım repository'ler ve gist'ler" />
+    <meta property="og:title" content='Library'/>
+    <meta name="twitter:title" content='Library'/>
 </svelte:head>
 
 <p>Burada github üzerindeki paylaşımlarımı ve henüz yapım aşamasında olan projelerimi görebilirsiniz. Bu arada bu web site de Açık Kaynaklı 💜. Dilediğiniz gibi kullanabilir, istediğiniz gibi değiştirebilirsiniz.</p>

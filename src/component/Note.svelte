@@ -19,7 +19,7 @@
   a {
     text-decoration: none;
     div {
-      margin: 40px 0;
+      margin: 1.6em 0;
 
       h2 {
         font-size: 1.2em;
