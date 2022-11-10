@@ -21,7 +21,7 @@ Bu repoda [mekayalar.com](mekayalar.com) üzerinde çalışan kodları bulabilir
 * makale için paylaşım butonları/menüsü
 * ekran koruyucusunun üst üste aynı hoşçakalı göstermemesi üzerine düzenleme
 
-geliştirme sürecini [buradan](https://github.com/users/merchizm/projects/7) kontrol edebilirsiniz.
+geliştirme sürecini [buradan](https://github.com/users/merchizm/projects/7) takip edebilirsiniz.
 
 ## Kurulum
 

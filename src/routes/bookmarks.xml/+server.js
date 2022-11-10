@@ -1,6 +1,6 @@
 import RSS from 'rss';
 import {SITE_TITLE, SITE_URL, SOCIAL_CONNECTIONS} from '$lib/siteConfig';
-import { listContent } from '$lib/content';
+import {getBookmarks} from '$lib/bookmarks.js';
 
 // Reference: https://github.com/sveltejs/kit/blob/master/examples/hn.svelte.dev/src/routes/%5Blist%5D/rss.js
 /** @type {import('@sveltejs/kit').RequestHandler} */
@@ -11,7 +11,7 @@ export async function GET() {
         feed_url: SITE_URL + '/bookmarks.xml'
     });
 
-    const bookmarks = await listContent();
+    const bookmarks = await getBookmarks(0);
     bookmarks.forEach((bookmark) => {
         feed.item({
             id: String(bookmark._id),

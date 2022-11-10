@@ -1,6 +1,6 @@
 <script>
     import Comments from '../../component/Comments.svelte';
-    import {SOCIAL_CONNECTIONS, SITE_URL, SITE_DESCRIPTION} from '$lib/siteConfig.js';
+    import {SOCIAL_CONNECTIONS, SITE_URL} from '$lib/siteConfig.js';
     import {formatDistance} from "date-fns";
     import tr from "date-fns/locale/tr/index";
 
@@ -62,6 +62,8 @@
     color: var(--color);
     text-decoration: none;
 
+
+
     &:hover {
       color: var(--light-color);
       filter: brightness(70%);
@@ -81,6 +83,16 @@
 
   :global(article img) {
     max-width: 50vw;
+    vertical-align: middle;
+    margin: 1em auto;
+  }
+
+  @media (max-width: 900px) {
+    :global(article img) {
+      max-width: 100%;
+      -o-object-fit: cover;
+      object-fit: cover;
+    }
   }
 
   :global(article h2) {
