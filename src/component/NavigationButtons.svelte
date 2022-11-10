@@ -94,7 +94,16 @@
             let currentPath = window.location.pathname;
             let pageResources = [currentPath];
             let images = document.querySelectorAll('#container img');
-
+            let scripts = document.querySelectorAll('script[src]');
+            let styles = document.querySelectorAll('link[rel="stylesheet"]');
+            // get all stylesheets
+            styles.forEach(style => {
+                pageResources.push(style.href);
+            });
+            // get all scripts
+            scripts.forEach(script => {
+                pageResources.push(script.src);
+            });
             // get all images on the page
             images.forEach(function (img) {
                 pageResources.push(img.src);

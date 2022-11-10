@@ -1,6 +1,6 @@
 const OFFLINE_PREFIX = 'rocks-offline-';
 const SW = {
-    cache_version: '0.8',
+    cache_version: '1.0.0',
     offline_assets: [
         '/',
         '/offline/',
