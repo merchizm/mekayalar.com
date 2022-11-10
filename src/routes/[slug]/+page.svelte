@@ -84,7 +84,8 @@
   :global(article img) {
     max-width: 50vw;
     vertical-align: middle;
-    margin: 1em auto;
+    margin: 1em;
+    border-radius: 5px;
   }
 
   @media (max-width: 900px) {

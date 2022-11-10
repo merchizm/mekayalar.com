@@ -23,6 +23,8 @@ export async function getBookmarks(page){
     const data = await res.json();
 
     if (await data.count === perPage) {
+        // no witnesses 🤡
+        console.log(data);
         return data.items.concat(await getBookmarks(page + 1));
     } else {
         return data.items;

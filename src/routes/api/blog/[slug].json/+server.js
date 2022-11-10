@@ -10,7 +10,7 @@ export async function GET({ params }) {
         data = await getContent(slug);
         return new Response(JSON.stringify(data), {
             headers: {
-                'Cache-Control': `max-age=0, s-maxage=${60}` // 1 minute.. for now
+                'Cache-Control': `max-age=0, s-maxage=${60}`
             }
         });
     } catch (err) {
