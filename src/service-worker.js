@@ -1,6 +1,6 @@
 const OFFLINE_PREFIX = 'rocks-offline-';
 const SW = {
-    cache_version: '1.0.0',
+    cache_version: '1.0.1',
     offline_assets: [
         '/',
         '/offline/',
@@ -16,7 +16,10 @@ const SW = {
         '/avatars/e2d438d2ec8ef9e19dc417e4b558bdda.png',
         '/avatars/e9f2754ca22e94ab8bc7c13c9b1bff34.png',
         '/avatars/ea352eec188313b0e1f3c845b59de229.png',
-        'og_thumb.png'
+        'og_thumb.png',
+        'favicon.ico',
+        '/fonts/catamaran-v17-latin-ext-regular.woff',
+        '/fonts/catamaran-v17-latin-ext-regular.woff2'
     ]
 };
 

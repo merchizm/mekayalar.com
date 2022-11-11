@@ -117,7 +117,7 @@ time, mark, audio, video){
         --menu-hover-text: #3b3939;
 
         -webkit-font-smoothing: antialiased;
-        font-family: 'Catamaran', sans-serif;
+        font-family: Catamaran, sans-serif;
         background-color: var(--background-color);
         color: var(--color);
     }
