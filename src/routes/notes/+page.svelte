@@ -78,9 +78,9 @@
         {/each}
         {#if isTruncated}
             <div>
-                <button on:click={() => (isTruncated = false)}>
+                <a on:click={() => (isTruncated = false)}>
                     Load More Posts...
-                </button>
+                </a>
             </div>
         {/if}
     {/if}
@@ -114,7 +114,7 @@
     }
     svg{
       position: absolute;
-      right: 97px;
+      right: 6vw;
       top: 8px;
       fill: var(--svg);
       margin-right:2em;
@@ -129,9 +129,16 @@
         margin-right: 0.2em;
       }
       svg{
-        right: -5px;
+        right: 4vw;
         top: 8px;
         fill: var(--svg);
+      }
+    }
+  }
+  @media (max-width: 600px) {
+    .search_input {
+      svg{
+        right: 2.1vw;
       }
     }
   }

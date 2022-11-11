@@ -93,6 +93,7 @@
       max-width: 100%;
       -o-object-fit: cover;
       object-fit: cover;
+      margin:0;
     }
   }
 
