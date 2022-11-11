@@ -314,6 +314,7 @@
       cursor: pointer;
       height: 2.25rem;
       width: 2.25rem;
+      transition: all 0.3s ease;
 
       &:focus {
         outline: none;

@@ -4,7 +4,7 @@ Bu repoda [mekayalar.com](mekayalar.com) üzerinde çalışan kodları bulabilir
 
 ## 1.0 Sürümü için Geliştirme Süreci
 
-* [ ] İngilizce dilinin desteklenmesi
+* [ ] İngilizce dilinin desteklenmesi 
 * [ ] Skillset için hakkımda kısmına yeni bir component yazılması
 * [ ] ~~Mobil görünümde tooltiplerin kapatılması/çalıştırılmaması~~
   * sanırım bunu gerçekleştirebileceğim bir yol yok.

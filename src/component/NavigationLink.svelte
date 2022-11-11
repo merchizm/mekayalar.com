@@ -27,7 +27,7 @@
       padding: 3px 8px;
       border-radius: 7px;
       color: var(--menu);
-
+      transition: all 0.4s ease;
       &:hover {
         background-color: var(--menu-hover);
         filter: brightness(90%);

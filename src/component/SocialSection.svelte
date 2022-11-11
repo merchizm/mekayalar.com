@@ -47,7 +47,6 @@
 
     a {
       text-decoration: none;
-
       svg {
         width: 25px;
         margin-right: 5px;
@@ -55,7 +54,7 @@
         border: 2px solid var(--social-bg);
         border-radius: 25%;
         background-color: var(--social-bg);
-
+        transition: all 0.2s ease-in-out;
         &:hover {
           border-color: var(--social-bg-hover);
           background-color: var(--social-bg-hover);

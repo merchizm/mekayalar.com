@@ -77,12 +77,18 @@
                   category={item.category}/>
         {/each}
         {#if isTruncated}
-            <div>
-                <a on:click={() => (isTruncated = false)}>
+                <a href="#" on:click={() => (isTruncated = false)} class="show_more">
                     Load More Posts...
                 </a>
-            </div>
         {/if}
+    {:else if search}
+        <div class="no_notes">
+            <p>No notes found for <code>{search}</code>.</p>
+
+            <a href="#" on:click={() => (search = '')}>Clear your search</a>
+        </div>
+    {:else}
+        <div class="no_notes">No notes found!</div>
     {/if}
 </div>
 
@@ -90,6 +96,40 @@
   p {
     font-size: 1.3em;
     margin-bottom: 2rem;
+  }
+
+  .no_notes{
+    color: var(--light-color);
+    margin-bottom: 1em;
+    margin-top: 2em;
+    p{
+      font-size: 1.5em;
+      code{
+        background-color: var(--social-bg);
+        color: var(--color);
+      }
+    }
+    a{
+      text-decoration: none;
+      color: var(--color);
+      font-weight: bold;
+      padding: 0.8em 1.2em;
+      background-color: var(--menu-hover);
+      border-radius: 1em;
+      transition: background-color 0.5s ease;
+      &:hover{
+        background-color: #7a3ebf;
+      }
+      &:focus{
+        outline: none;
+        filter: drop-shadow(0 0 0.1rem #7a3ebf);
+      }
+    }
+  }
+
+  .show_more{
+    color: var(--light-color);
+    text-decoration: none;
   }
 
   .search_input {
