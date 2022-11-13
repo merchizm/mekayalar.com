@@ -1,20 +1,20 @@
-import {error} from "@sveltejs/kit";
+import { error } from '@sveltejs/kit';
 export const csr = true;
 
 // TODO: try all datas fetch from here, and check request duration
 /**
  * @type {import('@sveltejs/kit').LayoutLoad}
  */
-export async function load({fetch}) {
-    let res = null;
-    try {
-        res = await fetch(`/api/currentlyPlaying.json`);
-        if (res.status > 400) {
-            return new Response(await res.text(), { status:  res.status });
-        }
-        return await res.json();
-    } catch (err) {
-        console.error('error fetching currently playing music on spotify, ', res, err);
-        throw error(500, 'error fetching currently playing music on spotify : ' + res );
-    }
+export async function load({ fetch }) {
+	let res = null;
+	try {
+		res = await fetch(`/api/currentlyPlaying.json`);
+		if (res.status > 400) {
+			return new Response(await res.text(), { status: res.status });
+		}
+		return await res.json();
+	} catch (err) {
+		console.error('error fetching currently playing music on spotify, ', res, err);
+		throw error(500, 'error fetching currently playing music on spotify : ' + res);
+	}
 }

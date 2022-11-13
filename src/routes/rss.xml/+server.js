@@ -5,29 +5,29 @@ import { listContent } from '$lib/content';
 // Reference: https://github.com/sveltejs/kit/blob/master/examples/hn.svelte.dev/src/routes/%5Blist%5D/rss.js
 /** @type {import('@sveltejs/kit').RequestHandler} */
 export async function GET() {
-    const feed = new RSS({
-        title: SITE_TITLE + ' RSS',
-        site_url: SITE_URL,
-        feed_url: SITE_URL + '/rss.xml',
-        language: 'tr'
-    });
+	const feed = new RSS({
+		title: SITE_TITLE + ' RSS',
+		site_url: SITE_URL,
+		feed_url: SITE_URL + '/rss.xml',
+		language: 'tr'
+	});
 
-    const allBlogs = await listContent();
-    allBlogs.forEach((post) => {
-        feed.item({
-            title: post.title,
-            url: SITE_URL + `/${post.slug}`,
-            date: post.date,
-            description: post.description
-        });
-    });
+	const allBlogs = await listContent();
+	allBlogs.forEach((post) => {
+		feed.item({
+			title: post.title,
+			url: SITE_URL + `/${post.slug}`,
+			date: post.date,
+			description: post.description
+		});
+	});
 
-    return new Response(feed.xml({ indent: true }), {
-        headers: {
-            'Cache-Control': `max-age=0, s-maxage=${600}`, // 10 minutes
-            'Content-Type': 'application/rss+xml'
-        }
-    });
+	return new Response(feed.xml({ indent: true }), {
+		headers: {
+			'Cache-Control': `max-age=0, s-maxage=${600}`, // 10 minutes
+			'Content-Type': 'application/rss+xml'
+		}
+	});
 }
 
 // misc notes for future users

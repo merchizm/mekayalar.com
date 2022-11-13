@@ -2,16 +2,16 @@ import { SITE_URL } from '$lib/siteConfig';
 import { listContent } from '$lib/content';
 
 export async function GET() {
-    const posts = await listContent();
-    const pages = [`notes`, `library`, `bookmarks`];
-    const body = sitemap(posts, pages);
+	const posts = await listContent();
+	const pages = [`notes`, `library`, `bookmarks`];
+	const body = sitemap(posts, pages);
 
-    return new Response(body, {
-        headers: {
-            'Cache-Control': `max-age=0, s-maxage=${3600}`,
-            'Content-Type': 'application/xml'
-        }
-    });
+	return new Response(body, {
+		headers: {
+			'Cache-Control': `max-age=0, s-maxage=${3600}`,
+			'Content-Type': 'application/xml'
+		}
+	});
 }
 
 const sitemap = (posts, pages) => `<?xml version="1.0" encoding="UTF-8" ?>
@@ -29,27 +29,27 @@ const sitemap = (posts, pages) => `<?xml version="1.0" encoding="UTF-8" ?>
       <priority>0.7</priority>
     </url>
     ${pages
-    .map(
-        (page) => `
+			.map(
+				(page) => `
     <url>
       <loc>${SITE_URL}/${page}</loc>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
     `
-    )
-    .join('')}
+			)
+			.join('')}
     ${posts
-    .map((post) =>
-        post.isPrivate
-            ? null
-            : `
+			.map((post) =>
+				post.isPrivate
+					? null
+					: `
     <url>
       <loc>${SITE_URL}/${post.slug}</loc>
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
     `
-    )
-    .join('')}
+			)
+			.join('')}
   </urlset>`;
