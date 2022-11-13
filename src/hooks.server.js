@@ -23,7 +23,6 @@ const minification_options = {
 export async function handle({ event, resolve }) {
     const response = await resolve(event);
 
-
     if (response.headers.get('content-type') === 'text/html') {
         return new Response(minify(await response.text(), minification_options), {
             status: response.status,

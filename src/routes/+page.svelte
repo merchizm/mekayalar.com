@@ -1,6 +1,7 @@
 <script>
   import SocialSection from "../component/SocialSection.svelte";
   import DateListSection from "../component/DateListSection.svelte";
+  import SkillsetSection from "../component/SkillsetSection.svelte";
 
   let projects = [
     {

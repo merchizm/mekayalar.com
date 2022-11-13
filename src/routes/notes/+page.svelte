@@ -4,7 +4,7 @@
     import { goto } from '$app/navigation';
 
     import Note from '../../component/Note.svelte';
-
+    import autoAnimate from "@formkit/auto-animate";
     /** @type {import('./$types').PageData} */
     export let data;
 
@@ -71,25 +71,25 @@
         <input type="text" aria-label="Search Notes" placeholder="Hit / to search" bind:value={search} bind:this={inputElement}>
         <svg xmlns="http://www.w3.org/2000/svg" height="20" width="20"><path d="m19.55 20.575-6.3-6.275q-.75.625-1.725.975-.975.35-2 .35-2.575 0-4.35-1.775Q3.4 12.075 3.4 9.5q0-2.55 1.775-4.338 1.775-1.787 4.35-1.787 2.55 0 4.325 1.775 1.775 1.775 1.775 4.35 0 1.075-.35 2.05-.35.975-.95 1.7l6.275 6.275Zm-10.025-6.45q1.925 0 3.263-1.35 1.337-1.35 1.337-3.275 0-1.925-1.337-3.275-1.338-1.35-3.263-1.35-1.95 0-3.287 1.35Q4.9 7.575 4.9 9.5q0 1.925 1.338 3.275 1.337 1.35 3.287 1.35Z"/></svg>
     </div>
-    {#if list.length}
-        {#each list as item}
-            <Note href={item.slug} title={item.title} date={new Date(item.date).toISOString().slice(0, 10)}
-                  category={item.category}/>
-        {/each}
-        {#if isTruncated}
+    <div use:autoAnimate>
+        {#if list.length}
+            {#each list as item}
+                <Note href={item.slug} title={item.title} date={new Date(item.date).toISOString().slice(0, 10)}
+                      category={item.category}/>
+            {/each}
+            {#if isTruncated}
                 <a href="#" on:click={() => (isTruncated = false)} class="show_more">
                     Load More Posts...
                 </a>
+            {/if}
+        {:else if search}
+            <div class="no_notes">
+                <p>No notes found for <code>{search}</code>. <a href="#" on:click={() => (search = '')}>Clear your search</a></p>
+            </div>
+        {:else}
+            <div class="no_notes">No notes found!</div>
         {/if}
-    {:else if search}
-        <div class="no_notes">
-            <p>No notes found for <code>{search}</code>.</p>
-
-            <a href="#" on:click={() => (search = '')}>Clear your search</a>
-        </div>
-    {:else}
-        <div class="no_notes">No notes found!</div>
-    {/if}
+    </div>
 </div>
 
 <style lang="scss">
@@ -108,21 +108,34 @@
         background-color: var(--social-bg);
         color: var(--color);
       }
-    }
-    a{
-      text-decoration: none;
-      color: var(--color);
-      font-weight: bold;
-      padding: 0.8em 1.2em;
-      background-color: var(--menu-hover);
-      border-radius: 1em;
-      transition: background-color 0.5s ease;
-      &:hover{
-        background-color: #7a3ebf;
-      }
-      &:focus{
-        outline: none;
-        filter: drop-shadow(0 0 0.1rem #7a3ebf);
+      a{
+        font-weight: bold;
+        font-size:1em;
+        text-decoration: none;
+        color: var(--color);
+        position: relative;
+        transition: color 0.2s ease-in-out;
+        &::before{
+          background-color: var(--color);
+          content: '';
+          position: absolute;
+          display: block;
+          width: 100%;
+          height: 2.5px;
+          bottom: 0.35em;
+          left: 0;
+          transform: scaleX(0);
+          transition: transform .6s ease;
+          transform-origin: top left;
+        }
+
+        &:hover{
+          color: #9c58e1;
+            &::before{
+              background-color: #9c58e1;
+                transform: scaleX(1);
+            }
+        }
       }
     }
   }

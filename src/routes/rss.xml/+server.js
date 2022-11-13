@@ -8,7 +8,8 @@ export async function GET() {
     const feed = new RSS({
         title: SITE_TITLE + ' RSS',
         site_url: SITE_URL,
-        feed_url: SITE_URL + '/rss.xml'
+        feed_url: SITE_URL + '/rss.xml',
+        language: 'tr'
     });
 
     const allBlogs = await listContent();

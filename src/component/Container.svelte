@@ -1,24 +1,14 @@
 <script>
   import NavigationButtons from "./NavigationButtons.svelte";
-  import { fly } from "svelte/transition";
-  import { beforeNavigate } from '$app/navigation';
-  let loading = false;
-  // TODO: page transition break the font adjustment, fix that
-  // beforeNavigate(() => {
-  //   loading = !loading;
-  // });
-  const pageTransitionDuration = 400;
+  import autoAnimate from "@formkit/auto-animate";
 </script>
 
 <main>
   <NavigationButtons/>
   <hr/>
-  {#key loading}
-  <div id="container" in:fly={{  y:-3, duration: pageTransitionDuration, delay: 400 }}
-       out:fly={{ y: 3, duration: pageTransitionDuration }}>
+  <div id="container" use:autoAnimate>
     <slot/>
   </div>
-  {/key}
 </main>
 
 <style lang="scss">
