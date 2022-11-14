@@ -4,7 +4,7 @@
 	export let href, title, date, category;
 </script>
 
-<a {href}>
+<a {href} data-sveltekit-prefetch>
 	<div>
 		<h2>
 			{title} <small>{category}</small>

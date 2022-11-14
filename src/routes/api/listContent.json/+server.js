@@ -8,7 +8,7 @@ export async function GET() {
 	const list = await listContent();
 	return json(list, {
 		headers: {
-			'Cache-Control': `max-age=0, s-maxage=${60}`
+			'Cache-Control': `max-age=0, s-maxage=120`
 		}
 	});
 }

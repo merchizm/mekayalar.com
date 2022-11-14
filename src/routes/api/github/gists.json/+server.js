@@ -7,7 +7,7 @@ export async function GET() {
 	const gists = await getGists();
 	return json(gists, {
 		headers: {
-			'Cache-Control': `max-age=0, s-maxage=${60}`
+			'Cache-Control': `max-age=0, s-maxage=120`
 		}
 	});
 }

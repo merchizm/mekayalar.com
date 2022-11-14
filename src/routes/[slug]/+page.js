@@ -12,7 +12,7 @@ export async function load({ params, fetch, setHeaders }) {
 			return new Response(await res.text(), { status: res.status });
 		}
 		setHeaders({
-			'cache-control': 'public, max-age=60'
+			'cache-control': 'public, max-age=120'
 		});
 		return {
 			json: await res.json(),

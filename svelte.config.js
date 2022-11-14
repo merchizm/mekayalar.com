@@ -45,6 +45,11 @@ const config = {
 	kit: {
 		// default options are shown
 		adapter: adapter()
+	},
+	vitePlugin: {
+		experimental: {
+			useVitePreprocess: true
+		}
 	}
 };
 

@@ -1,6 +1,6 @@
 const OFFLINE_PREFIX = 'rocks-offline-';
 const SW = {
-	cache_version: '1.0.3',
+	cache_version: '1.0.4',
 	offline_assets: [
 		'/',
 		'/offline/',
@@ -19,7 +19,11 @@ const SW = {
 		'og_thumb.png',
 		'favicon.ico',
 		'/fonts/catamaran-v17-latin-ext-regular.woff',
-		'/fonts/catamaran-v17-latin-ext-regular.woff2'
+		'/fonts/catamaran-v17-latin-ext-regular.woff2',
+		'/api/github/gists.json',
+		'/api/github/repositories.json',
+		'/api/listContent.json',
+		'/api/raindrop/getBookmarksGroupByWeek.json'
 	]
 };
 
@@ -84,14 +88,14 @@ self.addEventListener('activate', function (event) {
 //
 self.addEventListener('fetch', function (event) {
 	// Build a hostname-free version of request path.
-	var reqLocation = getLocation(event.request.url);
-	var reqPath = reqLocation.pathname;
+	const reqLocation = getLocation(event.request.url);
+	const reqPath = reqLocation.pathname;
 
 	// Consolidate some conditions for re-use.
-	var requestIsHTML =
+	const requestIsHTML =
 		event.request.headers.get('accept').includes('text/html') && event.request.method === 'GET';
-	var requestIsAsset = /^(\/css\/|\/js\/|\/static\/|\/svg\/)/.test(reqPath);
-	var requestIsImage = /^(\/img\/)/.test(reqPath);
+	const requestIsAsset = /^(\/css\/|\/js\/|\/static\/|\/svg\/)/.test(reqPath);
+	const requestIsImage = /^(\/img\/)/.test(reqPath);
 
 	// Saved articles, MVW pages, Offline
 	//
@@ -139,6 +143,8 @@ self.addEventListener('fetch', function (event) {
 		);
 	}
 
+
+
 	// Uncaught — mostly for debugging
 	//
 	// This request fell through all our conditions and is being ignored by SW.
@@ -152,19 +158,19 @@ self.addEventListener('fetch', function (event) {
 // Helper function to manage cache updates in the background.
 function staleWhileRevalidate(request) {
 	// Build a hostname-free version of request path.
-	var reqLocation = getLocation(request.url);
-	var reqPath = reqLocation.pathname;
+	const reqLocation = getLocation(request.url);
+	const reqPath = reqLocation.pathname;
 
 	// Open the default cache and look for this request. We have to restrict this
 	// lookup to one cache because we want to make sure we don't add new entries
 	// unless really necessary (third-party assets, unsaved content, etc).
-	var defaultCachePromise = caches.open(SW.cache_version);
-	var defaultMatchPromise = defaultCachePromise.then(function (cache) {
+	const defaultCachePromise = caches.open(SW.cache_version);
+	const defaultMatchPromise = defaultCachePromise.then(function (cache) {
 		return cache.match(request);
 	});
 
 	// Find any user-saved articles, so we can update outdated content.
-	var userCachePromise = caches
+	const userCachePromise = caches
 		.has(OFFLINE_PREFIX + reqPath)
 		.then(function maybeOpenCache(cacheExists) {
 			// This conditional exists because, per spec, caches.has() resolves whether
@@ -192,7 +198,7 @@ function staleWhileRevalidate(request) {
 			console.error('Error while trying to load user cache for ' + reqPath);
 		});
 
-	var userMatchPromise = userCachePromise.then(function matchUserCache(cache) {
+	const userMatchPromise = userCachePromise.then(function matchUserCache(cache) {
 		return cache.match(request);
 	});
 
@@ -204,19 +210,19 @@ function staleWhileRevalidate(request) {
 	]).then(function (promiseResults) {
 		// When ES2015 isn't behind a flag anymore, move these vars to an array
 		// in the function signature to destructure the results of the Promise.
-		var defaultCache = promiseResults[0];
-		var defaultResponse = promiseResults[1];
-		var userCache = promiseResults[2];
-		var userResponse = promiseResults[3];
+		const defaultCache = promiseResults[0];
+		const defaultResponse = promiseResults[1];
+		const userCache = promiseResults[2];
+		const userResponse = promiseResults[3];
 
 		// Determine whether any cache holds data for this request.
-		var requestIsInDefaultCache = typeof defaultResponse !== 'undefined';
-		var requestIsInUserCache = typeof userResponse !== 'undefined';
+		const requestIsInDefaultCache = typeof defaultResponse !== 'undefined';
+		const requestIsInUserCache = typeof userResponse !== 'undefined';
 
 		// Kick off the update request in the background.
-		var fetchResponse = fetch(request).then(function (response) {
+		const fetchResponse = fetch(request).then(function (response) {
 			// Determine whether this is first or third-party request.
-			var requestIsFirstParty = response.type === 'basic';
+			const requestIsFirstParty = response.type === 'basic';
 
 			// IF the DEFAULT cache already has an entry for this asset,
 			// AND the resource is in our control,
@@ -228,9 +234,9 @@ function staleWhileRevalidate(request) {
 				console.info('Fetch listener updated ' + reqPath);
 			}
 
-			// IF the USER cache already has an entry for this asset,
-			// AND the resource is in our control,
-			// AND there was a valid response,
+				// IF the USER cache already has an entry for this asset,
+				// AND the resource is in our control,
+				// AND there was a valid response,
 			// THEN update the cache with the new response.
 			else if (requestIsInUserCache && requestIsFirstParty && response.status === 200) {
 				// Cache the updated file and then return the response

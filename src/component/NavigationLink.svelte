@@ -10,7 +10,7 @@
 			<slot />
 		</a>
 	{:else}
-		<a {href}>
+		<a {href} data-sveltekit-prefetch>
 			<slot />
 		</a>
 	{/if}
