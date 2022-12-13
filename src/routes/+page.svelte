@@ -90,7 +90,7 @@
 	];
 	let work = [
 		{
-			label: '2020-Hala',
+			label: '2020-2022',
 			title: 'Freelance Web Developer',
 			location: 'Bionluk - Fiverr / Remote',
 			desc: 'Bu iş serüvenimde tamamen yazılım odaklı çalıştım. PHP üzerinde Kendi View-Controller-Model Yapısını kurma şansım oldu. ReflectionClass ile Controller yapısını gerçekleştirdim. View için ise Twig ve OOP’den yararlandım, Sınıfları genellikle composer ile otomatik olarak yükledim. Bazı zamanlar PHP üzerine eklemeler yapmam gerekti, IMAP, REDIS gibi eklentileri kurdum. Zaten pekte uzak olmadığım SOLID, KISS prensiplerini kullandım. Kodların okunabilirliği ve geriye dönük düzenlemeler için PHPDoc’tan vazgeçmedim. Çoğu zaman işin kısalığından dolayı manuel olarak kod kontrolü gerçekleştirsemde PHPUnit Test kütüphanesini genel olarak öğrendim ve bir kaç işimde ve projelerde kullandım.'
@@ -125,7 +125,7 @@
 	<p>
 		Sakarya'da yaşıyorum. Alaylı bir geliştiriciyim. Bahçeyle ilgilenmeyi, kahve içmeyi ve felsefi
 		kitaplar okumayı seviyorum. Bir şeyler üretmekten aşırı haz duyuyorum, bu yüzden yazılım
-		geliştirme ile ilgileniyorum. Şu anda freelance olarak çalışıyorum ve iş tekliflerinize açığım.
+		geliştirme ile ilgileniyorum.
 	</p>
 </section>
 <SocialSection />

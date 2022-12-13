@@ -9,9 +9,5 @@ export async function GET() {
 	if (res.status > 400) {
 		return error(res.status, await res.text());
 	}
-	return json(await res.json(), {
-		headers: {
-			'Cache-Control': `max-age=0, s-maxage=${60}`
-		}
-	});
+	return json(await res.json());
 }
