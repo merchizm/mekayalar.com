@@ -1,8 +1,8 @@
 import { SITE_URL } from '$lib/siteConfig';
 import { listContent } from '$lib/content';
 
-export async function GET() {
-	const posts = await listContent();
+export async function GET({fetch}) {
+	const posts = await listContent(fetch);
 	const pages = [`notes`, `library`, `bookmarks`];
 	const body = sitemap(posts, pages);
 

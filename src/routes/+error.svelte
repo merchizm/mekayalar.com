@@ -2,19 +2,19 @@
 	// import Nav from '../components/Nav.svelte';
 	import { dev } from '$app/environment';
 	import { SOCIAL_CONNECTIONS } from '$lib/siteConfig';
-
 	import { page } from '$app/stores';
 
 	const offline = typeof navigator !== 'undefined' && navigator.onLine === false;
 
-	let message = offline ? 'İnternete bağlı değilsin.' : $page.error?.message;
+	let message = offline ? 'İnternete bağlı değilsin!' : $page.error?.message;
 
-	let title = offline ? 'Offline' : 'Ops!';
+	let title = offline ? 'Offline' : `Ops ${$page.status} !`;
 	if ($page.status === 404) {
-		title = 'Sayfa bulunamadı';
+		title = 'Sayfa Bulunamadı';
+		message = 'Aradığınız sayfa bulunamadı, eğer bunun bir hata olduğunu düşünüyorsanız lütfen bana bildirin!';
 	} else {
 		message =
-			'Üzgünüm bilinmeyen bir hata oluştu. Lütfen daha sonra tekrar deneyin. Bir hata olduğunu düşünüyorsanız, lütfen bana bildirin.';
+			'Üzgünüm bilinmeyen bir hata oluştu. Lütfen daha sonra tekrar deneyin.';
 	}
 </script>
 

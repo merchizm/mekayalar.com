@@ -148,8 +148,5 @@
 			font-size: 1.4em;
 			font-weight: 800;
 		}
-		h2 {
-			font-size: 1.2em;
-		}
 	}
 </style>

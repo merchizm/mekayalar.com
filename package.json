@@ -1,6 +1,6 @@
 {
 	"name": "mekayalar.com",
-	"version": "0.7.2",
+	"version": "0.7.3",
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build",
@@ -54,6 +54,8 @@
 		"date-fns": "^2.29.3",
 		"html-minifier": "^4.0.0",
 		"lodash-es": "^4.17.21",
+		"remark": "^14.0.2",
+		"remark-stringify": "^10.0.2",
 		"sass": "^1.52.3",
 		"svelte-preprocess": "^4.10.7"
 	}

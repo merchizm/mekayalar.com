@@ -4,7 +4,7 @@ import { listContent } from '$lib/content';
 
 // Reference: https://github.com/sveltejs/kit/blob/master/examples/hn.svelte.dev/src/routes/%5Blist%5D/rss.js
 /** @type {import('@sveltejs/kit').RequestHandler} */
-export async function GET() {
+export async function GET({ fetch}) {
 	const feed = new RSS({
 		title: SITE_TITLE + ' RSS',
 		site_url: SITE_URL,
@@ -12,7 +12,7 @@ export async function GET() {
 		language: 'tr'
 	});
 
-	const allBlogs = await listContent();
+	const allBlogs = await listContent(fetch);
 	allBlogs.forEach((post) => {
 		feed.item({
 			title: post.title,
