@@ -5,6 +5,7 @@
 
 	let mouseX = 0;
 	let mouseY = 0;
+	let last_one = null;
 	const byeArray = [
 		'körişirbiz',
 		'görüşürüz',
@@ -49,10 +50,12 @@
 		let rand = Math.floor(Math.random() * array.length);
 		span.innerText = array[rand];
 
+		last_one = rand;
 		let index = 0;
 		return setInterval(function () {
 			if (array.length > index) {
 				let rand = Math.floor(Math.random() * array.length);
+				last_one === rand && (rand === 0 ? rand++ : rand--);
 				span.innerText = array[rand];
 				index++;
 			} else index = 0;

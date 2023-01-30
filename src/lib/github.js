@@ -1,11 +1,9 @@
-import fetch from 'node-fetch';
-
-async function getRequest(url) {
+async function getRequest(url, providedFetch) {
 	const auth_header = {
 		Accept: 'application/vnd.github.v3+json',
 		Authorization: `token ${import.meta.env.VITE_GH_TOKEN}`
-	};
-	const res = await fetch(url, {
+	}; 
+	const res = await providedFetch(url, {
 		headers: auth_header
 	});
 
@@ -15,10 +13,10 @@ async function getRequest(url) {
 	return result;
 }
 
-export async function getRepos() {
-	return await getRequest(`https://api.github.com/user/repos?visibility=public&sort=pushed`);
+export async function getRepos(providedFetch) {
+	return await getRequest(`https://api.github.com/user/repos?visibility=public&sort=pushed`, providedFetch);
 }
 
-export async function getGists() {
-	return await getRequest(`https://api.github.com/gists`);
+export async function getGists(providedFetch) {
+	return await getRequest(`https://api.github.com/gists`, providedFetch);
 }
