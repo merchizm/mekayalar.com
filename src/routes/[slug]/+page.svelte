@@ -3,7 +3,7 @@
 	import { SOCIAL_CONNECTIONS, SITE_URL } from '$lib/siteConfig.js';
 	import { formatDistance } from 'date-fns';
 	import tr from 'date-fns/locale/tr/index';
-	import 'prismjs/themes/prism-tomorrow.min.css';
+	import 'prism-themes/themes/prism-vsc-dark-plus.min.css';
 	/** @type {import('./$types').PageData} */
 	export let data;
 

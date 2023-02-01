@@ -1,6 +1,6 @@
 const OFFLINE_PREFIX = 'rocks-offline-';
 const SW = {
-	cache_version: '1.0.5',
+	cache_version: '1.0.6',
 	offline_assets: [
 		'/',
 		'/offline/',
@@ -143,8 +143,6 @@ self.addEventListener('fetch', function (event) {
 		);
 	}
 
-
-
 	// Uncaught — mostly for debugging
 	//
 	// This request fell through all our conditions and is being ignored by SW.
@@ -234,9 +232,9 @@ function staleWhileRevalidate(request) {
 				console.info('Fetch listener updated ' + reqPath);
 			}
 
-				// IF the USER cache already has an entry for this asset,
-				// AND the resource is in our control,
-				// AND there was a valid response,
+			// IF the USER cache already has an entry for this asset,
+			// AND the resource is in our control,
+			// AND there was a valid response,
 			// THEN update the cache with the new response.
 			else if (requestIsInUserCache && requestIsFirstParty && response.status === 200) {
 				// Cache the updated file and then return the response
