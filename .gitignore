@@ -6,3 +6,9 @@ node_modules
 .env
 .env.*
 !.env.example
+.idea/
+.idea/inspectionProfiles/Project_Default.xml
+.idea/mekayalar.com.iml
+.idea/modules.xml
+.idea/vcs.xml
+.idea/workspace.xml
