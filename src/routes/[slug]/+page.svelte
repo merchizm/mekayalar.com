@@ -7,6 +7,7 @@
 	import 'prismjs/components/prism-bash.js';
 	import 'prismjs/components/prism-php.js';
 	import 'prismjs/components/prism-markup.js';
+	import 'prismjs/components/prism-markup-templating.js';
 	import 'prism-svelte';
 	console.debug('Available Prism Languages: ', prism.languages);
 	import 'prism-themes/themes/prism-vsc-dark-plus.min.css';
