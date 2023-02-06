@@ -21,7 +21,7 @@ Bu repoda [mekayalar.com](mekayalar.com) üzerinde çalışan kodları bulabilir
 - projeler için detay içeren modal veya sayfa
 - makale sayfasında ekranın uykuya geçmesini engellemek
 - makale için paylaşım butonları/menüsü
-- ekran koruyucusunun üst üste aynı hoşçakalı göstermemesi üzerine düzenleme
+- ~~ekran koruyucusunun üst üste aynı hoşçakalı göstermemesi üzerine düzenleme~~
 
 geliştirme sürecini [buradan](https://github.com/users/merchizm/projects/7) takip edebilirsiniz.
 
