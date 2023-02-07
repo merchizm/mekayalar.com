@@ -1,62 +1,59 @@
-# mekayalar.com
+# mekayalar.com | [for TURKISH](README_TR.md)
 
-Bu repoda [mekayalar.com](mekayalar.com) üzerinde çalışan kodları bulabilirsiniz. Bu yazılım [Vercel](https://vercel.com) üzerinde barındırılmaktadır.
+In this repository, you can find the code that runs on [mekayalar.com](mekayalar.com). This software is hosted on [Vercel](https://vercel.com).
 
-## 1.0 Sürümü için Geliştirme Süreci
+## Development Process for 1.0 Version
 
-- [ ] İngilizce dilinin desteklenmesi
-- [ ] Skillset için hakkımda kısmına yeni bir component yazılması
-- [ ] ~~Mobil görünümde tooltiplerin kapatılması/çalıştırılmaması~~
-  - sanırım bunu gerçekleştirebileceğim bir yol yok.
-- [x] ~~Notlar kısmına arama modülünün yazılması~~
-- [x] ~~Gönderileri çevrim dışı olarak kaydetme modülünün bitirilmesi~~
-- [x] ~~Not sayfasındaki stillerin gözden geçirilmesi ve iyileştirilmesi~~
-- [x] ~~Bionic Reader modülünün bitirilmesi~~
+- [ ] English language support
+- [ ] New component for skillset in the "About me" section
+- [ ] ~~Turn off/disable tooltips in mobile view~~
+  - I don't think I can find a way to do this.
+- [x] ~~Write search module for Notes section~~
+- [x] ~~Finish module for saving posts offline~~
+- [x] ~~Review and improve styles on Note page~~
+- [x] ~~Finish Bionic Reader module~~
 
 ## Planlanan Geliştirmeler
 
-- Dinamik CV, yazdığınız yazılım dillerine göre değişen CV
-- Takvim üzerinden müsaitlik kontrolü
-- belki randevu almak için bir modül
-- projeler için detay içeren modal veya sayfa
-- makale sayfasında ekranın uykuya geçmesini engellemek
-- makale için paylaşım butonları/menüsü
-- ~~ekran koruyucusunun üst üste aynı hoşçakalı göstermemesi üzerine düzenleme~~
+- Dynamic CV, CV that changes based on the software languages you write
+- Availability check via calendar
+- maybe a module for making appointments
+- detailed modal or page for projects
+- prevent screen from sleeping on article page
+- sharing buttons/menu for articles
+- ~~fix to prevent screen saver from showing the same goodbye repeatedly~~
 
-geliştirme sürecini [buradan](https://github.com/users/merchizm/projects/7) takip edebilirsiniz.
+## Installation
 
-## Kurulum
-
-Kurulum gayet basit, öncelikle repoyu klonlayın:
+The installation is quite simple, first clone the repository:
 
 ```bash
 git clone https://github.com/merchizm/mekayalar.com.git
 ```
 
-klonlama işleminden sonra gerekli modülleri yükleyin:
+After cloning, install the required modules:
 
 ```bash
 npm install
 ```
 
-modüllerinizi yüklediklten sonra ana dizinde `.env` dosyası oluşturun, içerisine;
+After installing your modules, create a `.env` file in the main directory, with the following contents:
 
-- VITE_RAINDROP_ACCESS_TOKEN = [Raindrop.io](https://developer.raindrop.io/v1/authentication/token) API tokeniniz,
-- [Giscus](https://giscus.app/) üzerinden alacağınız repo bilgileri,
-  - VITE_GISCUS_CATEGORY_ID = kategorinizin ID'si,
-  - VITE_GISCUS_REPO_ID = repo ID'niz
-- VITE_GH_TOKEN = [GitHub API](https://docs.github.com/en/rest) tokeniniz
+- VITE_RAINDROP_ACCESS_TOKEN = your [Raindrop.io](https://developer.raindrop.io/v1/authentication/token) API token,
+- repo information you will receive from [Giscus](https://giscus.app/),
+  - VITE_GISCUS_CATEGORY_ID = your category ID,
+  - VITE_GISCUS_REPO_ID = your repo ID
+- VITE_GH_TOKEN = your [GitHub API](https://docs.github.com/en/rest) token
 
-`.env` dosyanızı oluşturduktan sonra yapmanız gereken `src/lib/siteConfig.js` dosyasını kendinize göre düzenlemeniz. Düzenleme ardından projeyi çalıştırabilirsiniz: (spotify API'ı unuttum, onu da şuradan [şey edi ver.](https://github.com/merchizm/mekayalar.com-spotify-api))
-
+After creating your `.env` file, you need to customize the `src/lib/siteConfig.js` file to your needs. After customization, you can run the project: (I forgot the Spotify API, you can get that from [here](https://github.com/merchizm/mekayalar.com-spotify-api))
 ```bash
 npm run dev
-## production için
+## for production
 npm run build
-## preview için ilk build sonra
+## for preview after first build
 npm run preview
 ```
 
-## Teşekkürler
+## Thanks
 
-[Zeynep](https://github.com/zynpnaz)'e bana projeyi geliştirirken yardımcı olduğu için özel teşekkürlerimi borçluyum.
+Special thanks to [Zeynep](https://github.com/zynpnaz) for helping me develop this project.
