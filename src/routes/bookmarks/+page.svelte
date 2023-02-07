@@ -51,6 +51,7 @@
 <style lang="scss">
 	p {
 		font-size: 1.3em;
+		color: var(--light-color);
 		margin-bottom: 2rem;
 	}
 

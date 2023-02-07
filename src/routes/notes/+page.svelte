@@ -96,6 +96,7 @@
   p {
     font-size: 1.3em;
     margin-bottom: 2rem;
+    color: var(--light-color);
   }
 
   .no_notes{
