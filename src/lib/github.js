@@ -14,9 +14,21 @@ async function getRequest(url, providedFetch) {
 }
 
 export async function getRepos(providedFetch) {
-	return await getRequest(`https://api.github.com/user/repos?visibility=public&sort=pushed`, providedFetch);
+	const shorten = (data) => {
+		return data.map((repo) => {
+			const { name, description, stargazers_count, forks_count, html_url, language } = repo;
+			return { name, description, stargazers_count, forks_count, html_url, language };
+		});
+	};
+	return shorten(await getRequest(`https://api.github.com/user/repos?visibility=public&sort=pushed`, providedFetch));
 }
 
 export async function getGists(providedFetch) {
-	return await getRequest(`https://api.github.com/gists`, providedFetch);
+	const shorten = (data) => {
+		return data.map((gist) => {
+			const { description, created_at, comments, html_url } = gist;
+			return { description, created_at, comments, html_url };
+		});
+	};
+	return shorten(await getRequest(`https://api.github.com/gists`, providedFetch));
 }

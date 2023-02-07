@@ -29,13 +29,27 @@ export async function getBookmarks(page) {
 	}
 }
 
+function shorten_data(data) {
+	let d = data.map((bookmark) => {
+		const { title, link, created, domain } = bookmark;
+		return {'title': title, 'link': link, 'created': created, 'domain': domain };
+	});
+	return d.sort((a, b) => new Date(b.created) - new Date(a.created));
+}
+
 // @source { @link https://github.com/ademilter/homepage/blob/master/lib/raindrop.ts }
 export async function getBookmarksGroupByWeek() {
-	return _.groupBy(await getBookmarks(0), (bookmark) => {
+	return _.groupBy(shorten_data(await getBookmarks(0)), (bookmark) => {
 		const dateISO = parseISO(bookmark.created);
 		const week = format(dateISO, 'I'); // week of year
 		const month = format(dateISO, 'M'); // month of year
 		if (month === '1' && ['52', '53'].includes(week)) return 0;
 		return week;
+	});
+}
+
+export async function getBookmarksGroupByDay(){
+	return _.groupBy(shorten_data(await getBookmarks(0)), (bookmark) => {
+		return bookmark.created.split("T")[0];
 	});
 }

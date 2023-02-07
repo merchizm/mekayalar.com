@@ -34,7 +34,7 @@
 			}
 			padding-top: 0.2em;
 			padding-bottom: 0.1em;
-			font-size: 1.2em;
+			font-size: 1.3em;
 		}
 		span {
 			font-size: 1em;

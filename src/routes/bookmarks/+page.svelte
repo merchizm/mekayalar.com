@@ -7,9 +7,6 @@
 
 	/** @type {import('$lib/types').Bookmark[]} */
 	$: json = data.bookmarks;
-
-	let dateStartOfWeek = startOfWeek(new Date(), { weekStartsOn: 1 });
-	let year = format(dateStartOfWeek, 'yyyy');
 </script>
 
 <svelte:head>
@@ -36,9 +33,9 @@
 </p>
 
 {#each [...Object.entries(json).sort((a, b) => parseInt(b) - parseInt(a))] as [key, value]}
-	<div id="week_container_{key}">
-		<h2>{key}. Hafta, {year}</h2>
-		<div id="week">
+	<div id="day_container_{key}">
+		<h2>{new Date(key).toLocaleDateString("tr-TR", { year: "numeric", month: "long", day: "numeric" })}</h2>
+		<div id="day">
 			{#each value as bookmark}
 				<BookmarkCard
 					title={bookmark.title}
@@ -57,9 +54,9 @@
 		margin-bottom: 2rem;
 	}
 
-	div[id^='week_container'] {
+	div[id^='day_container'] {
 		h2 {
-			font-size: 1.5em;
+			font-size: 1.2em;
 			color: var(--color);
 			filter: brightness(70%);
 			font-weight: normal;
