@@ -195,7 +195,10 @@
 						<ul>
 							{#each NAVIGATION as { url, name }}
 								<li>
-									<a href={url} onclick="document.querySelector('#mobil_nav').click(); // eheheheh temporary solution :3">
+									<a
+										href={url}
+										onclick="document.querySelector('#mobil_nav').click(); // eheheheh temporary solution :3"
+									>
 										{name}
 									</a>
 								</li>

@@ -46,6 +46,7 @@ After installing your modules, create a `.env` file in the main directory, with 
 - VITE_GH_TOKEN = your [GitHub API](https://docs.github.com/en/rest) token
 
 After creating your `.env` file, you need to customize the `src/lib/siteConfig.js` file to your needs. After customization, you can run the project: (I forgot the Spotify API, you can get that from [here](https://github.com/merchizm/mekayalar.com-spotify-api))
+
 ```bash
 npm run dev
 ## for production

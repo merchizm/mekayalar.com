@@ -1,6 +1,5 @@
 <script>
 	import BookmarkCard from '../../component/BookmarkCard.svelte';
-	import { format, startOfWeek } from 'date-fns';
 
 	/** @type {import('./$types').PageData} */
 	export let data;
@@ -34,7 +33,13 @@
 
 {#each [...Object.entries(json).sort((a, b) => parseInt(b) - parseInt(a))] as [key, value]}
 	<div id="day_container_{key}">
-		<h2>{new Date(key).toLocaleDateString("tr-TR", { year: "numeric", month: "long", day: "numeric" })}</h2>
+		<h2>
+			{new Date(key).toLocaleDateString('tr-TR', {
+				year: 'numeric',
+				month: 'long',
+				day: 'numeric'
+			})}
+		</h2>
 		<div id="day">
 			{#each value as bookmark}
 				<BookmarkCard

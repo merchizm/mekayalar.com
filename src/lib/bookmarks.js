@@ -32,7 +32,7 @@ export async function getBookmarks(page) {
 function shorten_data(data) {
 	let d = data.map((bookmark) => {
 		const { title, link, created, domain } = bookmark;
-		return {'title': title, 'link': link, 'created': created, 'domain': domain };
+		return { title: title, link: link, created: created, domain: domain };
 	});
 	return d.sort((a, b) => new Date(b.created) - new Date(a.created));
 }
@@ -48,8 +48,8 @@ export async function getBookmarksGroupByWeek() {
 	});
 }
 
-export async function getBookmarksGroupByDay(){
+export async function getBookmarksGroupByDay() {
 	return _.groupBy(shorten_data(await getBookmarks(0)), (bookmark) => {
-		return bookmark.created.split("T")[0];
+		return bookmark.created.split('T')[0];
 	});
 }

@@ -8,13 +8,13 @@
 
 	let message = offline ? 'İnternete bağlı değilsin!' : $page.error?.message;
 
-	let title = offline ? 'Offline' : `Ops ${$page.status} !`;
+	let title = offline ? 'Offline' : `Dank Farrik ${$page.status} !`;
 	if ($page.status === 404) {
 		title = 'Sayfa Bulunamadı';
-		message = 'Aradığınız sayfa bulunamadı, eğer bunun bir hata olduğunu düşünüyorsanız lütfen bana bildirin!';
-	} else {
 		message =
-			'Üzgünüm bilinmeyen bir hata oluştu. Lütfen daha sonra tekrar deneyin.';
+			'Aradığınız sayfa bulunamadı, eğer bunun bir hata olduğunu düşünüyorsanız lütfen bana bildirin!';
+	} else {
+		message = 'Üzgünüm bilinmeyen bir hata oluştu. Lütfen daha sonra tekrar deneyin.';
 	}
 </script>
 

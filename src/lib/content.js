@@ -1,11 +1,16 @@
 /**
  * all credits to @sw-yx
- * @see {https://github.com/sw-yx/swyxkit/blob/main/src/lib/content.js}
+ * @see { https://github.com/sw-yx/swyxkit/blob/main/src/lib/content.js }
  */
 import { compile } from 'mdsvex';
 import { dev } from '$app/environment';
 import grayMatter from 'gray-matter';
-import {GH_USER_REPO, APPROVED_POSTERS_GH_USERNAME, REPO_OWNER, GH_PUBLISHED_TAGS} from './siteConfig';
+import {
+	GH_USER_REPO,
+	APPROVED_POSTERS_GH_USERNAME,
+	REPO_OWNER,
+	GH_PUBLISHED_TAGS
+} from './siteConfig';
 import parse from 'parse-link-header';
 import slugify from 'slugify';
 
@@ -55,7 +60,7 @@ export async function listContent(providedFetch) {
 		new URLSearchParams({
 			state: 'all',
 			labels: GH_PUBLISHED_TAGS.toString(),
-			per_page: '100',
+			per_page: '100'
 		});
 	// pull issues created by owner only if allowed author = repo owner
 	if (APPROVED_POSTERS_GH_USERNAME.length === 1 && APPROVED_POSTERS_GH_USERNAME[0] === REPO_OWNER) {
@@ -199,11 +204,7 @@ function parseIssue(issue) {
 	}
 	let description = data.description ?? content.trim().split('\n')[0];
 	// extract plain text from markdown
-	description = remark()
-		.use(remarkParse)
-		.use(remarkStringify)
-		.processSync(description)
-		.toString();
+	description = remark().use(remarkParse).use(remarkStringify).processSync(description).toString();
 	description = description.replace(/\n/g, ' ');
 	// strip html
 	description = description.replace(/<[^>]*>?/gm, '');

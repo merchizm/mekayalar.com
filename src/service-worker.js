@@ -1,6 +1,6 @@
 const OFFLINE_PREFIX = 'rocks-offline-';
 const SW = {
-	cache_version: '1.0.8',
+	cache_version: '1.0.9',
 	offline_assets: [
 		'/',
 		'/offline/',
@@ -261,7 +261,7 @@ function staleWhileRevalidate(request) {
 //
 // @see { @link http://stackoverflow.com/a/21553982/175551}
 function getLocation(href) {
-	var match = href.match(/^(https?\:)\/\/(([^:\/?#]*)(?:\:([0-9]+))?)(\/[^?#]*)(\?[^#]*|)(#.*|)$/);
+	const match = href.match(/^(https?:)\/\/(([^:/?#]*)(?::([0-9]+))?)(\/[^?#]*)(\?[^#]*|)(#.*|)$/);
 
 	return (
 		match && {

@@ -2,7 +2,7 @@ async function getRequest(url, providedFetch) {
 	const auth_header = {
 		Accept: 'application/vnd.github.v3+json',
 		Authorization: `token ${import.meta.env.VITE_GH_TOKEN}`
-	}; 
+	};
 	const res = await providedFetch(url, {
 		headers: auth_header
 	});
@@ -20,7 +20,12 @@ export async function getRepos(providedFetch) {
 			return { name, description, stargazers_count, forks_count, html_url, language };
 		});
 	};
-	return shorten(await getRequest(`https://api.github.com/user/repos?visibility=public&sort=pushed`, providedFetch));
+	return shorten(
+		await getRequest(
+			`https://api.github.com/user/repos?visibility=public&sort=pushed`,
+			providedFetch
+		)
+	);
 }
 
 export async function getGists(providedFetch) {

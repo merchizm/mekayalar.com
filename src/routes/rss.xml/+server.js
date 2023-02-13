@@ -4,7 +4,7 @@ import { listContent } from '$lib/content';
 
 // Reference: https://github.com/sveltejs/kit/blob/master/examples/hn.svelte.dev/src/routes/%5Blist%5D/rss.js
 /** @type {import('@sveltejs/kit').RequestHandler} */
-export async function GET({ fetch}) {
+export async function GET({ fetch }) {
 	const feed = new RSS({
 		title: SITE_TITLE + ' RSS',
 		site_url: SITE_URL,
@@ -31,14 +31,6 @@ export async function GET({ fetch}) {
 }
 
 // misc notes for future users
-
-// // notes - originally tried to fetch this via /api/listContent.json but...
-// // cannot use url.origin because it is null during SSR...
-// // const res = await fetch(url.origin + `/api/listContent.json`)
-
-// // cannot use url.protocol because URL scheme "sveltekit" is not supported.
-// // const res = await fetch(`${url.protocol}//${url.host}/api/listContent.json`);
-// // const allBlogs = await res.json();
 
 // 	// use this if you want your content in a local '/content' folder rather than github issues
 // 	// let allBlogs = import.meta.globEager('/content/**/*.md')

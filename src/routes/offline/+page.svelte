@@ -1,21 +1,22 @@
 <script>
 	import { onMount } from 'svelte';
 
+	let offline_title, offline_content, dank_farrik;
+
 	onMount(() => {
 		(function () {
 			// @see { @link https://chrisruppel.com/blog/service-worker-offline-content-list/ }
 			'use strict';
 
-			document.getElementById('offline-title').innerText =
+			offline_title.innerText =
 				navigator && navigator.onLine
 					? 'Kaydettiğin İçerikler'
 					: 'Görünüşe bakılırsa internetin yok';
 
 			if ('serviceWorker' in navigator) {
 				// Get all Cache entries for this user.
-				caches.keys().then(function (cacheNames) {
+				caches.keys().then(async function (cacheNames) {
 					// Define these just once instead of in the loop.
-					const offlineContentEntry = document.getElementById('offline-content');
 					let offlineContentFound = false;
 
 					return Promise.all(
@@ -39,15 +40,15 @@
 									'</a>';
 
 								// Append to DOM.
-								if (!!offlineContentEntry) {
+								if (offline_content) {
 									console.info('Service Worker: found user-cached content ' + cacheName);
-									offlineContentEntry.appendChild(cacheEntry);
+									offline_content.appendChild(cacheEntry);
 								}
 							}
 						})
 					).then(function displayOfflineContent() {
 						if (offlineContentFound) {
-							document.getElementById('ops').style.display = 'none';
+							dank_farrik.style.display = 'none';
 						}
 					});
 				});
@@ -57,10 +58,10 @@
 </script>
 
 <div id="offline">
-	<h2 id="offline-title" />
+	<h2 bind:this={offline_title} id="offline-title" />
 	<p>İnternettin yokken okumak için kaydettiğin makaleleri aşağıda bulabilirsin.</p>
-	<ul id="offline-content">
-		<li id="ops">Ops, sanırım hiç bir makale kaydetmemişsin..</li>
+	<ul bind:this={offline_content} id="offline-content">
+		<li bind:this={dank_farrik} id="ops">Ops, sanırım hiç bir makale kaydetmemişsin..</li>
 	</ul>
 </div>
 

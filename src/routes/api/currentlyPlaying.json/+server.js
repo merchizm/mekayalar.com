@@ -3,7 +3,7 @@ import { SPOTIFY_API_RES } from '$lib/siteConfig.js';
 /**
  * @type {import('@sveltejs/kit').RequestHandler}
  */
-export async function GET() {
+export async function GET({ fetch }) {
 	const res = await fetch(SPOTIFY_API_RES);
 
 	if (res.status > 400) {
