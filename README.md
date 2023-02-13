@@ -13,7 +13,7 @@ In this repository, you can find the code that runs on [mekayalar.com](mekayalar
 - [x] ~~Review and improve styles on Note page~~
 - [x] ~~Finish Bionic Reader module~~
 
-## Planlanan Geliştirmeler
+## Planned Developments
 
 - Dynamic CV, CV that changes based on the software languages you write
 - Availability check via calendar
