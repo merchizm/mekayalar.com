@@ -7,12 +7,11 @@ export const csr = true; // https://github.com/sveltejs/kit/pull/6446
 export async function load({ params, fetch, setHeaders }) {
 	const slug = params.slug;
 	let res = await fetch(`/api/blog/${slug}.json`);
-	if (res.status !== 200) {
-		console.error(res.text(), res.status);
-		throw error(404, res.text());
+	if (res.status > 400) {
+		throw error(res.status, await res.json().message);
 	}
 	setHeaders({
-		'cache-control': 'public, max-age=120'
+		'cache-control': 'public, max-age=3600'
 	});
 	return {
 		json: await res.json(),

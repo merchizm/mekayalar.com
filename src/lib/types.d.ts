@@ -29,7 +29,9 @@ export type GHMetadata = {
 	title: string;
 	created_at: Date;
 	updated_at: Date;
-	reactions: GHReactions;
+	reactions: {
+		[key: string]: string;
+	};
 };
 
 export type Music = {
