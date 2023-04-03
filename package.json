@@ -61,6 +61,7 @@
 		"@giscus/svelte": "^2.0.5",
 		"date-fns": "^2.29.3",
 		"lodash-es": "^4.17.21",
+		"prism-svelte": "^0.5.0",
 		"prism-themes": "^1.9.0",
 		"remark": "^14.0.2",
 		"remark-stringify": "^10.0.2"

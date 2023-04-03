@@ -6,7 +6,7 @@ export async function getBookmarks(page) {
 	let perPage = 50;
 	let created = '2021-01-01';
 	let end_point = [
-		`https://api.raindrop.io/rest/v1/raindrops/${collection_id}`,
+		`https://api.raindrop.io/rest/v1/collection/${collection_id}`,
 		`?perpage=${perPage}`,
 		`&page=${page}`,
 		`&search=created:>${created}`,

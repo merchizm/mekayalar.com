@@ -22,6 +22,7 @@ specifiers:
   parse-link-header: ^2.0.0
   prettier: ^2.6.2
   prettier-plugin-svelte: ^2.7.0
+  prism-svelte: ^0.5.0
   prism-themes: ^1.9.0
   prismjs: ^1.29.0
   rehype-autolink-headings: ^6.1.1
@@ -54,6 +55,7 @@ dependencies:
   '@giscus/svelte': 2.2.8_svelte@3.57.0
   date-fns: 2.29.3
   lodash-es: 4.17.21
+  prism-svelte: 0.5.0
   prism-themes: 1.9.0
   remark: 14.0.2
   remark-stringify: 10.0.2
@@ -2567,6 +2569,10 @@ packages:
   /prism-svelte/0.4.7:
     resolution: {integrity: sha512-yABh19CYbM24V7aS7TuPYRNMqthxwbvx6FF/Rw920YbyBWO3tnyPIqRMgHuSVsLmuHkkBS1Akyof463FVdkeDQ==}
     dev: true
+
+  /prism-svelte/0.5.0:
+    resolution: {integrity: sha512-db91Bf3pRGKDPz1lAqLFSJXeW13mulUJxhycysFpfXV5MIK7RgWWK2E5aPAa71s8TCzQUXxF5JOV42/iOs6QkA==}
+    dev: false
 
   /prism-themes/1.9.0:
     resolution: {integrity: sha512-tX2AYsehKDw1EORwBps+WhBFKc2kxfoFpQAjxBndbZKr4fRmMkv47XN0BghC/K1qwodB1otbe4oF23vUTFDokw==}
