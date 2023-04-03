@@ -6,7 +6,7 @@ export async function getBookmarks(page) {
 	let perPage = 50;
 	let created = '2021-01-01';
 	let end_point = [
-		`https://api.raindrop.io/rest/v1/collection/${collection_id}`,
+		`https://api.raindrop.io/rest/v1/raindrops/${collection_id}`,
 		`?perpage=${perPage}`,
 		`&page=${page}`,
 		`&search=created:>${created}`,
@@ -21,8 +21,7 @@ export async function getBookmarks(page) {
 	});
 
 	const data = await res.json();
-
-	if ((await data.count) === perPage) {
+	if ((data.count) === perPage) {
 		return data.items.concat(await getBookmarks(page + 1));
 	} else {
 		return data.items;
@@ -49,7 +48,7 @@ export async function getBookmarksGroupByWeek() {
 }
 
 export async function getBookmarksGroupByDay() {
-	return _.groupBy(shorten_data(await getBookmarks(0)), (bookmark) => {
+	return _.groupBy(await getBookmarks(0), (bookmark) => {
 		return bookmark.created.split('T')[0];
 	});
 }
