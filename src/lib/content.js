@@ -44,6 +44,10 @@ function readingTime(text) {
 	return minutes > 1 ? `${minutes} minutes` : `${minutes} minute`;
 }
 
+/**
+ * @param {Function} providedFetch from sveltekit
+ * @returns {Promise<import('./types').ContentItem[]>}
+ */
 export async function listContent(providedFetch) {
 	// use a diff var so as to not have race conditions while fetching
 	// TODO: make sure to handle this better when doing etags or cache restore
@@ -52,15 +56,15 @@ export async function listContent(providedFetch) {
 	let _allBlogposts = [];
 	let next = null;
 	let limit = 0; // just a failsafe against infinite loop - feel free to remove
-	const authHeader = process.env.GH_TOKEN && {
-		Authorization: `token ${import.meta.env.VITE_GH_TOKEN}`
+	const authheader = process.env.GH_TOKEN && {
+		Authorization: `token ${process.env.GH_TOKEN}`
 	};
 	let url =
 		`https://api.github.com/repos/${GH_USER_REPO}/issues?` +
 		new URLSearchParams({
 			state: 'all',
 			labels: GH_PUBLISHED_TAGS.toString(),
-			per_page: '100'
+			per_page: '100',
 		});
 	// pull issues created by owner only if allowed author = repo owner
 	if (APPROVED_POSTERS_GH_USERNAME.length === 1 && APPROVED_POSTERS_GH_USERNAME[0] === REPO_OWNER) {
@@ -68,7 +72,7 @@ export async function listContent(providedFetch) {
 	}
 	do {
 		const res = await providedFetch(next?.url ?? url, {
-			headers: authHeader
+			headers: authheader
 		});
 
 		const issues = await res.json();
@@ -93,7 +97,6 @@ export async function listContent(providedFetch) {
 	allBlogposts = _allBlogposts;
 	return _allBlogposts;
 }
-
 export async function getContent(providedFetch, slug) {
 	// get all blogposts if not already done - or in development
 	if (dev || allBlogposts.length === 0) {
@@ -204,7 +207,11 @@ function parseIssue(issue) {
 	}
 	let description = data.description ?? content.trim().split('\n')[0];
 	// extract plain text from markdown
-	description = remark().use(remarkParse).use(remarkStringify).processSync(description).toString();
+	description = remark()
+		.use(remarkParse)
+		.use(remarkStringify)
+		.processSync(description)
+		.toString();
 	description = description.replace(/\n/g, ' ');
 	// strip html
 	description = description.replace(/<[^>]*>?/gm, '');
@@ -216,9 +223,7 @@ function parseIssue(issue) {
 
 	/** @type {string[]} */
 	let tags = [];
-	if (data.tags) tags = Array.isArray(data.tags) ? data.tags : [data.tags];
-	tags = tags.map((tag) => tag.toLowerCase());
-	// console.log(slug, tags);
+	if (data.tags) tags = Array.isArray(data.tags) ? data.tags : data.tags.split(',').map(x => x.trim());
 
 	return {
 		type: 'blog', // futureproof in case you want to add other types of content
@@ -227,7 +232,7 @@ function parseIssue(issue) {
 		title,
 		subtitle: data.subtitle,
 		description,
-		category: data.category?.toLowerCase() || 'blog',
+		category: data.category?.toLowerCase() || 'note', // all posts assumed to be "note"s unless otherwise specified
 		tags,
 		image: data.image ?? data.cover_image,
 		canonical: data.canonical, // for canonical URLs of something published elsewhere

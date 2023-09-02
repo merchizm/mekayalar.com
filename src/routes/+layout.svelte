@@ -1,5 +1,5 @@
 <script>
-	import { SITE_URL, SITE_TITLE, SITE_KEYWORDS, SOCIAL_CONNECTIONS } from '$lib/siteConfig';
+	import { SITE_URL, SITE_TITLE, SOCIAL_CONNECTIONS } from '$lib/siteConfig';
 
 	import Navigation from '../component/Navigation.svelte';
 	import Container from '../component/Container.svelte';
@@ -8,7 +8,6 @@
 
 <svelte:head>
 	<title>{SITE_TITLE}</title>
-	<meta name="keywords" content={SITE_KEYWORDS} />
 	<meta property="og:site_name" content={SITE_TITLE} />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content={SITE_URL} />
@@ -42,9 +41,9 @@
 		font-style: normal;
 		font-weight: 400;
 		src: local(''),
-			url('https://mekayalar.com/fonts/catamaran-v17-latin-ext-regular.woff2') format('woff2'),
+			url('https://yoda.vasakdigital.com/fonts/catamaran-v17-latin-ext-regular.woff2') format('woff2'),
 			/* Chrome 26+, Opera 23+, Firefox 39+ */
-				url('https://mekayalar.com/fonts/catamaran-v17-latin-ext-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+				url('https://yoda.vasakdigital.com/fonts/catamaran-v17-latin-ext-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 	}
 
 	:global(

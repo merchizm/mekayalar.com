@@ -5,9 +5,8 @@ export const REPO_URL = 'https://github.com/' + GH_USER_REPO;
 export const REPO_OWNER = GH_USER_REPO.split('/')[0];
 export const GH_PUBLISHED_TAGS = ['Published'];
 export const SITE_TITLE = 'Meriç Enes Kayalar';
-export const YOUR_TITLE = 'full-stack dev';
-export const SPOTIFY_API_RES = 'https://mekayalar.xyz/api/spotify/json';
-export const SITE_KEYWORDS = `MEK Blog, Meriç Enes Kayalar, Enes Kayalar, M. Enes Kayalar, MEK Portfolio, Merchizm`;
+export const YOUR_TITLE = 'pixel(art) - yazılım - travel';
+export const SPOTIFY_API_RES = 'https://vasak.dev/api/spotify/json';
 
 export const GISCUS = {
 	repo: 'merchizm/mekayalar.com',

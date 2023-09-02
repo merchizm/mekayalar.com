@@ -8,7 +8,7 @@
 
 	let message = offline ? 'İnternete bağlı değilsin!' : $page.error?.message;
 
-	let title = offline ? 'Offline' : `Dank Farrik ${$page.status} !`;
+	let title = offline ? 'Offline' : `Dank Farrik !`;
 	if ($page.status === 404) {
 		title = 'Sayfa Bulunamadı';
 		message =

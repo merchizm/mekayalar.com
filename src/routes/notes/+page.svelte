@@ -198,7 +198,29 @@
 		}
 	}
 
-	@media (max-width: 900px) {
+
+	@media (max-width: 2200px) and (min-width:1780px) {
+		.search_input {
+			svg {
+				right: 7vw;
+			}
+		}
+	}
+	@media (max-width: 1780px) and (min-width:1300px) {
+		.search_input {
+			svg {
+				right: 6vw;
+			}
+		}
+	}
+	@media (max-width: 1300px) and (min-width:900px) {
+		.search_input {
+			svg {
+				right: 5vw;
+			}
+		}
+	}
+	@media (max-width: 900px) and (min-width:600px) {
 		.search_input {
 			input[type='text'] {
 				width: 89%;
