@@ -18,6 +18,9 @@
 	<meta property="twitter:image" content="/og_thumb.png" />
 	<meta name="twitter:creator" content={'@' + SOCIAL_CONNECTIONS.twitter} />
 	<meta name="twitter:card" content="summary" />
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Catamaran&display=swap" rel="stylesheet">
 	<link
 		rel="alternate"
 		type="application/rss+xml"
@@ -36,16 +39,6 @@
 <ScreenSaver />
 
 <style>
-	@font-face {
-		font-family: 'Catamaran';
-		font-style: normal;
-		font-weight: 400;
-		src: local(''),
-			url('https://mekayalar.com/fonts/catamaran-v17-latin-ext-regular.woff2') format('woff2'),
-			/* Chrome 26+, Opera 23+, Firefox 39+ */
-				url('https://mekayalar.com/fonts/catamaran-v17-latin-ext-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-	}
-
 	:global(
 			html,
 			body,
