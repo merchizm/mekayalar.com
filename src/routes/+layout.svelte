@@ -41,9 +41,9 @@
 		font-style: normal;
 		font-weight: 400;
 		src: local(''),
-			url('https://yoda.vasakdigital.com/fonts/catamaran-v17-latin-ext-regular.woff2') format('woff2'),
+			url('https://mekayalar.com/fonts/catamaran-v17-latin-ext-regular.woff2') format('woff2'),
 			/* Chrome 26+, Opera 23+, Firefox 39+ */
-				url('https://yoda.vasakdigital.com/fonts/catamaran-v17-latin-ext-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+				url('https://mekayalar.com/fonts/catamaran-v17-latin-ext-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 	}
 
 	:global(
