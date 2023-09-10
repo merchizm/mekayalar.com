@@ -18,6 +18,8 @@
 	<meta property="twitter:image" content="/og_thumb.png" />
 	<meta name="twitter:creator" content={'@' + SOCIAL_CONNECTIONS.twitter} />
 	<meta name="twitter:card" content="summary" />
+	<link rel="preconnect" href="https://fonts.bunny.net">
+	<link href="https://fonts.bunny.net/css?family=catamaran:400" rel="stylesheet" />
 	<link
 		rel="alternate"
 		type="application/rss+xml"
@@ -36,16 +38,6 @@
 <ScreenSaver />
 
 <style>
-	@font-face {
-		font-family: 'Catamaran';
-		font-style: normal;
-		font-weight: 400;
-		src: local(''),
-			url('https://yoda.vasakdigital.com/fonts/catamaran-v17-latin-ext-regular.woff2') format('woff2'),
-			/* Chrome 26+, Opera 23+, Firefox 39+ */
-				url('https://yoda.vasakdigital.com/fonts/catamaran-v17-latin-ext-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-	}
-
 	:global(
 			html,
 			body,
@@ -180,7 +172,7 @@
 		--menu-hover-text: #3b3939;
 
 		-webkit-font-smoothing: antialiased;
-		font-family: Catamaran, sans-serif;
+		font-family: 'Catamaran', sans-serif;
 		background-color: var(--background-color);
 		color: var(--color);
 	}
