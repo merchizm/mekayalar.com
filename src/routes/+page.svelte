@@ -4,7 +4,13 @@
 
 	let projects = [
 		{
-			label: '2021-Hala',
+			label: '2023',
+			title: 'Vasak.Book',
+			location: 'Laravel9-PHP82-SCSS-Jquery',
+			desc: 'Bu yazılım, seyahat acentaları için özel olarak tasarlanmış bir uygulama olup, içerisinde çeşitli özellikleri barındırmaktadır. Bu özellikler arasında indirim yönetimi, tesis yönetimi, blog modülü, başvuru yönetimi, partnerlik sistemi, dinamik konteyner kullanımı, şık bir kullanıcı arayüzü ve daha birçok fonksiyon bulunmaktadır. Proje, tamamen bireysel geliştirdiğim bir çalışma olup seyahat acentalarının ihtiyaçlarına yönelik kapsamlı çözümler sunmaktadır.'
+		},
+		{
+			label: '2021-',
 			title: 'Todoiva',
 			location: 'Vue.js-Electron.js-SCSS-Node.js',
 			desc: 'Todoiva yarışma amacı gütmeyen, kendi çizgisinde usulce ilerleyen basit ama şık bir to-do uygulamasıdır. İlk olarak plain javascriptle yazılmıştır fakat layout hatalarının önüne geçilememesi sebebiyle Vue.js kullanılmaya başlanacaktır.'
@@ -90,9 +96,9 @@
 	];
 	let work = [
 		{
-			label: '2020-2022',
+			label: '2020-2023',
 			title: 'Freelance Web Developer',
-			location: 'Bionluk - Fiverr / Remote',
+			location: 'Bionluk - Fiverr - Local',
 			desc: 'Bu iş serüvenimde tamamen yazılım odaklı çalıştım. PHP üzerinde Kendi View-Controller-Model Yapısını kurma şansım oldu. ReflectionClass ile Controller yapısını gerçekleştirdim. View için ise Twig ve OOP’den yararlandım, Sınıfları genellikle composer ile otomatik olarak yükledim. Bazı zamanlar PHP üzerine eklemeler yapmam gerekti, IMAP, REDIS gibi eklentileri kurdum. Zaten pekte uzak olmadığım SOLID, KISS prensiplerini kullandım. Kodların okunabilirliği ve geriye dönük düzenlemeler için PHPDoc’tan vazgeçmedim. Çoğu zaman işin kısalığından dolayı manuel olarak kod kontrolü gerçekleştirsemde PHPUnit Test kütüphanesini genel olarak öğrendim ve bir kaç işimde ve projelerde kullandım.'
 		},
 		{
@@ -123,9 +129,9 @@
 <section>
 	<h1>Merhaba, Ben Meriç 🖖🏻</h1>
 	<p>
-		Sakarya'da yaşıyorum. Alaylı bir geliştiriciyim. Bahçeyle ilgilenmeyi, kahve içmeyi ve felsefi
-		kitaplar okumayı seviyorum. Bir şeyler üretmekten aşırı haz duyuyorum, bu yüzden yazılım
-		geliştirme ile ilgileniyorum.
+		Sakarya'da yaşıyorum. Alaylı bir full-stack geliştiriciyim. Bahçeyle ilgilenmeyi, kahve içmeyi ve felsefi
+		kitaplar okumayı seviyorum. Bir şeyler üretmekten haz duyuyorum, bu yüzden yazılım
+		geliştirmekle ilgileniyorum.
 	</p>
 </section>
 <SocialSection />
