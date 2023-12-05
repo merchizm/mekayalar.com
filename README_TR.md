@@ -1,4 +1,3 @@
-# bu proje artık geliştirilmemektedir.
 # mekayalar.com | [for ENGLISH](README.md)
 
 Bu repoda [mekayalar.com](mekayalar.com) üzerinde çalışan kodları bulabilirsiniz. Bu yazılım [Vercel](https://vercel.com) üzerinde barındırılmaktadır.
