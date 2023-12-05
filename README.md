@@ -1,4 +1,3 @@
-# no longer maintained
 # mekayalar.com | [for TURKISH](README_TR.md)
 
 In this repository, you can find the code that runs on [mekayalar.com](mekayalar.com). This software is hosted on [Vercel](https://vercel.com).
