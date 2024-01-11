@@ -35,7 +35,7 @@
 		main {
 			margin-top: 5px;
 			margin-left: 3px;
-			width: 100vw;
+			width: 95vw;
 		}
 	}
 </style>

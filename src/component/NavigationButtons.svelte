@@ -426,8 +426,6 @@
 			position: fixed;
 			top: 0;
 			left: 0;
-			width: 100%;
-			height: 100%;
 			visibility: hidden;
 			overflow: hidden;
 			display: flex;
@@ -438,8 +436,8 @@
 			> div {
 				background: var(--overlay-color);
 				border-radius: 50%;
-				width: 200vw;
-				height: 200vw;
+				width: 100vw;
+				height: 100vh;
 				display: flex;
 				flex: none;
 				align-items: center;
