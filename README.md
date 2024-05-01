@@ -55,6 +55,11 @@ npm run build
 npm run preview
 ```
 
+## Screenshots
+![Screenshot](./imgs/1.png)
+![Screenshot](./imgs/2.png)
+![Screenshot](./imgs/3.png)
+
 ## Thanks
 
 Special thanks to [Zeynep](https://github.com/zynpnaz) for helping me develop this project.
